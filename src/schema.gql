@@ -22,6 +22,16 @@ type SuggestiveModel {
   suggestives: [SuggestiveModel!]
 }
 
+type TrailSuggestionModel {
+  id: ID!
+  suggestionId: String!
+  slug: String!
+  title: String!
+  description: String
+  avatar: String
+  suggestion: SuggestionModel
+}
+
 type SuggestionModel {
   id: ID!
   suggestiveId: String!
@@ -29,6 +39,7 @@ type SuggestionModel {
   title: String!
   description: String
   suggestive: SuggestiveModel
+  trailSuggestion: TrailSuggestionModel
 }
 
 type Query {
@@ -55,6 +66,7 @@ input ListUniqueSuggestionFromSuggestiveInput {
 type Mutation {
   createSuggestion(data: CreateSuggestionInput!): SuggestionModel!
   deleteSuggestion(data: DeleteSuggestionInput!): SuggestionModel!
+  createTrailSuggestion(data: CreateTrailSuggestionInput!): TrailSuggestionModel!
 }
 
 input CreateSuggestionInput {
@@ -67,4 +79,11 @@ input CreateSuggestionInput {
 input DeleteSuggestionInput {
   suggestiveId: String!
   suggestionSlug: String
+}
+
+input CreateTrailSuggestionInput {
+  suggestionId: String!
+  slug: String
+  title: String!
+  description: String
 }
