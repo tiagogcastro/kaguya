@@ -9,7 +9,7 @@ import { AccessTokenController } from '@shared/messaging/controllers/verify-toke
 import { ConfigModule } from '@nestjs/config';
 import { CreateSuggestionService } from '@modules/suggestion/services/create-suggestion.service';
 import { CreateSuggestiveService } from '@modules/suggestive/services/create-suggestive.service';
-import { CreateTrailSuggestionService } from '@modules/trailSuggestion/services/create-suggestion.service';
+import { CreateTrailSuggestionService } from '@modules/trailSuggestion/services/create-trail-suggestion.service';
 import { DatabaseModule } from '@shared/database/database.module';
 import { DeleteSuggestionService } from '@modules/suggestion/services/delete-suggestion.service';
 import { GraphQLModule } from '@nestjs/graphql';
