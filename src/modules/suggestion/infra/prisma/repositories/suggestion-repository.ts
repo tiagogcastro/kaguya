@@ -15,6 +15,7 @@ export class SuggestionRepository {
       data,
       include: {
         suggestive: true,
+        trailSuggestion: true,
       }
     });
   }
@@ -33,7 +34,8 @@ export class SuggestionRepository {
         suggestiveId
       },
       include: {
-        suggestive: true
+        suggestive: true,
+        trailSuggestion: true,
       }
     });
   }
@@ -45,7 +47,8 @@ export class SuggestionRepository {
         slug: suggestionSlug
       },
       include: {
-        suggestive: true
+        suggestive: true,
+        trailSuggestion: true,
       }
     });
   }
@@ -57,6 +60,7 @@ export class SuggestionRepository {
       },
       include: {
         suggestive: true,
+        trailSuggestion: true,
       }
     });
   }
@@ -68,24 +72,7 @@ export class SuggestionRepository {
       },
       include: {
         suggestive: true,
-      }
-    });
-  }
-
-  async findSuggestionByIdOrSlug({id, slug}: {id: string, slug: string}) {
-    return this.prisma.suggestion.findFirst({
-      where: {
-        OR: [
-          {
-            id
-          },
-          {
-            slug
-          }
-        ]
-      },
-      include: {
-        suggestive: true
+        trailSuggestion: true,
       }
     });
   }
@@ -93,7 +80,8 @@ export class SuggestionRepository {
   async findManySuggestions() {
     return this.prisma.suggestion.findMany({
       include: {
-        suggestive: true
+        suggestive: true,
+        trailSuggestion: true,
       }
     });
   }
