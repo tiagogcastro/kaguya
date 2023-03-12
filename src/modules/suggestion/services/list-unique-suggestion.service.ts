@@ -1,10 +1,8 @@
-import { ForbiddenException, Injectable } from '@nestjs/common';
-import { InferType, date, number, object, string } from 'yup';
+import { BadRequestException, ForbiddenException, Injectable } from '@nestjs/common';
 
 import { SuggestionRepository } from '../infra/prisma/repositories/suggestion-repository';
 
 interface ListSuggestionsFromSuggestive {
-  suggestionId?: string;
   suggestionSlug?: string;
 }
 
@@ -12,18 +10,21 @@ interface ListSuggestionsFromSuggestive {
 export class ListUniqueSuggestionService {
   constructor(private suggestionRepository: SuggestionRepository) {}
 
-  async execute({ suggestionId, suggestionSlug }: ListSuggestionsFromSuggestive) {
-    if(!suggestionId && !suggestionSlug) {
+  async execute({ suggestionSlug }: ListSuggestionsFromSuggestive) {
+    if(!suggestionSlug) {
       throw new ForbiddenException({
-        message: 'suggestionId or suggestionSlug is required',
+        message: 'suggestionSlug is required',
       });
     }
       
-    const foundSuggestions = await this.suggestionRepository.findSuggestionByIdOrSlug({
-      id: suggestionId,
-      slug: suggestionSlug,
-    });
+    const foundSuggestion = await this.suggestionRepository.findSuggestionBySlug(suggestionSlug);
 
-    return foundSuggestions;  
+    if(!foundSuggestion) {
+      throw new BadRequestException({
+        message: 'This suggestion does not exist',
+      });
+    }
+
+    return foundSuggestion;  
   }
 }
