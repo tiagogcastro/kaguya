@@ -69,9 +69,7 @@ class CreateUserService {
     let hashedPassword: string | undefined;
 
     if (password) {
-      await this.hashProvider.generateHash(password);
-
-      hashedPassword = password;
+      hashedPassword = await this.hashProvider.generateHash(password);
     }
 
     if (creator_id) {

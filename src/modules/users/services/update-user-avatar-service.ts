@@ -27,7 +27,10 @@ export class UpdateUserAvatarService {
       await this.storageProvider.deleteFile(user.avatar);
     }
 
-    user.avatar = avatar || null;
+    if (avatar) {
+      user.avatar = avatar;
+      user.avatar_url = null;
+    }
 
     await this.usersRepository.save(user);
 
