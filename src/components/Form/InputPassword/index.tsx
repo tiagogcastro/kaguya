@@ -54,6 +54,7 @@ const InputPasswordBase: React.ForwardRefRenderFunction<
             name={name}
             ref={ref}
             type={inputType}
+            autoComplete="current-password"
             size="lg"
             display="block"
             py={["sm", "md", "1"]}
