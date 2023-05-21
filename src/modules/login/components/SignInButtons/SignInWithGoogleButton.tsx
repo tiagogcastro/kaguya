@@ -19,7 +19,7 @@ export function SignInWithGoogleButton() {
     } catch (error){
       console.log({error})
       toast({
-        title: "Erro no login",
+        title: "Falha no processo de autenticação",
         description: 'Tente novamente mais tarde!',
         status: "error",
         duration: 6000,

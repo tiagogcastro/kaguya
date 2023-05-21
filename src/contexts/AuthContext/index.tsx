@@ -92,8 +92,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
       kaguyaApi.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
       toast({
-        title: "Login feito",
-        description: "Bem vindo de volta.",
+        title: "Autenticado com sucesso!",
+        description: "Bem-vindo!",
         status: "success",
         duration: 5000,
         isClosable: true,
