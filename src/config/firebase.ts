@@ -9,13 +9,13 @@ import {
 type ProviderName = 'google' | 'github'
 
 const firebaseConfig: FirebaseOptions = {
-    apiKey: "REDACTED_FIREBASE_WEB_API_KEY",
-    authDomain: "kaguya-d4e5a.firebaseapp.com",
-    projectId: "kaguya-d4e5a",
-    storageBucket: "kaguya-d4e5a.appspot.com",
-    messagingSenderId: "916464874763",
-    appId: "1:916464874763:web:fabd8808f62acc0fe71e0e",
-    measurementId: "G-CVF25EGKVF"
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: `${process.env.FIREBASE_PROJECT_ID}.firebaseapp.com`,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: `${process.env.FIREBASE_PROJECT_ID}.appspot.com`,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.FIREBASE_APP_ID,
+    measurementId: process.env.FIREBASE_MEASUREMENT_ID
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
