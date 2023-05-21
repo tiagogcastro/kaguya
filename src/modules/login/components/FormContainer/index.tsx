@@ -90,6 +90,7 @@ export function FormContainer() {
           <Input
             placeholder="Digite seu e-mail"
             labelText='E-mail'
+            autoComplete='email'
             icon={<MdEmail color={`${gray300}`} />}
             error={signInErrors.email}
             {...register('email')}
