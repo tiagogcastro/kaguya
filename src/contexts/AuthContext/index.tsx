@@ -13,6 +13,7 @@ import { apiError } from "utils/apiFormatError";
 import { kaguyaApi } from "services/kaguya/apiClient";
 import { tokenCookieKey } from "@/services/kaguya/api";
 import { useToast } from "@chakra-ui/react";
+import { AxiosResponse } from "axios";
 
 type AuthContextData = {
   signIn(credentials: SignInCredentials): Promise<void>;
@@ -60,14 +61,26 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   }, []);
 
-  async function signIn({ email, password }: SignInCredentials) {
+  async function signIn({ email, password, access_token }: SignInCredentials) {
     try {
-      const response = await kaguyaApi.post<SignInResponse>("/sessions", {
-        email,
-        password,
-      });
+      let responseData: SignInResponse
+      
+      if(access_token) {
+        const { data: { data }} = await kaguyaApi.post("/sessions/auth-provider", {
+          access_token
+        });
 
-      const { token, user } = response.data;
+        responseData = data as SignInResponse
+      } else {
+        const { data } = await kaguyaApi.post<SignInResponse>("/sessions", {
+          email,
+          password,
+        });
+        
+        responseData = data
+      }
+
+      const { token, user } = responseData;
 
       setCookie(undefined, tokenCookieKey, token, {
         maxAge: 60 * 60 * 24 * 30, // 30 days

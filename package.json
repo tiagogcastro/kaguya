@@ -16,6 +16,7 @@
     "@hookform/resolvers": "^2.9.7",
     "autoprefixer": "^10.4.7",
     "axios": "^0.27.2",
+    "firebase": "^9.22.0",
     "framer-motion": "6",
     "next": "^12.2.5",
     "nookies": "^2.5.2",

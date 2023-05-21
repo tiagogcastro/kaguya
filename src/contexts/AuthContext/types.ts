@@ -20,8 +20,9 @@ export interface User {
 }
 
 export type SignInCredentials = {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
+  access_token?: string
 }
 
 export interface SignInResponse {
