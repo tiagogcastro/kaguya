@@ -70,7 +70,9 @@ export class AuthenticateUserByProviderUseCase {
         .replace(/[^a-zà-ÿç\s]+/g, '')
         .replace(/[\s]+/g, '.') || 'user';
 
-    const username = await this.usersRepository.findByUsername(parsedUsername);
+    const checkUsername = await this.usersRepository.findByUsername(
+      parsedUsername,
+    );
 
     const userData = {
       email: user.email,
@@ -80,7 +82,7 @@ export class AuthenticateUserByProviderUseCase {
       email_verified: user.email_verified,
       phone_number: user.phone_number,
       username: `${parsedUsername}${
-        username ? `.${crypto.randomUUID().slice(0, 6)}` : ''
+        checkUsername ? `.${crypto.randomUUID().slice(0, 6)}` : ''
       }`,
     };
     if (!authUser) {
@@ -94,9 +96,37 @@ export class AuthenticateUserByProviderUseCase {
       });
     }
 
-    const { username: _, ...userDataRest } = userData;
+    const { username, email, phone_number, name, avatar_url, ...userDataRest } =
+      userData;
 
-    Object.assign(authUser, userDataRest);
+    Object.assign(authUser, {
+      ...(!authUser.avatar
+        ? {
+            avatar_url,
+          }
+        : {}),
+      ...(!authUser.email
+        ? {
+            email,
+          }
+        : {}),
+      ...(!authUser.username
+        ? {
+            username,
+          }
+        : {}),
+      ...(!authUser.name
+        ? {
+            name,
+          }
+        : {}),
+      ...(!authUser.phone_number
+        ? {
+            phone_number,
+          }
+        : {}),
+      ...userDataRest,
+    });
 
     await this.usersRepository.save(authUser);
 
