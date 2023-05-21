@@ -26,6 +26,10 @@ interface IUsersRepository {
     email: string,
     relationships?: IRelationshipsDTO,
   ): AsyncMaybe<IUser>;
+  findByPhoneNumber(
+    phone_number: string,
+    relationships?: IRelationshipsDTO,
+  ): AsyncMaybe<IUser>;
   findAllUsersAssociatedWithThePlaylist(
     filters: FindAllUsersAssociatedWithThePlaylistDTO,
   ): Promise<IUser[]>;

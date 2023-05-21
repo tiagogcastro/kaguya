@@ -5,6 +5,7 @@ import { IUsersRepository } from '@modules/users/domain/repositories/users-repos
 import { IAuthProvider } from '@modules/users/providers/auth-provider/models/auth-provider';
 import { ITokenProvider } from '@modules/users/providers/token-provider/models/token-provider';
 import { CreateUserService } from '@modules/users/services/create-user-service';
+import { Maybe } from '@shared/types/app';
 import crypto from 'node:crypto';
 
 type IAuthenticateUserByProviderResponse = EitherT<
@@ -42,9 +43,25 @@ export class AuthenticateUserByProviderUseCase {
       return Either.left(new Error('User does not exist'));
     }
 
-    const authUser = await this.usersRepository.findByUid(user.uid, {
-      user_roles: true,
-    });
+    let authUser: Maybe<IUser> = null;
+
+    if (!user.email && !user.phone_number) {
+      return Either.left(new Error('User does not exist'));
+    }
+
+    if (user.email) {
+      authUser = await this.usersRepository.findByEmail(user.email, {
+        user_roles: true,
+      });
+    }
+    if (user.phone_number) {
+      authUser = await this.usersRepository.findByPhoneNumber(
+        user.phone_number,
+        {
+          user_roles: true,
+        },
+      );
+    }
 
     const parsedUsername =
       user.name
@@ -66,7 +83,6 @@ export class AuthenticateUserByProviderUseCase {
         username ? `.${crypto.randomUUID().slice(0, 6)}` : ''
       }`,
     };
-
     if (!authUser) {
       const { token, user: createdUser } = await this.createUser.execute(
         userData,

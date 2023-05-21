@@ -13,6 +13,31 @@ import { AsyncMaybe } from '@shared/types/app';
 import { CreateUserDTO } from '@modules/users/dtos/create-user-dto';
 
 class PrismaUsersRepository implements IUsersRepository {
+  async findByPhoneNumber(
+    phone_number: string,
+    relationships?: IRelationshipsDTO | undefined,
+  ): AsyncMaybe<IUser> {
+    const user = await prisma.user.findFirst({
+      where: {
+        phone_number,
+        enabled: true,
+      },
+      ...(relationships && relationships.user_roles
+        ? {
+            include: {
+              user_roles: {
+                include: {
+                  role: true,
+                },
+              },
+            },
+          }
+        : {}),
+    });
+
+    return user as IUser;
+  }
+
   async countUsername(username: string): Promise<number> {
     const countUsername = await prisma.user.count({
       where: {
