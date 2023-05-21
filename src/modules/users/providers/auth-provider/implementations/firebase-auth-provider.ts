@@ -10,16 +10,13 @@ class FirebaseAuthProvider implements IAuthProvider {
 
   constructor() {
     const app = admin.initializeApp({
-      projectId: 'kaguya-d4e5a',
-      storageBucket: 'kaguya-d4e5a.appspot.com',
-      serviceAccountId:
-        'firebase-adminsdk-5losg@kaguya-d4e5a.iam.gserviceaccount.com',
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      storageBucket: `${process.env.FIREBASE_PROJECT_ID}.appspot.com`,
+      serviceAccountId: process.env.FIREBASE_SERVICE_ACCOUNT_ID,
       credential: admin.credential.cert({
-        projectId: 'kaguya-d4e5a',
-        privateKey:
-REDACTED_FIREBASE_SERVICE_ACCOUNT_KEY
-        clientEmail:
-          'firebase-adminsdk-5losg@kaguya-d4e5a.iam.gserviceaccount.com',
+        projectId: process.env.FIREBASE_PROJECT_ID,
+        privateKey: process.env.FIREBASE_PRIVATE_KEY,
+        clientEmail: process.env.FIREBASE_SERVICE_ACCOUNT_ID,
       }),
     });
 
