@@ -7,7 +7,7 @@ export type ApiError = {
 export function apiError(error: any): ApiError {
   let err: ApiError;
 
-  if(error.response?.data.message) {
+  if(error.response?.data?.message) {
     const message = error.response.data.message;
 
     err = {

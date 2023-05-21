@@ -84,7 +84,7 @@ export function UserAvatarModal({ modal }: UserAvatarModalProps) {
       if (error instanceof Error) {
         return toast({
           title: "Erro na atualização do avatar",
-          description: error.message,
+          description: error?.message,
           status: "error",
           duration: 6000,
           isClosable: true,
@@ -140,7 +140,7 @@ export function UserAvatarModal({ modal }: UserAvatarModalProps) {
       if (error instanceof Error) {
         return toast({
           title: "Erro na remoção do avatar",
-          description: error.message,
+          description: error?.message,
           status: "error",
           duration: 6000,
           isClosable: true,
