@@ -42,6 +42,8 @@ export default function PlaylistPage() {
           },
         });
 
+     
+
         setTrailData(response.data);
 
         return response.data;
@@ -164,7 +166,6 @@ export default function PlaylistPage() {
                   }}
                 />
               )}
-              {trail.data && <AddRemoveTrailButton trail={trail.data} />}
             </Flex>
           )}
 

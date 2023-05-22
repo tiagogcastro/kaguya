@@ -53,7 +53,7 @@ export function AddRemoveTrailButton({ trail }: AddRemoveTrailButtonProps) {
             const finalData = {
               ...data,
               user_trail: {
-                progress: data?.user_trail?.progress as number,
+                progress: data?.user_trail?.progress || 0,
                 enabled: true,
               },
               _count: {

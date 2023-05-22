@@ -50,6 +50,7 @@ export default function UserProfile() {
           maxW={480}
           w="100%"
           py="4"
+          borderRadius="md"
           bg="blackAlpha.700"
         >
           <Flex

@@ -37,7 +37,7 @@ export function PlaylistsContainer({
 
   return (
     <>
-      <Box maxWidth={900} p={!is2xlVersion ? "4" : "8"} pr="4" pl="0" w="100%">
+      <Box maxWidth={900} p="0" w="100%">
         <Heading
           fontSize={["lg", "2xl"]}
           gap="2"

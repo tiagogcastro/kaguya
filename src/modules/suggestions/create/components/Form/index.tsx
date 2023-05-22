@@ -41,8 +41,6 @@ export function CreateSuggestionForm() {
 
   async function handleCreateTrailSuggestion() {
     try {
-      console.log(formState);
-
       toast({
         title: "Sugestão criada com sucesso",
         description:

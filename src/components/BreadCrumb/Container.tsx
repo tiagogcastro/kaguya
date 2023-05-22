@@ -25,6 +25,7 @@ export function BreadCrumbContainer({
   return (
     <>
       <Breadcrumb
+        mx="4"
         spacing="2"
         separator={separator || <MdOutlineKeyboardArrowRight size={20} />}
       >
@@ -38,6 +39,7 @@ export function BreadCrumbContainer({
         ))}
 
         <BreadCrumbItem
+          isBlocked
           link={currentItem?.link}
           title={currentItem?.title}
           isCurrentPage

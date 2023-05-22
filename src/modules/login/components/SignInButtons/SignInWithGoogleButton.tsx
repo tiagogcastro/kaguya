@@ -17,7 +17,6 @@ export function SignInWithGoogleButton() {
         access_token: await user.getIdToken()
       })
     } catch (error){
-      console.log({error})
       toast({
         title: "Falha no processo de autenticação",
         description: 'Tente novamente mais tarde!',

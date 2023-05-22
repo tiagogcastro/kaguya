@@ -1,4 +1,4 @@
-import { BlockData, LessonData } from "@/services/kaguya/types";
+import { BlockData, LessonData, TrailData } from "@/services/kaguya/types";
 import { Box, Link as ChakraLink, ChakraProps, Flex } from "@chakra-ui/react";
 
 import { ChangeCompleteLessonButton } from "@/components/ChangeCompleteLessonButton";
@@ -6,6 +6,8 @@ import Lordicon from "@/components/ReactLordicon";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { useTrail } from "@/hooks/useTrail";
+import { useEffect } from "react";
+import { kaguyaApi } from "@/services/kaguya/apiClient";
 
 const currentLessonStyle: ChakraProps = {
   fontWeight: "bold",
@@ -45,7 +47,23 @@ export function Lesson({
   const trailSlug = query?.trailSlug;
   const playlistSlug = slugs[0] as string;
 
-  const { trail } = useTrail();
+  const { trail, setTrailData } = useTrail();
+
+  useEffect(() => {
+    kaguyaApi.get<TrailData>("/trails/show", {
+      params: {
+        slug: trailSlug,
+      },
+    }).then((response) => {
+      setTrailData(trail => {
+        if(!trail) {
+          return response.data;
+        }
+
+        return trail
+      })
+    })
+  }, [])
 
   return (
     <Box pb="4" position="relative">
