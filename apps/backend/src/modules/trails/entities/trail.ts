@@ -1,5 +1,5 @@
-import { IPlaylist } from '@modules/playlists/domain/entities/iplaylist';
-import { IUserPlaylist } from '@modules/playlists/domain/entities/iuser-playlist';
+import { IPlaylist } from '@/modules/playlists/domain/entities/iplaylist';
+import { IUserPlaylist } from '@/modules/playlists/domain/entities/iuser-playlist';
 import crypto from 'crypto';
 import { ITrail } from '../domain/entities/itrail';
 import { IUserTrail } from '../domain/entities/iuser-trail';

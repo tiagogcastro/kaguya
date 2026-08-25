@@ -1,14 +1,14 @@
-import { IUserBlock } from '@modules/blocks/domain/entities/iuser-block';
+import { IUserBlock } from '@/modules/blocks/domain/entities/iuser-block';
 import {
   FindPlaylistProgressDTO,
   FindUserBlockDTO,
   IUserBlocksRepository
-} from '@modules/blocks/domain/repositories/user-blocks-repository';
-import { CreateUserBlockDTO } from '@modules/blocks/dtos/create-user-block-dto';
-import { FindAllUserBlocksFromPlaylistDTO } from '@modules/blocks/dtos/find-all-user-blocks-from-playlist-dto';
-import { FindOneDTO } from '@modules/blocks/dtos/find-one-dto';
-import { prisma } from '@shared/infra/prisma/connection';
-import { AsyncMaybe } from '@shared/types/app';
+} from '@/modules/blocks/domain/repositories/user-blocks-repository';
+import { CreateUserBlockDTO } from '@/modules/blocks/dtos/create-user-block-dto';
+import { FindAllUserBlocksFromPlaylistDTO } from '@/modules/blocks/dtos/find-all-user-blocks-from-playlist-dto';
+import { FindOneDTO } from '@/modules/blocks/dtos/find-one-dto';
+import { prisma } from '@/shared/infra/prisma/connection';
+import { AsyncMaybe } from '@/shared/types/app';
 import crypto from 'crypto';
 
 class PrismaUserBlocksRepository implements IUserBlocksRepository {

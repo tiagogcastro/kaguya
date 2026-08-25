@@ -1,9 +1,9 @@
-import { IDislike } from '@modules/likes/domain/entities/idislike';
-import { IDislikesRepository } from '@modules/likes/domain/repositories/dislikes-repository';
-import { CreateDislikeDTO } from '@modules/likes/dtos/create-dislike-dto';
-import { FindOneDislikeFromUserLesson } from '@modules/likes/dtos/find-one-dislike-from-user-lesson';
-import { Dislike } from '@modules/likes/entities/dislike';
-import { AsyncMaybe } from '@shared/types/app';
+import { IDislike } from '@/modules/likes/domain/entities/idislike';
+import { IDislikesRepository } from '@/modules/likes/domain/repositories/dislikes-repository';
+import { CreateDislikeDTO } from '@/modules/likes/dtos/create-dislike-dto';
+import { FindOneDislikeFromUserLesson } from '@/modules/likes/dtos/find-one-dislike-from-user-lesson';
+import { Dislike } from '@/modules/likes/entities/dislike';
+import { AsyncMaybe } from '@/shared/types/app';
 
 class InMemoryDislikesRepository implements IDislikesRepository {
   private dislikes: IDislike[] = [];

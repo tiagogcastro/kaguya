@@ -1,5 +1,5 @@
-import { storageConfig } from '@config/storage';
-import { AppError } from '@shared/errors/app-error';
+import { storageConfig } from '@/config/storage';
+import { AppError } from '@/shared/errors/app-error';
 import { S3 } from '@aws-sdk/client-s3';
 import fs from 'fs';
 import { contentType } from 'mime-types';

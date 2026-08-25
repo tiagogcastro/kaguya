@@ -1,8 +1,8 @@
 /**
  * @jest-environment ./prisma/prisma-environment-jest
  */
-import { IBlock } from '@modules/blocks/domain/entities/iblock';
-import { app } from '@shared/infra/http/app';
+import { IBlock } from '@/modules/blocks/domain/entities/iblock';
+import { app } from '@/shared/infra/http/app';
 import request from 'supertest';
 
 let token: string;

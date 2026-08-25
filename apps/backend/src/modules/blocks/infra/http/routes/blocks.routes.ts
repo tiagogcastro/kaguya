@@ -1,10 +1,10 @@
-import { slugRegEx } from '@config/reg-ex';
-import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensure-authenticated';
+import { slugRegEx } from '@/config/reg-ex';
+import ensureAuthenticated from '@/modules/users/infra/http/middlewares/ensure-authenticated';
 import { Router } from 'express';
 import { z } from 'zod';
 import { ListAllBlocksFromPlaylistController } from '../controllers/list-all-blocks-from-playlist-controller';
 import { ShowBlockController } from '../controllers/show-block-controller';
-import { validate } from '@shared/infra/http/middlewares/validate';
+import { validate } from '@/shared/infra/http/middlewares/validate';
 
 const blocksRouter = Router();
 

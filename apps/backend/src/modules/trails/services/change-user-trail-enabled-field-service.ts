@@ -1,6 +1,6 @@
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { inject, injectable } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { inject, injectable } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
 import { IUserTrail } from '../domain/entities/iuser-trail';
 import { ITrailsRepository } from '../domain/repositories/trails-repository';
 import { IUserTrailsRepository } from '../domain/repositories/user-trails-repository';

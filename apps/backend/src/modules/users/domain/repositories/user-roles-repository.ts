@@ -1,4 +1,4 @@
-import { AsyncMaybe } from '@shared/types/app';
+import { AsyncMaybe } from '@/shared/types/app';
 import { IUserRole } from '../entities/iuser-role';
 
 export interface IUserRolesRepository {

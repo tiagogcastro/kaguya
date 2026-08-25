@@ -1,6 +1,6 @@
-import { AppError } from '@shared/errors/app-error';
-import { inject, injectable } from '@shared/container';
-import { Maybe } from '@shared/types/app';
+import { AppError } from '@/shared/errors/app-error';
+import { inject, injectable } from '@/shared/container';
+import { Maybe } from '@/shared/types/app';
 import { IPlaylist } from '../domain/entities/iplaylist';
 import { IPlaylistsRepository } from '../domain/repositories/playlists-repository';
 import { ShowPlaylistRequestDTO } from '../dtos/show-playlist-request-dto';

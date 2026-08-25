@@ -1,10 +1,10 @@
-import { InMemoryRolesRepository } from '@modules/roles/__tests__/in-memory/in-memory-roles-repository';
-import { IUserRole } from '@modules/users/domain/entities/iuser-role';
-import { InMemoryHashProvider } from '@modules/users/providers/hash-provider/in-memory/in-memory-hash-provider';
-import { InMemoryTokenProvider } from '@modules/users/providers/token-provider/in-memory/in-memory-token-provider';
-import { CreateUserService } from '@modules/users/services/create-user-service';
+import { InMemoryRolesRepository } from '@/modules/roles/__tests__/in-memory/in-memory-roles-repository';
+import { IUserRole } from '@/modules/users/domain/entities/iuser-role';
+import { InMemoryHashProvider } from '@/modules/users/providers/hash-provider/in-memory/in-memory-hash-provider';
+import { InMemoryTokenProvider } from '@/modules/users/providers/token-provider/in-memory/in-memory-token-provider';
+import { CreateUserService } from '@/modules/users/services/create-user-service';
 
-import { AppError } from '@shared/errors/app-error';
+import { AppError } from '@/shared/errors/app-error';
 import { InMemoryUserRolesRepository } from '../in-memory/in-memory-user-roles-repository';
 import { InMemoryUsersRepository } from '../in-memory/in-memory-users-repository';
 

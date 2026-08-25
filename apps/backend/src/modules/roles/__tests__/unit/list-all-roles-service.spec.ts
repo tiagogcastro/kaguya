@@ -1,6 +1,6 @@
-import { IRole } from '@modules/roles/domain/entities/irole';
+import { IRole } from '@/modules/roles/domain/entities/irole';
 
-import { ListAllRolesService } from '@modules/roles/services/list-all-roles-service';
+import { ListAllRolesService } from '@/modules/roles/services/list-all-roles-service';
 import { InMemoryRolesRepository } from '../in-memory/in-memory-roles-repository';
 
 let inMemoryRolesRepository: InMemoryRolesRepository;

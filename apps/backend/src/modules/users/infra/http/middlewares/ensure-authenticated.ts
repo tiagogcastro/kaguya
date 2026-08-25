@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
-import { AppError } from '@shared/errors/app-error';
+import { AppError } from '@/shared/errors/app-error';
 
-import { authConfig } from '@config/auth';
-import { prisma } from '@shared/infra/prisma/connection';
+import { authConfig } from '@/config/auth';
+import { prisma } from '@/shared/infra/prisma/connection';
 import { verify } from 'jsonwebtoken';
 
 interface ITokenPayload {

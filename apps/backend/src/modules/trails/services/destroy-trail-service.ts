@@ -1,6 +1,6 @@
-import { AppError } from '@shared/errors/app-error';
-import { IStorageProvider } from '@shared/providers/storage-provider/models/storage-provider';
-import { inject, injectable } from '@shared/container';
+import { AppError } from '@/shared/errors/app-error';
+import { IStorageProvider } from '@/shared/providers/storage-provider/models/storage-provider';
+import { inject, injectable } from '@/shared/container';
 import { ITrail } from '../domain/entities/itrail';
 import { ITrailsRepository } from '../domain/repositories/trails-repository';
 

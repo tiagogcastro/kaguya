@@ -1,16 +1,16 @@
 import crypto from 'crypto';
-import { IUser } from '@modules/users/domain/entities/iuser';
+import { IUser } from '@/modules/users/domain/entities/iuser';
 import {
   FindAllUsersAssociatedWithTheTrailDTO,
   FindAllUsersAssociatedWithTheBlockDTO,
   IRelationshipsDTO,
   IUsersRepository,
   FindAllUsersAssociatedWithThePlaylistDTO,
-} from '@modules/users/domain/repositories/users-repository';
-import { prisma } from '@shared/infra/prisma/connection';
-import { FiltersDTO } from '@modules/trails/domain/repositories/trails-repository';
-import { AsyncMaybe } from '@shared/types/app';
-import { CreateUserDTO } from '@modules/users/dtos/create-user-dto';
+} from '@/modules/users/domain/repositories/users-repository';
+import { prisma } from '@/shared/infra/prisma/connection';
+import { FiltersDTO } from '@/modules/trails/domain/repositories/trails-repository';
+import { AsyncMaybe } from '@/shared/types/app';
+import { CreateUserDTO } from '@/modules/users/dtos/create-user-dto';
 
 class PrismaUsersRepository implements IUsersRepository {
   async findByPhoneNumber(

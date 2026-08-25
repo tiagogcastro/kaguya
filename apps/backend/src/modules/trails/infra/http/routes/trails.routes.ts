@@ -1,6 +1,6 @@
-import { slugRegEx } from '@config/reg-ex';
-import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensure-authenticated';
-import { validate } from '@shared/infra/http/middlewares/validate';
+import { slugRegEx } from '@/config/reg-ex';
+import ensureAuthenticated from '@/modules/users/infra/http/middlewares/ensure-authenticated';
+import { validate } from '@/shared/infra/http/middlewares/validate';
 import { Router } from 'express';
 import { z } from 'zod';
 import { ListAllTrailsController } from '../controllers/list-all-trails-controller';

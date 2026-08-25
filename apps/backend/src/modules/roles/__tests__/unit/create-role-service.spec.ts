@@ -1,8 +1,8 @@
-import { CreateRoleService } from '@modules/roles/services/create-role-service';
-import { IUser } from '@modules/users/domain/entities/iuser';
-import { InMemoryUserRolesRepository } from '@modules/users/__tests__/in-memory/in-memory-user-roles-repository';
-import { InMemoryUsersRepository } from '@modules/users/__tests__/in-memory/in-memory-users-repository';
-import { AppError } from '@shared/errors/app-error';
+import { CreateRoleService } from '@/modules/roles/services/create-role-service';
+import { IUser } from '@/modules/users/domain/entities/iuser';
+import { InMemoryUserRolesRepository } from '@/modules/users/__tests__/in-memory/in-memory-user-roles-repository';
+import { InMemoryUsersRepository } from '@/modules/users/__tests__/in-memory/in-memory-users-repository';
+import { AppError } from '@/shared/errors/app-error';
 import { InMemoryRolesRepository } from '../in-memory/in-memory-roles-repository';
 
 let inMemoryRolesRepository: InMemoryRolesRepository;

@@ -1,10 +1,10 @@
 import crypto from 'crypto';
-import { IDislike } from '@modules/likes/domain/entities/idislike';
-import { IDislikesRepository } from '@modules/likes/domain/repositories/dislikes-repository';
-import { CreateDislikeDTO } from '@modules/likes/dtos/create-dislike-dto';
-import { FindOneDislikeFromUserLesson } from '@modules/likes/dtos/find-one-dislike-from-user-lesson';
-import { prisma } from '@shared/infra/prisma/connection';
-import { AsyncMaybe } from '@shared/types/app';
+import { IDislike } from '@/modules/likes/domain/entities/idislike';
+import { IDislikesRepository } from '@/modules/likes/domain/repositories/dislikes-repository';
+import { CreateDislikeDTO } from '@/modules/likes/dtos/create-dislike-dto';
+import { FindOneDislikeFromUserLesson } from '@/modules/likes/dtos/find-one-dislike-from-user-lesson';
+import { prisma } from '@/shared/infra/prisma/connection';
+import { AsyncMaybe } from '@/shared/types/app';
 
 class PrismaDislikesRepository implements IDislikesRepository {
   async create({ lesson_id, user_id }: CreateDislikeDTO): Promise<IDislike> {

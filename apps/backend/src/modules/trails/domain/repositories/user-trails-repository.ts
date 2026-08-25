@@ -1,7 +1,7 @@
-import { FindAllUserTrailsDTO } from '@modules/trails/dtos/find-all-user-trails-dto';
-import { CreateUserTrailDTO } from '@modules/trails/dtos/create-user-trail-dto';
-import { FindUserTrailDTO } from '@modules/trails/dtos/find-user-trail-dto';
-import { AsyncMaybe } from '@shared/types/app';
+import { FindAllUserTrailsDTO } from '@/modules/trails/dtos/find-all-user-trails-dto';
+import { CreateUserTrailDTO } from '@/modules/trails/dtos/create-user-trail-dto';
+import { FindUserTrailDTO } from '@/modules/trails/dtos/find-user-trail-dto';
+import { AsyncMaybe } from '@/shared/types/app';
 import { IUserTrail } from '../entities/iuser-trail';
 
 export type UserTrailsRelationshipDTO = {

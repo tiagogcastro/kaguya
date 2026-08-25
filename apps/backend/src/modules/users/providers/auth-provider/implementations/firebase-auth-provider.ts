@@ -1,5 +1,5 @@
-import { Either } from '@core/either';
-import { Maybe } from '@shared/types/app';
+import { Either } from '@/core/either';
+import { Maybe } from '@/shared/types/app';
 import { App, cert, initializeApp } from 'firebase-admin';
 import { GetUserResponse, IAuthProvider } from '../models/auth-provider';
 

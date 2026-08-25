@@ -1,5 +1,5 @@
-import { AppError } from '@shared/errors/app-error';
-import { instanceToInstance } from '@shared/helpers/instance-to-instance';
+import { AppError } from '@/shared/errors/app-error';
+import { instanceToInstance } from '@/shared/helpers/instance-to-instance';
 import { Request, Response } from 'express';
 import { AuthenticateUserByProviderUseCase } from './authenticate-user-by-provider';
 

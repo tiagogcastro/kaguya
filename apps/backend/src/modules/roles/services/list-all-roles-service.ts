@@ -1,5 +1,5 @@
-import { FiltersDTO } from '@modules/trails/domain/repositories/trails-repository';
-import { inject, injectable } from '@shared/container';
+import { FiltersDTO } from '@/modules/trails/domain/repositories/trails-repository';
+import { inject, injectable } from '@/shared/container';
 import { IRole } from '../domain/entities/irole';
 import { IRolesRepository } from '../domain/repositories/roles-repository';
 

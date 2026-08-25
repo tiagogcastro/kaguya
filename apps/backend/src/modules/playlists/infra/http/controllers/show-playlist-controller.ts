@@ -1,5 +1,5 @@
-import { ShowPlaylistService } from '@modules/playlists/services/show-playlist-service';
-import { instanceToInstance } from '@shared/helpers/instance-to-instance';
+import { ShowPlaylistService } from '@/modules/playlists/services/show-playlist-service';
+import { instanceToInstance } from '@/shared/helpers/instance-to-instance';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

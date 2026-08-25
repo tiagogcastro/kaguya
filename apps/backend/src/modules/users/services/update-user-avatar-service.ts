@@ -1,9 +1,9 @@
-import { IUser } from '@modules/users/domain/entities/iuser';
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { AppError } from '@shared/errors/app-error';
-import { IStorageProvider } from '@shared/providers/storage-provider/models/storage-provider';
-import { inject, injectable } from '@shared/container';
-import { UpdateUserAvatarRequestDTO } from '@modules/users/dtos/update-user-avatar-request-dto';
+import { IUser } from '@/modules/users/domain/entities/iuser';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { AppError } from '@/shared/errors/app-error';
+import { IStorageProvider } from '@/shared/providers/storage-provider/models/storage-provider';
+import { inject, injectable } from '@/shared/container';
+import { UpdateUserAvatarRequestDTO } from '@/modules/users/dtos/update-user-avatar-request-dto';
 
 @injectable()
 export class UpdateUserAvatarService {

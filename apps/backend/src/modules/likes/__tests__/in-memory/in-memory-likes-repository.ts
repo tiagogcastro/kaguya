@@ -1,9 +1,9 @@
-import { ILike } from '@modules/likes/domain/entities/ilike';
-import { ILikesRepository } from '@modules/likes/domain/repositories/likes-repository';
-import { CreateLikeDTO } from '@modules/likes/dtos/create-like-dto';
-import { FindOneLikeFromUserLesson } from '@modules/likes/dtos/find-one-like-from-user-lesson';
-import { Like } from '@modules/likes/entities/like';
-import { AsyncMaybe } from '@shared/types/app';
+import { ILike } from '@/modules/likes/domain/entities/ilike';
+import { ILikesRepository } from '@/modules/likes/domain/repositories/likes-repository';
+import { CreateLikeDTO } from '@/modules/likes/dtos/create-like-dto';
+import { FindOneLikeFromUserLesson } from '@/modules/likes/dtos/find-one-like-from-user-lesson';
+import { Like } from '@/modules/likes/entities/like';
+import { AsyncMaybe } from '@/shared/types/app';
 
 class InMemoryLikesRepository implements ILikesRepository {
   private likes: ILike[] = [];

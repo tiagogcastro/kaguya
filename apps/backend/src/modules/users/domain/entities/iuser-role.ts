@@ -1,4 +1,4 @@
-import { IRole } from '@modules/roles/domain/entities/irole';
+import { IRole } from '@/modules/roles/domain/entities/irole';
 import { IUser } from './iuser';
 
 export interface IUserRole {

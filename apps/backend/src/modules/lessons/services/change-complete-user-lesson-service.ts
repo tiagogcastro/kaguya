@@ -1,5 +1,5 @@
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { AppError } from '@shared/errors/app-error';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { AppError } from '@/shared/errors/app-error';
 import { inject, injectable } from 'tsyringe';
 import { IUserLesson } from '../domain/entities/iuser-lesson';
 import { ILessonsRepository } from '../domain/repositories/lessons-repository';

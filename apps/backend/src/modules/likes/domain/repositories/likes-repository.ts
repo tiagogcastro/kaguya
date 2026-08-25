@@ -1,6 +1,6 @@
-import { CreateLikeDTO } from '@modules/likes/dtos/create-like-dto';
-import { FindOneLikeFromUserLesson } from '@modules/likes/dtos/find-one-like-from-user-lesson';
-import { AsyncMaybe } from '@shared/types/app';
+import { CreateLikeDTO } from '@/modules/likes/dtos/create-like-dto';
+import { FindOneLikeFromUserLesson } from '@/modules/likes/dtos/find-one-like-from-user-lesson';
+import { AsyncMaybe } from '@/shared/types/app';
 import { ILike } from '../entities/ilike';
 
 interface ILikesRepository {

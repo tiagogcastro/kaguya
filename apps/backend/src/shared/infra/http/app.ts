@@ -1,9 +1,9 @@
 import 'reflect-metadata';
 import 'express-async-errors';
 import 'dotenv/config';
-import '@shared/container';
-import { storageConfig } from '@config/storage';
-import { AppError } from '@shared/errors/app-error';
+import '@/shared/container';
+import { storageConfig } from '@/config/storage';
+import { AppError } from '@/shared/errors/app-error';
 import cors from 'cors';
 import express, { NextFunction, Request, Response } from 'express';
 import { MulterError } from 'multer';

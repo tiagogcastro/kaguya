@@ -1,4 +1,4 @@
-import { CreateTrailService } from '@modules/trails/services/create-trail-service';
+import { CreateTrailService } from '@/modules/trails/services/create-trail-service';
 import { InMemoryTrailsRepository } from '../in-memory/in-memory-trails-repository';
 
 let inMemoryTrailsRepository: InMemoryTrailsRepository;

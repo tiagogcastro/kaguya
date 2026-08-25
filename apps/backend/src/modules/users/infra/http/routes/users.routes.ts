@@ -1,5 +1,5 @@
-import { storageConfig } from '@config/storage';
-import { validate } from '@shared/infra/http/middlewares/validate';
+import { storageConfig } from '@/config/storage';
+import { validate } from '@/shared/infra/http/middlewares/validate';
 import { UpdateUserAvatarController } from '../controllers/update-user-avatar-controller';
 import { Router } from 'express';
 import multer from 'multer';

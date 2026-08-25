@@ -1,12 +1,12 @@
-import { IBlock } from '@modules/blocks/domain/entities/iblock';
-import { IBlocksRepository } from '@modules/blocks/domain/repositories/blocks-repository';
-import { IPlaylist } from '@modules/playlists/domain/entities/iplaylist';
-import { IPlaylistsRepository } from '@modules/playlists/domain/repositories/playlists-repository';
-import { ITrail } from '@modules/trails/domain/entities/itrail';
-import { ITrailsRepository } from '@modules/trails/domain/repositories/trails-repository';
-import { inject, injectable } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
-import { Maybe } from '@shared/types/app';
+import { IBlock } from '@/modules/blocks/domain/entities/iblock';
+import { IBlocksRepository } from '@/modules/blocks/domain/repositories/blocks-repository';
+import { IPlaylist } from '@/modules/playlists/domain/entities/iplaylist';
+import { IPlaylistsRepository } from '@/modules/playlists/domain/repositories/playlists-repository';
+import { ITrail } from '@/modules/trails/domain/entities/itrail';
+import { ITrailsRepository } from '@/modules/trails/domain/repositories/trails-repository';
+import { inject, injectable } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
+import { Maybe } from '@/shared/types/app';
 import { ILesson } from '../domain/entities/ilesson';
 import { ILessonsRepository } from '../domain/repositories/lessons-repository';
 

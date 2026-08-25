@@ -1,13 +1,13 @@
-import { IUserPlaylist } from '@modules/playlists/domain/entities/iuser-playlist';
+import { IUserPlaylist } from '@/modules/playlists/domain/entities/iuser-playlist';
 import {
   FindUserPlaylistDTO,
   IUserPlaylistsRepository
-} from '@modules/playlists/domain/repositories/user-playlists-repository';
-import { CreateUserPlaylistDTO } from '@modules/playlists/dtos/create-user-playlist-dto';
-import { FindAllUserPlaylistsFromTrailDTO } from '@modules/playlists/dtos/find-all-user-playlists-from-trail-dto';
-import { FindOneDTO } from '@modules/playlists/dtos/find-one-dto';
-import { prisma } from '@shared/infra/prisma/connection';
-import { AsyncMaybe } from '@shared/types/app';
+} from '@/modules/playlists/domain/repositories/user-playlists-repository';
+import { CreateUserPlaylistDTO } from '@/modules/playlists/dtos/create-user-playlist-dto';
+import { FindAllUserPlaylistsFromTrailDTO } from '@/modules/playlists/dtos/find-all-user-playlists-from-trail-dto';
+import { FindOneDTO } from '@/modules/playlists/dtos/find-one-dto';
+import { prisma } from '@/shared/infra/prisma/connection';
+import { AsyncMaybe } from '@/shared/types/app';
 import crypto from 'crypto';
 
 export class PrismaUserPlaylistsRepository implements IUserPlaylistsRepository {

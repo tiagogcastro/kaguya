@@ -1,6 +1,6 @@
-import { ShowHistoryService } from '@modules/histories/services/show-history-service';
-import { ITrail } from '@modules/trails/domain/entities/itrail';
-import { instanceToInstance } from '@shared/helpers/instance-to-instance';
+import { ShowHistoryService } from '@/modules/histories/services/show-history-service';
+import { ITrail } from '@/modules/trails/domain/entities/itrail';
+import { instanceToInstance } from '@/shared/helpers/instance-to-instance';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

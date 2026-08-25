@@ -1,17 +1,17 @@
-import { ILesson } from '@modules/lessons/domain/entities/ilesson';
+import { ILesson } from '@/modules/lessons/domain/entities/ilesson';
 import {
   ILessonsRepository,
   RelationshipDTO
-} from '@modules/lessons/domain/repositories/lessons-repository';
-import { CreateLessonDTO } from '@modules/lessons/dtos/create-lesson-dto';
-import { FindAllLessonsFromBlockDTO } from '@modules/lessons/dtos/find-all-lessons-from-block-dto';
-import { FindByNameDTO } from '@modules/lessons/dtos/find-by-name-dto';
-import { FindBySlugDTO } from '@modules/lessons/dtos/find-by-slug-dto';
-import { IDislike } from '@modules/likes/domain/entities/idislike';
-import { ILike } from '@modules/likes/domain/entities/ilike';
-import { FiltersDTO } from '@modules/trails/domain/repositories/trails-repository';
-import { prisma } from '@shared/infra/prisma/connection';
-import { AsyncMaybe } from '@shared/types/app';
+} from '@/modules/lessons/domain/repositories/lessons-repository';
+import { CreateLessonDTO } from '@/modules/lessons/dtos/create-lesson-dto';
+import { FindAllLessonsFromBlockDTO } from '@/modules/lessons/dtos/find-all-lessons-from-block-dto';
+import { FindByNameDTO } from '@/modules/lessons/dtos/find-by-name-dto';
+import { FindBySlugDTO } from '@/modules/lessons/dtos/find-by-slug-dto';
+import { IDislike } from '@/modules/likes/domain/entities/idislike';
+import { ILike } from '@/modules/likes/domain/entities/ilike';
+import { FiltersDTO } from '@/modules/trails/domain/repositories/trails-repository';
+import { prisma } from '@/shared/infra/prisma/connection';
+import { AsyncMaybe } from '@/shared/types/app';
 import crypto from 'crypto';
 
 class PrismaLessonsRepository implements ILessonsRepository {

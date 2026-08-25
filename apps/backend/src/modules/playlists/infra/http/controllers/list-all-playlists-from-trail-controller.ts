@@ -1,6 +1,6 @@
-import { IPlaylist } from '@modules/playlists/domain/entities/iplaylist';
-import { ListAllPlaylistsFromTrailService } from '@modules/playlists/services/list-all-playlists-from-trail-service';
-import { instanceToInstance } from '@shared/helpers/instance-to-instance';
+import { IPlaylist } from '@/modules/playlists/domain/entities/iplaylist';
+import { ListAllPlaylistsFromTrailService } from '@/modules/playlists/services/list-all-playlists-from-trail-service';
+import { instanceToInstance } from '@/shared/helpers/instance-to-instance';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

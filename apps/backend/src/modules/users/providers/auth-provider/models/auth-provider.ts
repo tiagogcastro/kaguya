@@ -1,5 +1,5 @@
-import { Either } from '@core/either/types';
-import { Maybe } from '@shared/types/app';
+import { Either } from '@/core/either/types';
+import { Maybe } from '@/shared/types/app';
 
 export type User = {
   uid: string;

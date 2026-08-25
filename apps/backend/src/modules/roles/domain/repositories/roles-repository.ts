@@ -1,6 +1,6 @@
-import { CreateRoleDTO } from '@modules/roles/dtos/create-role-dto';
-import { FiltersDTO } from '@modules/trails/domain/repositories/trails-repository';
-import { AsyncMaybe } from '@shared/types/app';
+import { CreateRoleDTO } from '@/modules/roles/dtos/create-role-dto';
+import { FiltersDTO } from '@/modules/trails/domain/repositories/trails-repository';
+import { AsyncMaybe } from '@/shared/types/app';
 import { IRole } from '../entities/irole';
 
 interface IRolesRepository {

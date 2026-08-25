@@ -1,6 +1,6 @@
-import { IUserPlaylistsRepository } from '@modules/playlists/domain/repositories/user-playlists-repository';
-import { inject, injectable } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
+import { IUserPlaylistsRepository } from '@/modules/playlists/domain/repositories/user-playlists-repository';
+import { inject, injectable } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
 import { IUserTrail } from '../domain/entities/iuser-trail';
 import { IUserTrailsRepository } from '../domain/repositories/user-trails-repository';
 import { UpdateUserTrailProgressPorcentageRequestDTO } from '../dtos/update-user-trail-progress-porcentage-request-dto';

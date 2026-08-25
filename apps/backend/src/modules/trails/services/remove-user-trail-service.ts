@@ -1,9 +1,9 @@
-import { IUserBlocksRepository } from '@modules/blocks/domain/repositories/user-blocks-repository';
-import { IUserLessonsRepository } from '@modules/lessons/domain/repositories/user-lessons-repository';
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { AppError } from '@shared/errors/app-error';
-import { inject, injectable } from '@shared/container';
-import { IUserPlaylistsRepository } from '@modules/playlists/domain/repositories/user-playlists-repository';
+import { IUserBlocksRepository } from '@/modules/blocks/domain/repositories/user-blocks-repository';
+import { IUserLessonsRepository } from '@/modules/lessons/domain/repositories/user-lessons-repository';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { AppError } from '@/shared/errors/app-error';
+import { inject, injectable } from '@/shared/container';
+import { IUserPlaylistsRepository } from '@/modules/playlists/domain/repositories/user-playlists-repository';
 import { ITrailsRepository } from '../domain/repositories/trails-repository';
 import { IUserTrailsRepository } from '../domain/repositories/user-trails-repository';
 import { DestroyUserTrailRequestDTO } from '../dtos/destroy-user-trail-request-dto';

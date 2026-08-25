@@ -1,7 +1,7 @@
-import { IUserRole } from '@modules/users/domain/entities/iuser-role';
-import { IUserRolesRepository } from '@modules/users/domain/repositories/user-roles-repository';
-import { prisma } from '@shared/infra/prisma/connection';
-import { AsyncMaybe } from '@shared/types/app';
+import { IUserRole } from '@/modules/users/domain/entities/iuser-role';
+import { IUserRolesRepository } from '@/modules/users/domain/repositories/user-roles-repository';
+import { prisma } from '@/shared/infra/prisma/connection';
+import { AsyncMaybe } from '@/shared/types/app';
 import crypto from 'crypto';
 
 export class PrismaUserRolesRepository implements IUserRolesRepository {

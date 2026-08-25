@@ -1,4 +1,4 @@
-import { MarkAsLikeOrDislikeService } from '@modules/likes/services/mark-as-like-or-dislike-service';
+import { MarkAsLikeOrDislikeService } from '@/modules/likes/services/mark-as-like-or-dislike-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

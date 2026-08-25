@@ -1,12 +1,12 @@
 import 'reflect-metadata';
-import '@shared/container';
+import '@/shared/container';
 import { container } from 'tsyringe';
 import { prisma } from '../connection';
-import { CreateBlockService } from '@modules/blocks/services/create-block-service';
-import { CreateLessonService } from '@modules/lessons/services/create-lesson-service';
-import { CreatePlaylistFromTrailService } from '@modules/playlists/services/create-playlist-from-trail-service';
-import { CreateTrailService } from '@modules/trails/services/create-trail-service';
-import { BCryptHashProvider } from '@modules/users/providers/hash-provider/implementations/bcrypt-hash-provider';
+import { CreateBlockService } from '@/modules/blocks/services/create-block-service';
+import { CreateLessonService } from '@/modules/lessons/services/create-lesson-service';
+import { CreatePlaylistFromTrailService } from '@/modules/playlists/services/create-playlist-from-trail-service';
+import { CreateTrailService } from '@/modules/trails/services/create-trail-service';
+import { BCryptHashProvider } from '@/modules/users/providers/hash-provider/implementations/bcrypt-hash-provider';
 
 type SeedUser = {
   name: string;

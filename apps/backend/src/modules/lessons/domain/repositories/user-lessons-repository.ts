@@ -1,7 +1,7 @@
-import { CreateUserLessonDTO } from '@modules/lessons/dtos/create-user-lesson-dto';
-import { FindAllUserLessonsFromBlockDTO } from '@modules/lessons/dtos/find-all-user-lessons-from-block-dto';
-import { FindOneDTO } from '@modules/lessons/dtos/find-one-dto';
-import { AsyncMaybe } from '@shared/types/app';
+import { CreateUserLessonDTO } from '@/modules/lessons/dtos/create-user-lesson-dto';
+import { FindAllUserLessonsFromBlockDTO } from '@/modules/lessons/dtos/find-all-user-lessons-from-block-dto';
+import { FindOneDTO } from '@/modules/lessons/dtos/find-one-dto';
+import { AsyncMaybe } from '@/shared/types/app';
 import { IUserLesson } from '../entities/iuser-lesson';
 
 export type FindUserLessonDTO = {

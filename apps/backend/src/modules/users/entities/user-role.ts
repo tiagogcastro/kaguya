@@ -1,6 +1,6 @@
-import { IRole } from '@modules/roles/domain/entities/irole';
-import { IUser } from '@modules/users/domain/entities/iuser';
-import { IUserRole } from '@modules/users/domain/entities/iuser-role';
+import { IRole } from '@/modules/roles/domain/entities/irole';
+import { IUser } from '@/modules/users/domain/entities/iuser';
+import { IUserRole } from '@/modules/users/domain/entities/iuser-role';
 import crypto from 'crypto';
 
 class UserRole implements IUserRole {

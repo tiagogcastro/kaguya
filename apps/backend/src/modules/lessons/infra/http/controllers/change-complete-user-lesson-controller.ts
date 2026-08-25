@@ -1,4 +1,4 @@
-import { ChangeCompleteUserLessonService } from '@modules/lessons/services/change-complete-user-lesson-service';
+import { ChangeCompleteUserLessonService } from '@/modules/lessons/services/change-complete-user-lesson-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

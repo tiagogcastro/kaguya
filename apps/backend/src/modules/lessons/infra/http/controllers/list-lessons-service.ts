@@ -1,4 +1,4 @@
-import { ListLessonsService } from '@modules/lessons/services/list-lessons-service';
+import { ListLessonsService } from '@/modules/lessons/services/list-lessons-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

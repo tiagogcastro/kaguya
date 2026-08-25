@@ -1,4 +1,4 @@
-import { inject, injectable } from '@shared/container';
+import { inject, injectable } from '@/shared/container';
 import { ITokenProvider } from '../providers/token-provider/models/token-provider';
 
 @injectable()

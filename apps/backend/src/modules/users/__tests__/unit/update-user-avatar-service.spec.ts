@@ -1,6 +1,6 @@
-import { UpdateUserAvatarService } from '@modules/users/services/update-user-avatar-service';
-import { AppError } from '@shared/errors/app-error';
-import { InMemoryStorageProvider } from '@shared/providers/storage-provider/in-memory/in-memory-storage-provider';
+import { UpdateUserAvatarService } from '@/modules/users/services/update-user-avatar-service';
+import { AppError } from '@/shared/errors/app-error';
+import { InMemoryStorageProvider } from '@/shared/providers/storage-provider/in-memory/in-memory-storage-provider';
 import { InMemoryUsersRepository } from '../in-memory/in-memory-users-repository';
 
 let inMemoryUsersRepository: InMemoryUsersRepository;

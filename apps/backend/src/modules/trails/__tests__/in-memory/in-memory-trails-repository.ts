@@ -1,8 +1,8 @@
-import { ITrail } from '@modules/trails/domain/entities/itrail';
-import { ITrailsRepository } from '@modules/trails/domain/repositories/trails-repository';
-import { CreateTrailDTO } from '@modules/trails/dtos/create-trail-dto';
-import { Trail } from '@modules/trails/entities/trail';
-import { AsyncMaybe } from '@shared/types/app';
+import { ITrail } from '@/modules/trails/domain/entities/itrail';
+import { ITrailsRepository } from '@/modules/trails/domain/repositories/trails-repository';
+import { CreateTrailDTO } from '@/modules/trails/dtos/create-trail-dto';
+import { Trail } from '@/modules/trails/entities/trail';
+import { AsyncMaybe } from '@/shared/types/app';
 
 export class InMemoryTrailsRepository implements ITrailsRepository {
   private trails: ITrail[] = [];

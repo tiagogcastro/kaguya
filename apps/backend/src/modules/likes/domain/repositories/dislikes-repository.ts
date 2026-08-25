@@ -1,6 +1,6 @@
-import { CreateDislikeDTO } from '@modules/likes/dtos/create-dislike-dto';
-import { FindOneDislikeFromUserLesson } from '@modules/likes/dtos/find-one-dislike-from-user-lesson';
-import { AsyncMaybe } from '@shared/types/app';
+import { CreateDislikeDTO } from '@/modules/likes/dtos/create-dislike-dto';
+import { FindOneDislikeFromUserLesson } from '@/modules/likes/dtos/find-one-dislike-from-user-lesson';
+import { AsyncMaybe } from '@/shared/types/app';
 import { IDislike } from '../entities/idislike';
 
 interface IDislikesRepository {

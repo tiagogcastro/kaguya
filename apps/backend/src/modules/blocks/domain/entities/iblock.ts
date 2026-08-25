@@ -1,5 +1,5 @@
-import { ILesson } from '@modules/lessons/domain/entities/ilesson';
-import { IPlaylist } from '@modules/playlists/domain/entities/iplaylist';
+import { ILesson } from '@/modules/lessons/domain/entities/ilesson';
+import { IPlaylist } from '@/modules/playlists/domain/entities/iplaylist';
 import { IUserBlock } from './iuser-block';
 
 interface IBlock {

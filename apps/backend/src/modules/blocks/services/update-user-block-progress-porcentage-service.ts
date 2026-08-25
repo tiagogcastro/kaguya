@@ -1,7 +1,7 @@
-import { IUserBlocksRepository } from '@modules/blocks/domain/repositories/user-blocks-repository';
-import { IUserLessonsRepository } from '@modules/lessons/domain/repositories/user-lessons-repository';
-import { AppError } from '@shared/errors/app-error';
-import { inject, injectable } from '@shared/container';
+import { IUserBlocksRepository } from '@/modules/blocks/domain/repositories/user-blocks-repository';
+import { IUserLessonsRepository } from '@/modules/lessons/domain/repositories/user-lessons-repository';
+import { AppError } from '@/shared/errors/app-error';
+import { inject, injectable } from '@/shared/container';
 import { IUserBlock } from '../domain/entities/iuser-block';
 import { IUpdateUserBlockProgressPorcentageRequestDTO } from '../dtos/update-user-block-progress-porcentage-request-dto';
 

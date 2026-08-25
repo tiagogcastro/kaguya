@@ -1,5 +1,5 @@
-import { UpdateTrailService } from '@modules/trails/services/update-trail-service';
-import { AppError } from '@shared/errors/app-error';
+import { UpdateTrailService } from '@/modules/trails/services/update-trail-service';
+import { AppError } from '@/shared/errors/app-error';
 import { InMemoryTrailsRepository } from '../in-memory/in-memory-trails-repository';
 
 let inMemoryTrailsRepository: InMemoryTrailsRepository;

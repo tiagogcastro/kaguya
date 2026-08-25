@@ -1,4 +1,4 @@
-import { DeleteLessonService } from '@modules/lessons/services/delete-lesson-service';
+import { DeleteLessonService } from '@/modules/lessons/services/delete-lesson-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

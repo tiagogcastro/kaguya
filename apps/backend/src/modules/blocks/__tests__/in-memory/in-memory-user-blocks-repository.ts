@@ -1,13 +1,13 @@
-import { IUserBlock } from '@modules/blocks/domain/entities/iuser-block';
+import { IUserBlock } from '@/modules/blocks/domain/entities/iuser-block';
 import {
   FindUserBlockDTO,
   IUserBlocksRepository,
-} from '@modules/blocks/domain/repositories/user-blocks-repository';
-import { CreateUserBlockDTO } from '@modules/blocks/dtos/create-user-block-dto';
-import { FindAllUserBlocksFromPlaylistDTO } from '@modules/blocks/dtos/find-all-user-blocks-from-playlist-dto';
-import { FindOneDTO } from '@modules/blocks/dtos/find-one-dto';
-import { UserBlock } from '@modules/blocks/entities/user-block';
-import { AsyncMaybe } from '@shared/types/app';
+} from '@/modules/blocks/domain/repositories/user-blocks-repository';
+import { CreateUserBlockDTO } from '@/modules/blocks/dtos/create-user-block-dto';
+import { FindAllUserBlocksFromPlaylistDTO } from '@/modules/blocks/dtos/find-all-user-blocks-from-playlist-dto';
+import { FindOneDTO } from '@/modules/blocks/dtos/find-one-dto';
+import { UserBlock } from '@/modules/blocks/entities/user-block';
+import { AsyncMaybe } from '@/shared/types/app';
 
 export class InMemoryUserBlocksRepository implements IUserBlocksRepository {
   async findUserBlock({

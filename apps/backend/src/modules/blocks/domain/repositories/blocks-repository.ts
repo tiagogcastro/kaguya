@@ -1,8 +1,8 @@
-import { CreateBlockDTO } from '@modules/blocks/dtos/create-block-dto';
-import { FindAllBlocksFromPlaylistDTO } from '@modules/blocks/dtos/find-all-blocks-from-playlist-dto';
-import { FindByNameDTO } from '@modules/blocks/dtos/find-by-name-dto';
-import { FindBySlugDTO } from '@modules/blocks/dtos/find-by-slug-dto';
-import { AsyncMaybe } from '@shared/types/app';
+import { CreateBlockDTO } from '@/modules/blocks/dtos/create-block-dto';
+import { FindAllBlocksFromPlaylistDTO } from '@/modules/blocks/dtos/find-all-blocks-from-playlist-dto';
+import { FindByNameDTO } from '@/modules/blocks/dtos/find-by-name-dto';
+import { FindBySlugDTO } from '@/modules/blocks/dtos/find-by-slug-dto';
+import { AsyncMaybe } from '@/shared/types/app';
 import { IBlock } from '../entities/iblock';
 
 type Relationship = {

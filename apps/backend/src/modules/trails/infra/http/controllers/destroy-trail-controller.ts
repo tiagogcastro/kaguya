@@ -1,4 +1,4 @@
-import { DestroyTrailService } from '@modules/trails/services/destroy-trail-service';
+import { DestroyTrailService } from '@/modules/trails/services/destroy-trail-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

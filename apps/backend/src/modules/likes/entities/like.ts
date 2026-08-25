@@ -1,5 +1,5 @@
-import { ILesson } from '@modules/lessons/domain/entities/ilesson';
-import { IUser } from '@modules/users/domain/entities/iuser';
+import { ILesson } from '@/modules/lessons/domain/entities/ilesson';
+import { IUser } from '@/modules/users/domain/entities/iuser';
 import { ILike } from '../domain/entities/ilike';
 
 class Like implements ILike {

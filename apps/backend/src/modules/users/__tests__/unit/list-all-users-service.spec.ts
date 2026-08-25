@@ -1,6 +1,6 @@
-import { IUser } from '@modules/users/domain/entities/iuser';
-import { InMemoryUsersRepository } from '@modules/users/__tests__/in-memory/in-memory-users-repository';
-import { ListAllUsersService } from '@modules/users/services/list-all-users-service';
+import { IUser } from '@/modules/users/domain/entities/iuser';
+import { InMemoryUsersRepository } from '@/modules/users/__tests__/in-memory/in-memory-users-repository';
+import { ListAllUsersService } from '@/modules/users/services/list-all-users-service';
 
 let inMemoryUsersRepository: InMemoryUsersRepository;
 

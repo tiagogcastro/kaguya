@@ -1,4 +1,4 @@
-import { DisableUserService } from '@modules/users/services/disable-user-service';
+import { DisableUserService } from '@/modules/users/services/disable-user-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

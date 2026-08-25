@@ -1,6 +1,6 @@
 import '../in-memory/in-memory-users-repository';
-import { ValidateTokenService } from '@modules/users/services/validate-token-service';
-import { InMemoryTokenProvider } from '@modules/users/providers/token-provider/in-memory/in-memory-token-provider';
+import { ValidateTokenService } from '@/modules/users/services/validate-token-service';
+import { InMemoryTokenProvider } from '@/modules/users/providers/token-provider/in-memory/in-memory-token-provider';
 
 let inMemoryTokenProvider: InMemoryTokenProvider;
 let validateToken: ValidateTokenService;

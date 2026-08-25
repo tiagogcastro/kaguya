@@ -1,6 +1,6 @@
-import { AppError } from '@shared/errors/app-error';
-import { inject, injectable } from '@shared/container';
-import { Maybe } from '@shared/types/app';
+import { AppError } from '@/shared/errors/app-error';
+import { inject, injectable } from '@/shared/container';
+import { Maybe } from '@/shared/types/app';
 import { IUser } from '../domain/entities/iuser';
 import { IUsersRepository } from '../domain/repositories/users-repository';
 import { ShowUserProfileRequestDTO } from '../dtos/show-user-profile-request-dto';

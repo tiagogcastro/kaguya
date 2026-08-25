@@ -1,6 +1,6 @@
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { inject, injectable } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { inject, injectable } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
 import { ILesson } from '../domain/entities/ilesson';
 import { ILessonsRepository } from '../domain/repositories/lessons-repository';
 import { ListLessonsRequestDTO } from '../dtos/list-lessons-request-dto';

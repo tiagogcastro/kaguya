@@ -1,5 +1,5 @@
-import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensure-authenticated';
-import { validate } from '@shared/infra/http/middlewares/validate';
+import ensureAuthenticated from '@/modules/users/infra/http/middlewares/ensure-authenticated';
+import { validate } from '@/shared/infra/http/middlewares/validate';
 import { Router } from 'express';
 import { z } from 'zod';
 import { CreateHistoryController } from '../controllers/create-history-controller';

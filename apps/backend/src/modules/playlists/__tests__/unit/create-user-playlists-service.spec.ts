@@ -1,14 +1,14 @@
-import { CreateUserPlaylistsService } from '@modules/playlists/services/create-user-playlists-service';
-import { InMemoryUsersRepository } from '@modules/users/__tests__/in-memory/in-memory-users-repository';
-import { AppError } from '@shared/errors/app-error';
-import { InMemoryBlocksRepository } from '@modules/blocks/__tests__/in-memory/in-memory-blocks-repository';
+import { CreateUserPlaylistsService } from '@/modules/playlists/services/create-user-playlists-service';
+import { InMemoryUsersRepository } from '@/modules/users/__tests__/in-memory/in-memory-users-repository';
+import { AppError } from '@/shared/errors/app-error';
+import { InMemoryBlocksRepository } from '@/modules/blocks/__tests__/in-memory/in-memory-blocks-repository';
 
-import { InMemoryUserLessonsRepository } from '@modules/lessons/__tests__/in-memory/in-memory-user-lessons-repository';
-import { InMemoryLessonsRepository } from '@modules/lessons/__tests__/in-memory/in-memory-lessons-repository';
+import { InMemoryUserLessonsRepository } from '@/modules/lessons/__tests__/in-memory/in-memory-user-lessons-repository';
+import { InMemoryLessonsRepository } from '@/modules/lessons/__tests__/in-memory/in-memory-lessons-repository';
 
-import { InMemoryUserBlocksRepository } from '@modules/blocks/__tests__/in-memory/in-memory-user-blocks-repository';
-import { InMemoryUserTrailsRepository } from '@modules/trails/__tests__/in-memory/in-memory-user-trails-repository';
-import { InMemoryTrailsRepository } from '@modules/trails/__tests__/in-memory/in-memory-trails-repository';
+import { InMemoryUserBlocksRepository } from '@/modules/blocks/__tests__/in-memory/in-memory-user-blocks-repository';
+import { InMemoryUserTrailsRepository } from '@/modules/trails/__tests__/in-memory/in-memory-user-trails-repository';
+import { InMemoryTrailsRepository } from '@/modules/trails/__tests__/in-memory/in-memory-trails-repository';
 import { InMemoryUserPlaylistsRepository } from '../in-memory/in-memory-user-playlists-repository';
 import { InMemoryPlaylistsRepository } from '../in-memory/in-memory-playlists-repository';
 

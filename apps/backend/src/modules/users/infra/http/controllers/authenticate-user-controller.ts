@@ -1,5 +1,5 @@
-import { AuthenticateUserService } from '@modules/users/services/authenticate-user-service';
-import { instanceToInstance } from '@shared/helpers/instance-to-instance';
+import { AuthenticateUserService } from '@/modules/users/services/authenticate-user-service';
+import { instanceToInstance } from '@/shared/helpers/instance-to-instance';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

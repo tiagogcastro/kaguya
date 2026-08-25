@@ -1,8 +1,8 @@
-import { CreateBlockService } from '@modules/blocks/services/create-block-service';
-import { AppError } from '@shared/errors/app-error';
-import { InMemoryUsersRepository } from '@modules/users/__tests__/in-memory/in-memory-users-repository';
-import { InMemoryPlaylistsRepository } from '@modules/playlists/__tests__/in-memory/in-memory-playlists-repository';
-import { InMemoryTrailsRepository } from '@modules/trails/__tests__/in-memory/in-memory-trails-repository';
+import { CreateBlockService } from '@/modules/blocks/services/create-block-service';
+import { AppError } from '@/shared/errors/app-error';
+import { InMemoryUsersRepository } from '@/modules/users/__tests__/in-memory/in-memory-users-repository';
+import { InMemoryPlaylistsRepository } from '@/modules/playlists/__tests__/in-memory/in-memory-playlists-repository';
+import { InMemoryTrailsRepository } from '@/modules/trails/__tests__/in-memory/in-memory-trails-repository';
 import { InMemoryBlocksRepository } from '../in-memory/in-memory-blocks-repository';
 import { InMemoryUserBlocksRepository } from '../in-memory/in-memory-user-blocks-repository';
 

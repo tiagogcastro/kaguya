@@ -1,5 +1,5 @@
-import { ListAllBlocksFromPlaylistRequestDTO } from '@modules/blocks/dtos/list-all-blocks-from-playlist-request-dto';
-import { ListAllBlocksFromPlaylistService } from '@modules/blocks/services/list-all-blocks-from-playlist-service';
+import { ListAllBlocksFromPlaylistRequestDTO } from '@/modules/blocks/dtos/list-all-blocks-from-playlist-request-dto';
+import { ListAllBlocksFromPlaylistService } from '@/modules/blocks/services/list-all-blocks-from-playlist-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

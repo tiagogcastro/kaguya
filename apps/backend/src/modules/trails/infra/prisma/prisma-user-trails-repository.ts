@@ -1,13 +1,13 @@
-import { IUserTrail } from '@modules/trails/domain/entities/iuser-trail';
+import { IUserTrail } from '@/modules/trails/domain/entities/iuser-trail';
 import {
   IUserTrailsRepository,
   UserTrailsRelationshipDTO,
-} from '@modules/trails/domain/repositories/user-trails-repository';
-import { FindAllUserTrailsDTO } from '@modules/trails/dtos/find-all-user-trails-dto';
-import { CreateUserTrailDTO } from '@modules/trails/dtos/create-user-trail-dto';
-import { FindUserTrailDTO } from '@modules/trails/dtos/find-user-trail-dto';
-import { prisma } from '@shared/infra/prisma/connection';
-import { AsyncMaybe } from '@shared/types/app';
+} from '@/modules/trails/domain/repositories/user-trails-repository';
+import { FindAllUserTrailsDTO } from '@/modules/trails/dtos/find-all-user-trails-dto';
+import { CreateUserTrailDTO } from '@/modules/trails/dtos/create-user-trail-dto';
+import { FindUserTrailDTO } from '@/modules/trails/dtos/find-user-trail-dto';
+import { prisma } from '@/shared/infra/prisma/connection';
+import { AsyncMaybe } from '@/shared/types/app';
 import crypto from 'crypto';
 
 class PrismaUserTrailsRepository implements IUserTrailsRepository {

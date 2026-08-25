@@ -1,4 +1,4 @@
-import { CreateBlockService } from '@modules/blocks/services/create-block-service';
+import { CreateBlockService } from '@/modules/blocks/services/create-block-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

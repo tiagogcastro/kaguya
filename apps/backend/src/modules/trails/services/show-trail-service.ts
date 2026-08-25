@@ -1,7 +1,7 @@
-import { IBlock } from '@modules/blocks/domain/entities/iblock';
-import { inject, injectable } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
-import { Maybe } from '@shared/types/app';
+import { IBlock } from '@/modules/blocks/domain/entities/iblock';
+import { inject, injectable } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
+import { Maybe } from '@/shared/types/app';
 import { ITrail } from '../domain/entities/itrail';
 import { ITrailsRepository } from '../domain/repositories/trails-repository';
 import { ShowTrailRequestDTO } from '../dtos/show-trail-request-dto';

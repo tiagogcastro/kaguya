@@ -1,8 +1,8 @@
 import crypto from 'crypto';
-import { IUserRole } from '@modules/users/domain/entities/iuser-role';
-import { IUserRolesRepository } from '@modules/users/domain/repositories/user-roles-repository';
-import { UserRole } from '@modules/users/entities/user-role';
-import { AsyncMaybe } from '@shared/types/app';
+import { IUserRole } from '@/modules/users/domain/entities/iuser-role';
+import { IUserRolesRepository } from '@/modules/users/domain/repositories/user-roles-repository';
+import { UserRole } from '@/modules/users/entities/user-role';
+import { AsyncMaybe } from '@/shared/types/app';
 
 class InMemoryUserRolesRepository implements IUserRolesRepository {
   private UserRoles: IUserRole[] = [];

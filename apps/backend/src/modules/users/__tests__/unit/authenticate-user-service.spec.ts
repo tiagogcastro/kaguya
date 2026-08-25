@@ -1,8 +1,8 @@
-import { InMemoryHashProvider } from '@modules/users/providers/hash-provider/in-memory/in-memory-hash-provider';
-import { InMemoryTokenProvider } from '@modules/users/providers/token-provider/in-memory/in-memory-token-provider';
-import { AuthenticateUserService } from '@modules/users/services/authenticate-user-service';
-import { InMemoryUsersRepository } from '@modules/users/__tests__/in-memory/in-memory-users-repository';
-import { AppError } from '@shared/errors/app-error';
+import { InMemoryHashProvider } from '@/modules/users/providers/hash-provider/in-memory/in-memory-hash-provider';
+import { InMemoryTokenProvider } from '@/modules/users/providers/token-provider/in-memory/in-memory-token-provider';
+import { AuthenticateUserService } from '@/modules/users/services/authenticate-user-service';
+import { InMemoryUsersRepository } from '@/modules/users/__tests__/in-memory/in-memory-users-repository';
+import { AppError } from '@/shared/errors/app-error';
 
 let inMemoryUsersRepository: InMemoryUsersRepository;
 let inMemoryHashProvider: InMemoryHashProvider;

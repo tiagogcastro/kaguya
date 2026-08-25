@@ -1,4 +1,4 @@
-import { validate } from '@shared/infra/http/middlewares/validate';
+import { validate } from '@/shared/infra/http/middlewares/validate';
 import { Router } from 'express';
 import { z } from 'zod';
 import { ShowUserProfileController } from '../controllers/show-user-profile-controller';

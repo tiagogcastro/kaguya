@@ -1,5 +1,5 @@
-import { ILesson } from '@modules/lessons/domain/entities/ilesson';
-import { IUser } from '@modules/users/domain/entities/iuser';
+import { ILesson } from '@/modules/lessons/domain/entities/ilesson';
+import { IUser } from '@/modules/users/domain/entities/iuser';
 import { IView } from '../../lessons/domain/entities/iview';
 
 class View implements IView {

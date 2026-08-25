@@ -1,11 +1,11 @@
-import { Either } from '@core/either';
-import type { Either as EitherT } from '@core/either/types';
-import { IUser } from '@modules/users/domain/entities/iuser';
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { IAuthProvider } from '@modules/users/providers/auth-provider/models/auth-provider';
-import { ITokenProvider } from '@modules/users/providers/token-provider/models/token-provider';
-import { CreateUserService } from '@modules/users/services/create-user-service';
-import { Maybe } from '@shared/types/app';
+import { Either } from '@/core/either';
+import type { Either as EitherT } from '@/core/either/types';
+import { IUser } from '@/modules/users/domain/entities/iuser';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { IAuthProvider } from '@/modules/users/providers/auth-provider/models/auth-provider';
+import { ITokenProvider } from '@/modules/users/providers/token-provider/models/token-provider';
+import { CreateUserService } from '@/modules/users/services/create-user-service';
+import { Maybe } from '@/shared/types/app';
 import crypto from 'node:crypto';
 
 type IAuthenticateUserByProviderResponse = EitherT<

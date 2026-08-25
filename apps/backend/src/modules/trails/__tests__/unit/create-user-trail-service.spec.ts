@@ -1,17 +1,17 @@
-import { CreateUserTrailService } from '@modules/trails/services/create-user-trail-service';
-import { AppError } from '@shared/errors/app-error';
-import { CreateUserPlaylistsService } from '@modules/playlists/services/create-user-playlists-service';
+import { CreateUserTrailService } from '@/modules/trails/services/create-user-trail-service';
+import { AppError } from '@/shared/errors/app-error';
+import { CreateUserPlaylistsService } from '@/modules/playlists/services/create-user-playlists-service';
 
-import { InMemoryBlocksRepository } from '@modules/blocks/__tests__/in-memory/in-memory-blocks-repository';
+import { InMemoryBlocksRepository } from '@/modules/blocks/__tests__/in-memory/in-memory-blocks-repository';
 
-import { InMemoryLessonsRepository } from '@modules/lessons/__tests__/in-memory/in-memory-lessons-repository';
-import { InMemoryUserLessonsRepository } from '@modules/lessons/__tests__/in-memory/in-memory-user-lessons-repository';
+import { InMemoryLessonsRepository } from '@/modules/lessons/__tests__/in-memory/in-memory-lessons-repository';
+import { InMemoryUserLessonsRepository } from '@/modules/lessons/__tests__/in-memory/in-memory-user-lessons-repository';
 
-import { InMemoryUserBlocksRepository } from '@modules/blocks/__tests__/in-memory/in-memory-user-blocks-repository';
+import { InMemoryUserBlocksRepository } from '@/modules/blocks/__tests__/in-memory/in-memory-user-blocks-repository';
 
-import { InMemoryUserPlaylistsRepository } from '@modules/playlists/__tests__/in-memory/in-memory-user-playlists-repository';
-import { InMemoryPlaylistsRepository } from '@modules/playlists/__tests__/in-memory/in-memory-playlists-repository';
-import { InMemoryUsersRepository } from '@modules/users/__tests__/in-memory/in-memory-users-repository';
+import { InMemoryUserPlaylistsRepository } from '@/modules/playlists/__tests__/in-memory/in-memory-user-playlists-repository';
+import { InMemoryPlaylistsRepository } from '@/modules/playlists/__tests__/in-memory/in-memory-playlists-repository';
+import { InMemoryUsersRepository } from '@/modules/users/__tests__/in-memory/in-memory-users-repository';
 import { InMemoryUserTrailsRepository } from '../in-memory/in-memory-user-trails-repository';
 import { InMemoryTrailsRepository } from '../in-memory/in-memory-trails-repository';
 

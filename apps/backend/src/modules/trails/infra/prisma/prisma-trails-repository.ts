@@ -1,9 +1,9 @@
-import { ITrail } from '@modules/trails/domain/entities/itrail';
-import { ITrailsRepository } from '@modules/trails/domain/repositories/trails-repository';
-import { CreateTrailDTO } from '@modules/trails/dtos/create-trail-dto';
-import { FindAllTrailsDTO } from '@modules/trails/dtos/find-all-trails-dto';
-import { prisma } from '@shared/infra/prisma/connection';
-import { AsyncMaybe } from '@shared/types/app';
+import { ITrail } from '@/modules/trails/domain/entities/itrail';
+import { ITrailsRepository } from '@/modules/trails/domain/repositories/trails-repository';
+import { CreateTrailDTO } from '@/modules/trails/dtos/create-trail-dto';
+import { FindAllTrailsDTO } from '@/modules/trails/dtos/find-all-trails-dto';
+import { prisma } from '@/shared/infra/prisma/connection';
+import { AsyncMaybe } from '@/shared/types/app';
 import crypto from 'crypto';
 
 export class PrismaTrailsRepository implements ITrailsRepository {

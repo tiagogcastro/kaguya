@@ -1,5 +1,5 @@
-import { CreatePlaylistFromTrailService } from '@modules/playlists/services/create-playlist-from-trail-service';
-import { instanceToInstance } from '@shared/helpers/instance-to-instance';
+import { CreatePlaylistFromTrailService } from '@/modules/playlists/services/create-playlist-from-trail-service';
+import { instanceToInstance } from '@/shared/helpers/instance-to-instance';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
