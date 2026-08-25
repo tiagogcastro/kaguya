@@ -3,7 +3,7 @@ import { IUsersRepository } from '@modules/users/domain/repositories/users-repos
 import { AppError } from '@shared/errors/app-error';
 import { IStorageProvider } from '@shared/providers/storage-provider/models/storage-provider';
 import { inject, injectable } from '@shared/container';
-import { UpdateUserAvatarRequestDTO } from '../../roles/dtos/update-user-avatar-request-dto';
+import { UpdateUserAvatarRequestDTO } from '@modules/users/dtos/update-user-avatar-request-dto';
 
 @injectable()
 export class UpdateUserAvatarService {

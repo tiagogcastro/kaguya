@@ -1,6 +1,6 @@
 import { storageConfig } from '@config/storage';
 import { validate } from '@shared/infra/http/middlewares/validate';
-import { UpdateUserAvatarController } from '@modules/trails/infra/http/controllers/update-user-avatar-controller';
+import { UpdateUserAvatarController } from '../controllers/update-user-avatar-controller';
 import { Router } from 'express';
 import multer from 'multer';
 import { z } from 'zod';

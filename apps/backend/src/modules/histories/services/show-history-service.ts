@@ -124,7 +124,7 @@ export class ShowHistoryService {
     if (history_id) {
       const history = await this.historiesRepository.findById(history_id);
 
-      if (history) {
+      if (history && history.user_id === user_id) {
         const { playlist, trail } = await this.getLessonParents(
           history.lesson_id,
         );

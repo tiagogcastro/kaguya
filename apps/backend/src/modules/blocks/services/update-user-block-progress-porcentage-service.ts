@@ -37,8 +37,9 @@ export class UpdateUserBlockProgressPorcentageService {
       user_lesson => user_lesson.completed,
     );
 
-    const userBlockProgressPercentage =
-      (userLessonsCompleted.length / userLessons.length) * 100;
+    const userBlockProgressPercentage = userLessons.length
+      ? (userLessonsCompleted.length / userLessons.length) * 100
+      : 0;
 
     userBlock.progress = Number(userBlockProgressPercentage.toFixed(0));
 

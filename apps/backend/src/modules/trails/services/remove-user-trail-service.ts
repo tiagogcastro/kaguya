@@ -57,28 +57,34 @@ export class RemoveUserTrailService {
         user_id,
       });
 
-    userPlaylists.map(async userPlaylist => {
-      await this.userPlaylistsRepository.removeById(userPlaylist.id);
+    await Promise.all(
+      userPlaylists.map(async userPlaylist => {
+        await this.userPlaylistsRepository.removeById(userPlaylist.id);
 
-      const userBlocks =
-        await this.userBlocksRepository.findAllUserBlocksFromPlaylist({
-          playlist_id: userPlaylist.playlist_id,
-          user_id,
-        });
-
-      userBlocks.map(async userBlock => {
-        await this.userBlocksRepository.removeById(userBlock.id);
-
-        const userLessons =
-          await this.userLessonsRepository.findAllUserLessonsFromBlock({
-            block_id: userBlock.block_id,
+        const userBlocks =
+          await this.userBlocksRepository.findAllUserBlocksFromPlaylist({
+            playlist_id: userPlaylist.playlist_id,
             user_id,
           });
 
-        userLessons.map(async userLesson => {
-          await this.userLessonsRepository.removeById(userLesson.id);
-        });
-      });
-    });
+        await Promise.all(
+          userBlocks.map(async userBlock => {
+            await this.userBlocksRepository.removeById(userBlock.id);
+
+            const userLessons =
+              await this.userLessonsRepository.findAllUserLessonsFromBlock({
+                block_id: userBlock.block_id,
+                user_id,
+              });
+
+            await Promise.all(
+              userLessons.map(async userLesson =>
+                this.userLessonsRepository.removeById(userLesson.id),
+              ),
+            );
+          }),
+        );
+      }),
+    );
   }
 }
