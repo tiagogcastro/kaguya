@@ -18,7 +18,8 @@
     "db:seed": "prisma db seed",
     "test:unit": "jest --coverage --detectOpenHandles ./src/modules/**/__tests__/unit/**.spec.ts",
     "test:integration": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles ./src/modules/**/__tests__/integration/**.spec.ts",
-    "test": "npm run test:integration && npm run test:unit"
+    "test": "npm run test:integration && npm run test:unit",
+    "smoke": "node scripts/smoke-test.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1117.0",
