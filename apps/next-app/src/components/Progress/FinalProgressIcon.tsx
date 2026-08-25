@@ -13,7 +13,7 @@ export function FinalProgressIcon({
     ['pink.500'],
   );
 
-  if(percentage < 80) {
+  if(percentage >= 80) {
     return (
       <>
         <Flex 

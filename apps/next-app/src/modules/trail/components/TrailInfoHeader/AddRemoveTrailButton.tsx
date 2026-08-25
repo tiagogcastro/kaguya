@@ -71,9 +71,9 @@ export function AddRemoveTrailButton({ trail }: AddRemoveTrailButtonProps) {
         }
       );
 
-      await queryClient.invalidateQueries(["playlistsFromTrail", trail?.slug]);
-      await queryClient.invalidateQueries("othersTrails");
-      await queryClient.invalidateQueries("userTrails");
+      await queryClient.invalidateQueries({ queryKey: ["playlistsFromTrail", trail?.slug] });
+      await queryClient.invalidateQueries({ queryKey: ["othersTrails"] });
+      await queryClient.invalidateQueries({ queryKey: ["userTrails"] });
     } catch (error: any) {
       const errors = apiError(error);
 

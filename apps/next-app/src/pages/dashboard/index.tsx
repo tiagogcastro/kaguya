@@ -1,4 +1,5 @@
-import { Box, Flex, HStack, keyframes, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Flex, HStack, useBreakpointValue } from '@chakra-ui/react';
+import { keyframes } from '@emotion/react';
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
 

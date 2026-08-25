@@ -22,17 +22,7 @@ export default function ViewSuggestion() {
   const router = useRouter();
   const { trailSuggestionslug } = router.query;
 
-  const getSuggestion = useCallback(async () => {
-    try {
-      console.log(trailSuggestionslug);
-    } catch (error) {
-      console.log(error);
-    }
-  }, [trailSuggestionslug]);
-
-  useEffect(() => {
-    getSuggestion();
-  }, []);
+  useEffect(() => {}, [trailSuggestionslug]);
 
   const desc = `Eu quero adicionar esta trilha porque eu acho que será util para todos da comunidade ter acesso organizado a conteudo de HTML, pois da um grande passo ao aprender conteudos de programação web no futuro.`;
 

@@ -4,7 +4,7 @@ import {
   useToken,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 
 import { ContinueLessonText } from './ContinueLessonText';
 import { LessonHistoryInfo } from './LessonHistoryInfo';
@@ -32,12 +32,14 @@ export function LessonHistory() {
     'blackAlpha.700'
   ]);
 
-  const { data, isFetching, isLoading } = useQuery<UserHistoryShow>('lessonHistory', async () => {
-    const response = await kaguyaApi.get('/histories/show');
+  const { data, isFetching, isLoading } = useQuery<UserHistoryShow>({
+    queryKey: ['lessonHistory'],
+    queryFn: async () => {
+      const response = await kaguyaApi.get('/histories/show');
 
-    return response.data;
-  }, {
-    staleTime: 1000 * 60 * 10 , // 60 minutes
+      return response.data;
+    },
+    staleTime: 1000 * 60 * 10,
   });
 
   return (

@@ -84,7 +84,7 @@ export function IsNotCurrentLessonItem({
         });
       }
 
-      await queryClient.invalidateQueries(["playlistsFromTrail", trailSlug]);
+      await queryClient.invalidateQueries({ queryKey: ["playlistsFromTrail", trailSlug] });
     } catch (error: any) {
       const errors = apiError(error);
 

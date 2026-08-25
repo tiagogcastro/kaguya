@@ -7,12 +7,14 @@ import {
 } from "./types";
 import { createContext, useEffect, useState } from "react";
 import { destroyCookie, parseCookies, setCookie } from "nookies";
+import { signOut as firebaseSignOut } from "firebase/auth";
 
 import Router from "next/router";
 import { apiError } from "utils/apiFormatError";
 import { kaguyaApi } from "services/kaguya/apiClient";
 import { tokenCookieKey } from "@/services/kaguya/api";
 import { useToast } from "@chakra-ui/react";
+import { getFirebaseAuth } from "config/firebase";
 import { AxiosResponse } from "axios";
 
 type AuthContextData = {
@@ -31,6 +33,12 @@ export const AuthContext = createContext({} as AuthContextData);
 
 export function signOut() {
   destroyCookie(undefined, tokenCookieKey);
+
+  delete kaguyaApi.defaults.headers.common["Authorization"];
+
+  try {
+    firebaseSignOut(getFirebaseAuth()).catch(() => {});
+  } catch {}
 
   Router.push("/login");
 }
@@ -64,13 +72,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
   async function signIn({ email, password, access_token }: SignInCredentials) {
     try {
       let responseData: SignInResponse
-      
+
       if(access_token) {
-        const { data: { data }} = await kaguyaApi.post("/sessions/auth-provider", {
+        const { data } = await kaguyaApi.post<SignInResponse>("/sessions/auth-provider", {
           access_token
         });
 
-        responseData = data as SignInResponse
+        responseData = data
       } else {
         const { data } = await kaguyaApi.post<SignInResponse>("/sessions", {
           email,

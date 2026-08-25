@@ -10,7 +10,6 @@ import { MdEmail } from 'react-icons/md';
 
 import { SignInWithGithubButton } from '../SignInButtons/SignInWithGithubButton';
 import { SignInWithGoogleButton } from '../SignInButtons/SignInWithGoogleButton';
-import { ForgotPasswordLink } from './ForgotPasswordLink';
 
 import { Button } from '@/components/Button';
 import { DividerLine } from '@/components/DividerLine';
@@ -103,7 +102,6 @@ export function FormContainer() {
             {...register('password')}
           />
         </VStack>
-        <ForgotPasswordLink />
 
         <Button
           w="100%"

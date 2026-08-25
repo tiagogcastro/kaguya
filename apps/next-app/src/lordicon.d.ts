@@ -21,7 +21,7 @@ type LordiconElement = React.DetailedHTMLProps<
 > &
   LordiconProps
 
-declare global {
+declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
       'lord-icon': LordiconElement

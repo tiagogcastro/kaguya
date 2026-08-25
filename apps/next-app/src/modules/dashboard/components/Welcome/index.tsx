@@ -9,7 +9,7 @@ export function Welcome() {
       <Text
         color="gray.300"
         letterSpacing="wide"
-        fontSize={["sx", "sm", "md"]}
+        fontSize={["sm", "md", "lg"]}
       >
         Olá, {user?.name || user?.username}
       </Text>

@@ -1,5 +1,6 @@
 import { FirebaseOptions, initializeApp } from "firebase/app";
 import {
+    Auth,
     AuthProvider,
     GithubAuthProvider,
     GoogleAuthProvider,
@@ -30,6 +31,14 @@ const providers: Record<ProviderName, AuthProvider> = {
 
 const getProvider = (providerName: ProviderName) => providers[providerName]
 
-const firebaseAuth = getAuth(firebaseApp);
+let firebaseAuthInstance: Auth | null = null;
 
-export { firebaseApp, firebaseAuth, getProvider };
+function getFirebaseAuth(): Auth {
+    if (!firebaseAuthInstance) {
+        firebaseAuthInstance = getAuth(firebaseApp);
+    }
+
+    return firebaseAuthInstance;
+}
+
+export { firebaseApp, getFirebaseAuth, getProvider };

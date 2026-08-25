@@ -88,8 +88,8 @@ export function ConfirmRemoveTrailModal({
 
       setLoading(false);
 
-      await queryClient.invalidateQueries("othersTrails");
-      await queryClient.invalidateQueries("userTrails");
+      await queryClient.invalidateQueries({ queryKey: ["othersTrails"] });
+      await queryClient.invalidateQueries({ queryKey: ["userTrails"] });
     } catch (error: any) {
       const errors = apiError(error);
 

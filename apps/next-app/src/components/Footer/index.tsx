@@ -46,14 +46,8 @@ export function Footer() {
 
             <Divider orientation="vertical" />
 
-            <NextLink href="/privacy-policy" passHref>
+            <NextLink href="/terms" passHref>
               <ChakraLink color="gray.300">Politica de privacidade</ChakraLink>
-            </NextLink>
-
-            <Divider orientation="vertical" />
-
-            <NextLink href="/help" passHref>
-              <ChakraLink color="gray.300">Ajuda</ChakraLink>
             </NextLink>
           </Flex>
         </Flex>

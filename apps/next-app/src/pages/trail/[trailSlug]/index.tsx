@@ -15,7 +15,7 @@ import Head from "next/head";
 import { Header } from "@/components/Header";
 import { TrailData } from "@/services/kaguya/types";
 import { kaguyaApi } from "@/services/kaguya/apiClient";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { withSSRAuth } from "@/utils/withSSRAuth";
 
@@ -34,9 +34,9 @@ export default function Trail({ quote }: TrailProps) {
   const router = useRouter();
   const { trailSlug } = router.query;
 
-  const trail = useQuery<TrailData | undefined>(
-    ["uniqueTrail", trailSlug],
-    async () => {
+  const trail = useQuery<TrailData | undefined>({
+    queryKey: ["uniqueTrail", trailSlug],
+    queryFn: async () => {
       try {
         const response = await kaguyaApi.get<TrailData>("/trails/show", {
           params: {
@@ -58,10 +58,8 @@ export default function Trail({ quote }: TrailProps) {
         return;
       }
     },
-    {
-      enabled: !!trailSlug,
-    }
-  );
+    enabled: !!trailSlug,
+  });
 
   if (trail.isLoading) {
     return (

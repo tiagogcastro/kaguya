@@ -4,7 +4,7 @@ import { PlaylistData, TrailData } from "@/services/kaguya/types";
 import { PlaylistItem } from "./PlaylistItem";
 import { PlaylistsNoContent } from "./PlaylistsNoContent";
 import { kaguyaApi } from "@/services/kaguya/apiClient";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
 export interface PlaylistsContainerProps {
   is2xlVersion?: boolean;
@@ -15,9 +15,9 @@ export function PlaylistsContainer({
   is2xlVersion,
   trail,
 }: PlaylistsContainerProps) {
-  const playlists = useQuery<PlaylistData[] | undefined>(
-    ["playlistsFromTrail", trail?.slug],
-    async () => {
+  const playlists = useQuery<PlaylistData[] | undefined>({
+    queryKey: ["playlistsFromTrail", trail?.slug],
+    queryFn: async () => {
       const response = await kaguyaApi.get<PlaylistData[]>(
         "/playlists/trail-list-all",
         {
@@ -29,11 +29,9 @@ export function PlaylistsContainer({
 
       return response.data;
     },
-    {
-      staleTime: 1000 * 60 * 10, // 60 minutes
-      enabled: !!trail,
-    }
-  );
+    staleTime: 1000 * 60 * 10,
+    enabled: !!trail,
+  });
 
   return (
     <>
