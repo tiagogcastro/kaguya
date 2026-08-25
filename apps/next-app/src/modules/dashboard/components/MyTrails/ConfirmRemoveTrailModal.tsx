@@ -36,9 +36,9 @@ export function ConfirmRemoveTrailModal({
         trail_id: trail.id,
       });
 
-      await queryClient.invalidateQueries("userTrails");
-      await queryClient.invalidateQueries("othersTrails");
-      await queryClient.invalidateQueries(["playlistsFromTrail", trail?.slug]);
+      await queryClient.invalidateQueries({ queryKey: ["userTrails"] });
+      await queryClient.invalidateQueries({ queryKey: ["othersTrails"] });
+      await queryClient.invalidateQueries({ queryKey: ["playlistsFromTrail", trail?.slug] });
 
       modal.onClose();
 

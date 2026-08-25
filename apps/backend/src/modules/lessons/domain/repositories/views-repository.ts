@@ -1,6 +1,6 @@
-import { CreateViewDTO } from '@modules/users/dtos/create-view-dto';
-import { FindOneViewFromUserLessonDTO } from '@modules/users/dtos/find-one-view-from-user-lesson-dto';
-import { AsyncMaybe } from '@shared/types/app';
+import { CreateViewDTO } from '@/modules/users/dtos/create-view-dto';
+import { FindOneViewFromUserLessonDTO } from '@/modules/users/dtos/find-one-view-from-user-lesson-dto';
+import { AsyncMaybe } from '@/shared/types/app';
 import { IView } from '../entities/iview';
 
 interface IViewsRepository {

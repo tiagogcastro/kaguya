@@ -81,17 +81,6 @@ export function UserAvatarModal({ modal }: UserAvatarModalProps) {
 
       modal.onClose();
     } catch (error: any) {
-      if (error instanceof Error) {
-        return toast({
-          title: "Erro na atualização do avatar",
-          description: error?.message,
-          status: "error",
-          duration: 6000,
-          isClosable: true,
-          position: "top-right",
-        });
-      }
-
       if (error instanceof AxiosError) {
         const errors = apiError(error);
 
@@ -104,6 +93,19 @@ export function UserAvatarModal({ modal }: UserAvatarModalProps) {
             isClosable: true,
             position: "top-right",
           });
+        });
+
+        return;
+      }
+
+      if (error instanceof Error) {
+        return toast({
+          title: "Erro na atualização do avatar",
+          description: error?.message,
+          status: "error",
+          duration: 6000,
+          isClosable: true,
+          position: "top-right",
         });
       }
     }

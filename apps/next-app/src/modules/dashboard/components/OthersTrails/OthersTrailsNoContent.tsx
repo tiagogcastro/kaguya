@@ -1,5 +1,5 @@
 import { Flex, Text, useMediaQuery } from '@chakra-ui/react';
-import Lordicon from '../../../../components/ReactLordicon';
+import Lordicon from '@/components/ReactLordicon';
 
 export function OthersTrailsNoContent() {
   const [isLargerThan1536] = useMediaQuery('(min-width: 1536px)');

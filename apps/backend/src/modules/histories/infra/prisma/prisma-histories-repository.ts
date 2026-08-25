@@ -1,11 +1,11 @@
-import { IHistory } from '@modules/histories/domain/entities/ihistory';
-import { IHistoriesRepository } from '@modules/histories/domain/repositories/histories-repository';
-import { CreateHistoryDTO } from '@modules/histories/dtos/create-history-dto';
-import { FindAllHistoriesFromUserDTO } from '@modules/histories/dtos/find-all-histories-from-user-dto';
-import { FindUserLessonHistoryDTO } from '@modules/histories/dtos/find-user-lesson-history-dto';
-import { FiltersDTO } from '@modules/trails/domain/repositories/trails-repository';
-import { prisma } from '@shared/infra/prisma/connection';
-import { AsyncMaybe } from '@shared/types/app';
+import { IHistory } from '@/modules/histories/domain/entities/ihistory';
+import { IHistoriesRepository } from '@/modules/histories/domain/repositories/histories-repository';
+import { CreateHistoryDTO } from '@/modules/histories/dtos/create-history-dto';
+import { FindAllHistoriesFromUserDTO } from '@/modules/histories/dtos/find-all-histories-from-user-dto';
+import { FindUserLessonHistoryDTO } from '@/modules/histories/dtos/find-user-lesson-history-dto';
+import { FiltersDTO } from '@/modules/trails/domain/repositories/trails-repository';
+import { prisma } from '@/shared/infra/prisma/connection';
+import { AsyncMaybe } from '@/shared/types/app';
 import crypto from 'crypto';
 
 class PrismaHistoriesRepository implements IHistoriesRepository {

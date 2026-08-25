@@ -1,8 +1,9 @@
-import { storageConfig } from '@config/storage';
-import { UpdateUserAvatarController } from '@modules/trails/infra/http/controllers/update-user-avatar-controller';
-import { celebrate, Joi, Segments } from 'celebrate';
+import { storageConfig } from '@/config/storage';
+import { validate } from '@/shared/infra/http/middlewares/validate';
+import { UpdateUserAvatarController } from '../controllers/update-user-avatar-controller';
 import { Router } from 'express';
 import multer from 'multer';
+import { z } from 'zod';
 import { CreateUserController } from '../controllers/create-user-controller';
 import { DisableUserController } from '../controllers/disable-user-controller';
 import { ListTheUsersAssociatedWithTheTrailController } from '../controllers/list-the-users-associated-with-the-trail-controller';
@@ -23,50 +24,38 @@ const disableUserController = new DisableUserController();
 const removeUserController = new RemoveUserController();
 
 const updateUserController = new UpdateUserController();
+
 usersRouter.post(
   '/',
-  celebrate({
-    [Segments.BODY]: {
-      email: Joi.string().email().max(100).required(),
-      username: Joi.string().min(2).max(100).required(),
-      password: Joi.string().min(8).max(100).required(),
-    },
+  validate({
+    body: z.object({
+      email: z.email().max(100),
+      username: z.string().min(2).max(100),
+      password: z.string().min(8).max(100),
+    }),
   }),
   createUserController.handle,
 );
 
 usersRouter.post('/tokens/validate-token', validateTokenController.handle);
+
 usersRouter.get(
   '/list-all-users-associated-with-trail',
   ensureAuthenticated,
-  celebrate({
-    [Segments.QUERY]: {
-      skip: Joi.number(),
-      take: Joi.number(),
-      order: Joi.string().regex(/(asc|desc)/),
-      trail_id: Joi.string().uuid().required(),
-    },
+  validate({
+    query: z.object({
+      skip: z.coerce.number().int().nonnegative().optional(),
+      take: z.coerce.number().int().positive().optional(),
+      order: z.enum(['asc', 'desc']).optional(),
+      trail_id: z.uuid(),
+    }),
   }),
   listTheUsersAssociatedWithTheTrailController.handle,
 );
 
-usersRouter.patch(
-  '/disable',
-  ensureAuthenticated,
-  celebrate({
-    [Segments.BODY]: {},
-  }),
-  disableUserController.handle,
-);
+usersRouter.patch('/disable', ensureAuthenticated, disableUserController.handle);
 
-usersRouter.delete(
-  '/remove',
-  ensureAuthenticated,
-  celebrate({
-    [Segments.BODY]: {},
-  }),
-  removeUserController.handle,
-);
+usersRouter.delete('/remove', ensureAuthenticated, removeUserController.handle);
 
 usersRouter.patch(
   '/avatar',
@@ -78,12 +67,14 @@ usersRouter.patch(
 usersRouter.put(
   '/update-user',
   ensureAuthenticated,
-  celebrate({
-    [Segments.BODY]: {
-      name: Joi.string().min(2).max(100),
-      username: Joi.string().min(2).max(100),
-      password: Joi.alternatives(['', Joi.string().min(8).max(100)]),
-    },
+  validate({
+    body: z.object({
+      name: z.string().min(2).max(100).optional(),
+      username: z.string().min(2).max(100).optional(),
+      password: z
+        .union([z.literal(''), z.string().min(8).max(100)])
+        .optional(),
+    }),
   }),
   updateUserController.handle,
 );

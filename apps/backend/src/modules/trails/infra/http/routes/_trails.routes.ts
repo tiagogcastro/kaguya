@@ -1,10 +1,11 @@
-import { slugRegEx } from '@config/reg-ex';
-import { storageConfig } from '@config/storage';
-import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensure-authenticated';
-import ensureSubAdministrator from '@modules/users/infra/http/middlewares/ensure-sub-administrator';
-import { celebrate, Joi, Segments } from 'celebrate';
+import { slugRegEx } from '@/config/reg-ex';
+import { storageConfig } from '@/config/storage';
+import ensureAuthenticated from '@/modules/users/infra/http/middlewares/ensure-authenticated';
+import ensureSubAdministrator from '@/modules/users/infra/http/middlewares/ensure-sub-administrator';
+import { validate } from '@/shared/infra/http/middlewares/validate';
 import { Router } from 'express';
 import multer from 'multer';
+import { z } from 'zod';
 import { CreateTrailController } from '../controllers/create-trail-controller';
 import { DestroyTrailController } from '../controllers/destroy-trail-controller';
 import { UpdateTrailAvatarController } from '../controllers/update-trail-avatar-controller';
@@ -23,12 +24,12 @@ _trailsRouter.post(
   '/trails',
   ensureAuthenticated,
   ensureSubAdministrator,
-  celebrate({
-    [Segments.BODY]: {
-      name: Joi.string().max(100).required(),
-      slug: Joi.string().regex(slugRegEx).required(),
-      description: Joi.string().max(1000).required(),
-    },
+  validate({
+    body: z.object({
+      name: z.string().max(100),
+      slug: z.string().regex(slugRegEx),
+      description: z.string().max(1000),
+    }),
   }),
   createTrailController.handle,
 );
@@ -37,10 +38,10 @@ _trailsRouter.delete(
   '/trails',
   ensureAuthenticated,
   ensureSubAdministrator,
-  celebrate({
-    [Segments.QUERY]: {
-      trail_id: Joi.string().uuid().required(),
-    },
+  validate({
+    query: z.object({
+      trail_id: z.uuid(),
+    }),
   }),
   destroyTrailController.handle,
 );
@@ -49,13 +50,13 @@ _trailsRouter.put(
   '/trails',
   ensureAuthenticated,
   ensureSubAdministrator,
-  celebrate({
-    [Segments.BODY]: {
-      trail_id: Joi.string().uuid().required(),
-      name: Joi.string().max(100),
-      slug: Joi.string().regex(slugRegEx),
-      description: Joi.string().max(1000),
-    },
+  validate({
+    body: z.object({
+      trail_id: z.uuid(),
+      name: z.string().max(100).optional(),
+      slug: z.string().regex(slugRegEx).optional(),
+      description: z.string().max(1000).optional(),
+    }),
   }),
   updateTrailController.handle,
 );

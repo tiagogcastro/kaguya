@@ -1,4 +1,4 @@
-import { CreateHistoryService } from '@modules/histories/services/create-history-service';
+import { CreateHistoryService } from '@/modules/histories/services/create-history-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

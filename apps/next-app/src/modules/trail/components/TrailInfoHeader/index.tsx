@@ -5,10 +5,10 @@ import {
   useToken,
 } from "@chakra-ui/react";
 
-import { AddRemoveTrailButton } from "./AddRemoveTrailButton";
+import { AddRemoveTrailButton } from "@/modules/trail/components/TrailInfoHeader/AddRemoveTrailButton";
 import { TrailData } from "@/services/kaguya/types";
-import { TrailDescription } from "../TrailDescription";
-import { TrailTitle } from "./TrailTitle";
+import { TrailDescription } from "@/modules/trail/components/TrailDescription";
+import { TrailTitle } from "@/modules/trail/components/TrailInfoHeader/TrailTitle";
 
 interface TrailInfoHeaderProps {
   trail: TrailData | undefined;

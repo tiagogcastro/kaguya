@@ -1,7 +1,7 @@
-import { ILessonsRepository } from '@modules/lessons/domain/repositories/lessons-repository';
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { inject, injectable } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
+import { ILessonsRepository } from '@/modules/lessons/domain/repositories/lessons-repository';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { inject, injectable } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
 import { IHistory } from '../domain/entities/ihistory';
 import { IHistoriesRepository } from '../domain/repositories/histories-repository';
 import { CreateHistoryRequestDTO } from '../dtos/create-history-request-dto';

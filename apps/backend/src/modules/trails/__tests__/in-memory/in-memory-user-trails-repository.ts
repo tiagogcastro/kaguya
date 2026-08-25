@@ -1,10 +1,10 @@
-import { IUserTrail } from '@modules/trails/domain/entities/iuser-trail';
-import { IUserTrailsRepository } from '@modules/trails/domain/repositories/user-trails-repository';
-import { FindAllUserTrailsDTO } from '@modules/trails/dtos/find-all-user-trails-dto';
-import { CreateUserTrailDTO } from '@modules/trails/dtos/create-user-trail-dto';
-import { FindUserTrailDTO } from '@modules/trails/dtos/find-user-trail-dto';
-import { UserTrail } from '@modules/trails/entities/user-trail';
-import { AsyncMaybe } from '@shared/types/app';
+import { IUserTrail } from '@/modules/trails/domain/entities/iuser-trail';
+import { IUserTrailsRepository } from '@/modules/trails/domain/repositories/user-trails-repository';
+import { FindAllUserTrailsDTO } from '@/modules/trails/dtos/find-all-user-trails-dto';
+import { CreateUserTrailDTO } from '@/modules/trails/dtos/create-user-trail-dto';
+import { FindUserTrailDTO } from '@/modules/trails/dtos/find-user-trail-dto';
+import { UserTrail } from '@/modules/trails/entities/user-trail';
+import { AsyncMaybe } from '@/shared/types/app';
 
 export class InMemoryUserTrailsRepository implements IUserTrailsRepository {
   private userTrails: IUserTrail[] = [];

@@ -1,7 +1,7 @@
-import { ILessonsRepository } from '@modules/lessons/domain/repositories/lessons-repository';
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { injectable, inject } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
+import { ILessonsRepository } from '@/modules/lessons/domain/repositories/lessons-repository';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { injectable, inject } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
 import { IDislikesRepository } from '../domain/repositories/dislikes-repository';
 import { ILikesRepository } from '../domain/repositories/likes-repository';
 import { MarkAsLikeOrDislikeRequestDTO } from '../dtos/mark-as-like-or-dislike-request-dto';

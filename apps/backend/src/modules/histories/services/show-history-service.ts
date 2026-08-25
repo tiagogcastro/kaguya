@@ -1,13 +1,13 @@
-import { IBlock } from '@modules/blocks/domain/entities/iblock';
-import { IBlocksRepository } from '@modules/blocks/domain/repositories/blocks-repository';
-import { ILesson } from '@modules/lessons/domain/entities/ilesson';
-import { ILessonsRepository } from '@modules/lessons/domain/repositories/lessons-repository';
-import { IPlaylist } from '@modules/playlists/domain/entities/iplaylist';
-import { IPlaylistsRepository } from '@modules/playlists/domain/repositories/playlists-repository';
-import { ITrail } from '@modules/trails/domain/entities/itrail';
-import { ITrailsRepository } from '@modules/trails/domain/repositories/trails-repository';
-import { inject, injectable } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
+import { IBlock } from '@/modules/blocks/domain/entities/iblock';
+import { IBlocksRepository } from '@/modules/blocks/domain/repositories/blocks-repository';
+import { ILesson } from '@/modules/lessons/domain/entities/ilesson';
+import { ILessonsRepository } from '@/modules/lessons/domain/repositories/lessons-repository';
+import { IPlaylist } from '@/modules/playlists/domain/entities/iplaylist';
+import { IPlaylistsRepository } from '@/modules/playlists/domain/repositories/playlists-repository';
+import { ITrail } from '@/modules/trails/domain/entities/itrail';
+import { ITrailsRepository } from '@/modules/trails/domain/repositories/trails-repository';
+import { inject, injectable } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
 import { IHistoriesRepository } from '../domain/repositories/histories-repository';
 import { ShowHistoryRequestDTO } from '../dtos/show-history-request-dto';
 import { History } from '../entities/history';
@@ -124,7 +124,7 @@ export class ShowHistoryService {
     if (history_id) {
       const history = await this.historiesRepository.findById(history_id);
 
-      if (history) {
+      if (history && history.user_id === user_id) {
         const { playlist, trail } = await this.getLessonParents(
           history.lesson_id,
         );

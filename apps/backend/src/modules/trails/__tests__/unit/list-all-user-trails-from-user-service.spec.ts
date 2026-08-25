@@ -1,5 +1,5 @@
-import { ListAllUserTrailsFromUserService } from '@modules/trails/services/list-all-user-trails-from-user-service';
-import { InMemoryUsersRepository } from '@modules/users/__tests__/in-memory/in-memory-users-repository';
+import { ListAllUserTrailsFromUserService } from '@/modules/trails/services/list-all-user-trails-from-user-service';
+import { InMemoryUsersRepository } from '@/modules/users/__tests__/in-memory/in-memory-users-repository';
 import { InMemoryTrailsRepository } from '../in-memory/in-memory-trails-repository';
 import { InMemoryUserTrailsRepository } from '../in-memory/in-memory-user-trails-repository';
 

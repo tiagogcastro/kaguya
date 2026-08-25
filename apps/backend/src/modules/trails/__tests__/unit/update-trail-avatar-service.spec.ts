@@ -1,6 +1,6 @@
-import { UpdateTrailAvatarService } from '@modules/trails/services/update-trail-avatar-service';
-import { AppError } from '@shared/errors/app-error';
-import { InMemoryStorageProvider } from '@shared/providers/storage-provider/in-memory/in-memory-storage-provider';
+import { UpdateTrailAvatarService } from '@/modules/trails/services/update-trail-avatar-service';
+import { AppError } from '@/shared/errors/app-error';
+import { InMemoryStorageProvider } from '@/shared/providers/storage-provider/in-memory/in-memory-storage-provider';
 import { InMemoryTrailsRepository } from '../in-memory/in-memory-trails-repository';
 
 let inMemoryTrailsRepository: InMemoryTrailsRepository;

@@ -1,5 +1,5 @@
-import { UpdateTrailService } from '@modules/trails/services/update-trail-service';
-import { instanceToInstance } from '@shared/helpers/instance-to-instance';
+import { UpdateTrailService } from '@/modules/trails/services/update-trail-service';
+import { instanceToInstance } from '@/shared/helpers/instance-to-instance';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

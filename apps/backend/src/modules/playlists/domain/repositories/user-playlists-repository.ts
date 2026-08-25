@@ -1,7 +1,7 @@
-import { CreateUserPlaylistDTO } from '@modules/playlists/dtos/create-user-playlist-dto';
-import { FindAllUserPlaylistsFromTrailDTO } from '@modules/playlists/dtos/find-all-user-playlists-from-trail-dto';
-import { FindOneDTO } from '@modules/playlists/dtos/find-one-dto';
-import { AsyncMaybe } from '@shared/types/app';
+import { CreateUserPlaylistDTO } from '@/modules/playlists/dtos/create-user-playlist-dto';
+import { FindAllUserPlaylistsFromTrailDTO } from '@/modules/playlists/dtos/find-all-user-playlists-from-trail-dto';
+import { FindOneDTO } from '@/modules/playlists/dtos/find-one-dto';
+import { AsyncMaybe } from '@/shared/types/app';
 import { IUserPlaylist } from '../entities/iuser-playlist';
 
 export type FindUserPlaylistDTO = { trail_id: string } & FindOneDTO;

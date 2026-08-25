@@ -1,5 +1,5 @@
 import { Flex, HStack, Image, Text } from "@chakra-ui/react";
-import { UserHistoryShow } from "./index";
+import { UserHistoryShow } from "@/modules/dashboard/components/LessonHistory/index";
 
 interface UserHistoryInfoProps {
   info: UserHistoryShow | undefined;

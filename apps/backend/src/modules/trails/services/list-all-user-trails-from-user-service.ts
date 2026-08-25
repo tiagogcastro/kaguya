@@ -1,6 +1,6 @@
-import { IBlock } from '@modules/blocks/domain/entities/iblock';
-import { IUser } from '@modules/users/domain/entities/iuser';
-import { inject, injectable } from '@shared/container';
+import { IBlock } from '@/modules/blocks/domain/entities/iblock';
+import { IUser } from '@/modules/users/domain/entities/iuser';
+import { inject, injectable } from '@/shared/container';
 import { ITrail } from '../domain/entities/itrail';
 import { IUserTrailsRepository } from '../domain/repositories/user-trails-repository';
 import { ListAllUserTrailsFromUserRequestDTO } from '../dtos/list-all-user-trails-from-user-request-dto';

@@ -1,5 +1,5 @@
-import { AppError } from '@shared/errors/app-error';
-import { prisma } from '@shared/infra/prisma/connection';
+import { AppError } from '@/shared/errors/app-error';
+import { prisma } from '@/shared/infra/prisma/connection';
 import { NextFunction, Request, Response } from 'express';
 
 export default async function ensureSubAdministrator(

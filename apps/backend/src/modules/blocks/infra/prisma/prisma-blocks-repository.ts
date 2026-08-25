@@ -1,15 +1,15 @@
 import crypto from 'crypto';
-import { IBlock } from '@modules/blocks/domain/entities/iblock';
+import { IBlock } from '@/modules/blocks/domain/entities/iblock';
 import {
   IBlocksRepository,
   Relationship,
-} from '@modules/blocks/domain/repositories/blocks-repository';
-import { CreateBlockDTO } from '@modules/blocks/dtos/create-block-dto';
-import { prisma } from '@shared/infra/prisma/connection';
-import { AsyncMaybe } from '@shared/types/app';
-import { FindByNameDTO } from '@modules/blocks/dtos/find-by-name-dto';
-import { FindAllBlocksFromPlaylistDTO } from '@modules/blocks/dtos/find-all-blocks-from-playlist-dto';
-import { FindBySlugDTO } from '@modules/blocks/dtos/find-by-slug-dto';
+} from '@/modules/blocks/domain/repositories/blocks-repository';
+import { CreateBlockDTO } from '@/modules/blocks/dtos/create-block-dto';
+import { prisma } from '@/shared/infra/prisma/connection';
+import { AsyncMaybe } from '@/shared/types/app';
+import { FindByNameDTO } from '@/modules/blocks/dtos/find-by-name-dto';
+import { FindAllBlocksFromPlaylistDTO } from '@/modules/blocks/dtos/find-all-blocks-from-playlist-dto';
+import { FindBySlugDTO } from '@/modules/blocks/dtos/find-by-slug-dto';
 
 class PrismaBlocksRepository implements IBlocksRepository {
   async findBySlug(

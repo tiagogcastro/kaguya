@@ -1,6 +1,7 @@
-import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensure-authenticated';
-import { celebrate, Joi, Segments } from 'celebrate';
+import ensureAuthenticated from '@/modules/users/infra/http/middlewares/ensure-authenticated';
+import { validate } from '@/shared/infra/http/middlewares/validate';
 import { Router } from 'express';
+import { z } from 'zod';
 import { ChangeUserTrailEnabledFieldController } from '../controllers/change-user-trail-enabled-field-controller';
 import { CreateUserTrailController } from '../controllers/create-user-trail-controller';
 import { ListAllUserTrailsFromUserController } from '../controllers/list-all-user-trails-from-user-controller';
@@ -19,45 +20,51 @@ userTrailsRouter.use(ensureAuthenticated);
 
 userTrailsRouter.post(
   '/',
-  celebrate({
-    [Segments.BODY]: {
-      trail_id: Joi.string().uuid().required(),
-    },
+  validate({
+    body: z.object({
+      trail_id: z.uuid(),
+    }),
   }),
   createUserTrailController.handle,
 );
 
 userTrailsRouter.patch(
   '/change-enabled',
-  ensureAuthenticated,
-  celebrate({
-    [Segments.BODY]: {
-      trail_id: Joi.string().uuid().required(),
-    },
+  validate({
+    body: z.object({
+      trail_id: z.uuid(),
+    }),
   }),
   changeUserTrailEnabledFieldController.handle,
 );
 
 userTrailsRouter.get(
   '/list-all',
-  celebrate({
-    [Segments.QUERY]: {
-      user_id: Joi.string().uuid(),
-      order: Joi.string().regex(/^(asc|desc)$/),
-      skip: Joi.number(),
-      take: Joi.number(),
-      enabled: Joi.boolean().default(true),
-    },
+  validate({
+    query: z.object({
+      order: z.enum(['asc', 'desc']).optional(),
+      skip: z.coerce.number().int().nonnegative().optional(),
+      take: z.coerce.number().int().positive().optional(),
+      enabled: z.preprocess(
+        value => {
+          if (value === 'true') return true;
+          if (value === 'false') return false;
+
+          return value;
+        },
+        z.boolean().default(true),
+      ),
+    }),
   }),
   listAllUserTrailsFromUserController.handle,
 );
 
 userTrailsRouter.delete(
   '/',
-  celebrate({
-    [Segments.QUERY]: {
-      trail_id: Joi.string().uuid().required(),
-    },
+  validate({
+    query: z.object({
+      trail_id: z.uuid(),
+    }),
   }),
   removeUserTrailController.handle,
 );

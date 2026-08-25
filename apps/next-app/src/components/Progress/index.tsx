@@ -1,6 +1,6 @@
 import { Box, ChakraProps } from '@chakra-ui/react';
-import { CurrentProgress } from './CurrentProgress';
-import { FinalProgressIcon } from './FinalProgressIcon';
+import { CurrentProgress } from '@/components/Progress/CurrentProgress';
+import { FinalProgressIcon } from '@/components/Progress/FinalProgressIcon';
 
 interface ProgressProps extends ChakraProps {
   percent: number;

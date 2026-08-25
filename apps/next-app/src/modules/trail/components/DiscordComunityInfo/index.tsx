@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
-import { DiscordButtonToAccess } from './ButtonToAccess';
-import { DiscordComunityDescription } from './Description';
-import { DiscordComunityTitle } from './Title';
+import { DiscordButtonToAccess } from '@/modules/trail/components/DiscordComunityInfo/ButtonToAccess';
+import { DiscordComunityDescription } from '@/modules/trail/components/DiscordComunityInfo/Description';
+import { DiscordComunityTitle } from '@/modules/trail/components/DiscordComunityInfo/Title';
 
 export function DiscordComunityInfo() {
   return (

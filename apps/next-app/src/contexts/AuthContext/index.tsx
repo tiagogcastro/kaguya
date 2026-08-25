@@ -4,15 +4,17 @@ import {
   SignInCredentials,
   SignInResponse,
   User,
-} from "./types";
+} from "@/contexts/AuthContext/types";
 import { createContext, useEffect, useState } from "react";
 import { destroyCookie, parseCookies, setCookie } from "nookies";
+import { signOut as firebaseSignOut } from "firebase/auth";
 
 import Router from "next/router";
-import { apiError } from "utils/apiFormatError";
-import { kaguyaApi } from "services/kaguya/apiClient";
+import { apiError } from "@/utils/apiFormatError";
+import { kaguyaApi } from "@/services/kaguya/apiClient";
 import { tokenCookieKey } from "@/services/kaguya/api";
 import { useToast } from "@chakra-ui/react";
+import { getFirebaseAuth } from "@/config/firebase";
 import { AxiosResponse } from "axios";
 
 type AuthContextData = {
@@ -20,6 +22,7 @@ type AuthContextData = {
   signUp(data: RegisterUserCredentials): Promise<void>;
   setUser(fn: User | null | ((user: User | null) => User | null)): void;
   isAuthenticated: boolean;
+  isStaff: boolean;
   user: User | null;
 };
 
@@ -32,6 +35,12 @@ export const AuthContext = createContext({} as AuthContextData);
 export function signOut() {
   destroyCookie(undefined, tokenCookieKey);
 
+  delete kaguyaApi.defaults.headers.common["Authorization"];
+
+  try {
+    firebaseSignOut(getFirebaseAuth()).catch(() => {});
+  } catch {}
+
   Router.push("/login");
 }
 
@@ -41,6 +50,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
 
   const isAuthenticated = !!user;
+
+  const isStaff =
+    !!user?.user_roles?.some(userRole => userRole.role.permission <= 1);
 
   async function getUser() {
     try {
@@ -64,13 +76,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
   async function signIn({ email, password, access_token }: SignInCredentials) {
     try {
       let responseData: SignInResponse
-      
+
       if(access_token) {
-        const { data: { data }} = await kaguyaApi.post("/sessions/auth-provider", {
+        const { data } = await kaguyaApi.post<SignInResponse>("/sessions/auth-provider", {
           access_token
         });
 
-        responseData = data as SignInResponse
+        responseData = data
       } else {
         const { data } = await kaguyaApi.post<SignInResponse>("/sessions", {
           email,
@@ -173,6 +185,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         value={{
           user,
           isAuthenticated,
+          isStaff,
           signIn,
           signUp,
 

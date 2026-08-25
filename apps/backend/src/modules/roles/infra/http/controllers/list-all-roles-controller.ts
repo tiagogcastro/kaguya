@@ -1,4 +1,4 @@
-import { ListAllRolesService } from '@modules/roles/services/list-all-roles-service';
+import { ListAllRolesService } from '@/modules/roles/services/list-all-roles-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

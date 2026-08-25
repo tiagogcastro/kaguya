@@ -1,4 +1,4 @@
-import { ShowBlockService } from '@modules/blocks/services/show-block-service';
+import { ShowBlockService } from '@/modules/blocks/services/show-block-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

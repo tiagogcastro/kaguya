@@ -1,4 +1,5 @@
-import { Box, ChakraProps, keyframes, Text, useToken } from "@chakra-ui/react"
+import { Box, ChakraProps, Text, useToken } from "@chakra-ui/react";
+import { keyframes } from "@emotion/react";
 
 export type SquareLoadingProps = {} & ChakraProps
 

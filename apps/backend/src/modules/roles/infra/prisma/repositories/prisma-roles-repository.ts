@@ -1,9 +1,9 @@
-import { IRole } from '@modules/roles/domain/entities/irole';
-import { IRolesRepository } from '@modules/roles/domain/repositories/roles-repository';
-import { CreateRoleDTO } from '@modules/roles/dtos/create-role-dto';
-import { FiltersDTO } from '@modules/trails/domain/repositories/trails-repository';
-import { prisma } from '@shared/infra/prisma/connection';
-import { AsyncMaybe } from '@shared/types/app';
+import { IRole } from '@/modules/roles/domain/entities/irole';
+import { IRolesRepository } from '@/modules/roles/domain/repositories/roles-repository';
+import { CreateRoleDTO } from '@/modules/roles/dtos/create-role-dto';
+import { FiltersDTO } from '@/modules/trails/domain/repositories/trails-repository';
+import { prisma } from '@/shared/infra/prisma/connection';
+import { AsyncMaybe } from '@/shared/types/app';
 import crypto from 'crypto';
 
 export class PrismaRolesRepository implements IRolesRepository {

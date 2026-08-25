@@ -3,15 +3,15 @@ import {
   CircularProgress,
   Grid,
   Heading,
-  keyframes,
 } from "@chakra-ui/react";
+import { keyframes } from "@emotion/react";
 
-import { MyTrailsNoContent } from "./MyTrailsNoContent";
-import { Trail } from "./Trail";
+import { MyTrailsNoContent } from "@/modules/dashboard/components/MyTrails/MyTrailsNoContent";
+import { Trail } from "@/modules/dashboard/components/MyTrails/Trail";
 import { TrailData } from "@/services/kaguya/types";
 import { kaguyaApi } from "@/services/kaguya/apiClient";
 import { useAuth } from "@/hooks/useAuth";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
 const animate = keyframes`
   from {  
@@ -27,9 +27,9 @@ const animate = keyframes`
 export function MyTrails() {
   const { user } = useAuth();
 
-  const { data, isFetching } = useQuery<TrailData[]>(
-    "userTrails",
-    async () => {
+  const { data, isFetching } = useQuery<TrailData[]>({
+    queryKey: ["userTrails"],
+    queryFn: async () => {
       const response = await kaguyaApi.get<TrailData[]>(
         "/user-trails/list-all",
         {
@@ -42,8 +42,7 @@ export function MyTrails() {
 
       return response.data;
     },
-    {}
-  );
+  });
 
   return (
     <>

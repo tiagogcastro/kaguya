@@ -20,24 +20,9 @@
     "incremental": true,
     "baseUrl": "./src/",
     "paths": {
-      "@/components/*": [
-        "components/*"
-      ],
-      "@/hooks/*": [
-        "hooks/*"
-      ],
-      "@/contexts/*": [
-        "contexts/*"
-      ],
-      "@/utils/*": [
-        "utils/*"
-      ],
-      "@/services/*": [
-        "services/*"
-      ],
-      "@/modules/*": [
-        "modules/*"
-      ],
+      "@/*": [
+        "*"
+      ]
     }
   },
   "include": [

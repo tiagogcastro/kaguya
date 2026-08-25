@@ -1,8 +1,8 @@
-import { storageConfig } from '@config/storage';
-import { AppError } from '@shared/errors/app-error';
+import { storageConfig } from '@/config/storage';
+import { AppError } from '@/shared/errors/app-error';
 import { S3 } from '@aws-sdk/client-s3';
 import fs from 'fs';
-import mime from 'mime';
+import { contentType } from 'mime-types';
 import path from 'path';
 import { IStorageProvider } from '../models/storage-provider';
 
@@ -41,7 +41,7 @@ export class S3StorageProvider implements IStorageProvider {
 
     const fileContent = await fs.promises.readFile(originalPath);
     /** return: image/png */
-    const ContentType = mime.getType(originalPath);
+    const ContentType = contentType(originalPath);
 
     if (!ContentType) throw new AppError('File not found.');
 

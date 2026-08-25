@@ -1,5 +1,5 @@
 import { Flex, useToken } from '@chakra-ui/react';
-import Lordicon from '../ReactLordicon';
+import Lordicon from '@/components/ReactLordicon';
 
 export interface FinalProgressIconProps {
   percentage: number;
@@ -13,7 +13,7 @@ export function FinalProgressIcon({
     ['pink.500'],
   );
 
-  if(percentage < 80) {
+  if(percentage >= 80) {
     return (
       <>
         <Flex 

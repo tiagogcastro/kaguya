@@ -2,10 +2,10 @@ import { PlaylistData, TrailData } from "@/services/kaguya/types";
 
 import { Link as ChakraLink } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { PlaylistDescription } from "./Description";
-import { PlaylistIndex } from "./PlaylistIndex";
-import { PlaylistTitle } from "./Title";
-import { Progress } from "../../../../../components/Progress";
+import { PlaylistDescription } from "@/modules/trail/components/Playlists/PlaylistItem/Description";
+import { PlaylistIndex } from "@/modules/trail/components/Playlists/PlaylistItem/PlaylistIndex";
+import { PlaylistTitle } from "@/modules/trail/components/Playlists/PlaylistItem/Title";
+import { Progress } from "@/components/Progress";
 
 interface PlaylistItemProps {
   playlist: PlaylistData;

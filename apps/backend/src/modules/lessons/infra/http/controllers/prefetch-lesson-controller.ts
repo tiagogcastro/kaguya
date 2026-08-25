@@ -1,4 +1,4 @@
-import { PrefetchLessonService } from '@modules/lessons/services/prefetch-lesson-service';
+import { PrefetchLessonService } from '@/modules/lessons/services/prefetch-lesson-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

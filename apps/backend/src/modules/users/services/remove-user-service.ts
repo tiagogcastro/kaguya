@@ -1,5 +1,5 @@
-import { inject, injectable } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
+import { inject, injectable } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
 import { IUsersRepository } from '../domain/repositories/users-repository';
 
 type RemoveUserRequestDTO = {

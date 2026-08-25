@@ -1,5 +1,5 @@
-import { IBlock } from '@modules/blocks/domain/entities/iblock';
-import { ILesson } from '@modules/lessons/domain/entities/ilesson';
+import { IBlock } from '@/modules/blocks/domain/entities/iblock';
+import { ILesson } from '@/modules/lessons/domain/entities/ilesson';
 import crypto from 'crypto';
 import { IUserLesson } from '../domain/entities/iuser-lesson';
 

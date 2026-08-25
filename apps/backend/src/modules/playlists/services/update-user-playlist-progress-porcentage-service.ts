@@ -1,6 +1,6 @@
-import { IUserBlocksRepository } from '@modules/blocks/domain/repositories/user-blocks-repository';
-import { inject, injectable } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
+import { IUserBlocksRepository } from '@/modules/blocks/domain/repositories/user-blocks-repository';
+import { inject, injectable } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
 import { IUserPlaylist } from '../domain/entities/iuser-playlist';
 import { IUserPlaylistsRepository } from '../domain/repositories/user-playlists-repository';
 import { UpdateUserPlaylistProgressPorcentageRequestDTO } from '../dtos/update-user-playlist-progress-porcentage-request-dto';

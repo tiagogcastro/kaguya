@@ -1,7 +1,7 @@
-import { ShowUserProfileService } from '@modules/users/services/show-user-profile-service';
-import { AppError } from '@shared/errors/app-error';
+import { ShowUserProfileService } from '@/modules/users/services/show-user-profile-service';
+import { AppError } from '@/shared/errors/app-error';
 
-import { InMemoryRolesRepository } from '@modules/roles/__tests__/in-memory/in-memory-roles-repository';
+import { InMemoryRolesRepository } from '@/modules/roles/__tests__/in-memory/in-memory-roles-repository';
 import { InMemoryUsersRepository } from '../in-memory/in-memory-users-repository';
 import { InMemoryUserRolesRepository } from '../in-memory/in-memory-user-roles-repository';
 

@@ -1,7 +1,7 @@
-import { IPlaylistsRepository } from '@modules/playlists/domain/repositories/playlists-repository';
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { inject, injectable } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
+import { IPlaylistsRepository } from '@/modules/playlists/domain/repositories/playlists-repository';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { inject, injectable } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
 import { IBlock } from '../domain/entities/iblock';
 import { IBlocksRepository } from '../domain/repositories/blocks-repository';
 import { IUserBlocksRepository } from '../domain/repositories/user-blocks-repository';

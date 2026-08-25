@@ -1,5 +1,5 @@
-import { ListAllUserPlaylistsFromTrailService } from '@modules/playlists/services/list-all-user-playlists-from-trail-service';
-import { instanceToInstance } from '@shared/helpers/instance-to-instance';
+import { ListAllUserPlaylistsFromTrailService } from '@/modules/playlists/services/list-all-user-playlists-from-trail-service';
+import { instanceToInstance } from '@/shared/helpers/instance-to-instance';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

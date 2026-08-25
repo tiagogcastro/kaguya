@@ -1,7 +1,7 @@
-import { IRole } from '@modules/roles/domain/entities/irole';
-import { IRolesRepository } from '@modules/roles/domain/repositories/roles-repository';
-import { CreateRoleDTO } from '@modules/roles/dtos/create-role-dto';
-import { AsyncMaybe } from '@shared/types/app';
+import { IRole } from '@/modules/roles/domain/entities/irole';
+import { IRolesRepository } from '@/modules/roles/domain/repositories/roles-repository';
+import { CreateRoleDTO } from '@/modules/roles/dtos/create-role-dto';
+import { AsyncMaybe } from '@/shared/types/app';
 import crypto from 'crypto';
 import { Role } from '../../entities/Role';
 

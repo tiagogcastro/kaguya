@@ -1,10 +1,10 @@
 import { Box, useBreakpointValue } from "@chakra-ui/react";
 
-import { DiscordComunityInfo } from "../DiscordComunityInfo";
-import { DividerLine } from "../../../../components/DividerLine";
-import { OtherInfoFromTrailHeader } from "./Header";
+import { DiscordComunityInfo } from "@/modules/trail/components/DiscordComunityInfo";
+import { DividerLine } from "@/components/DividerLine";
+import { OtherInfoFromTrailHeader } from "@/modules/trail/components/OtherInfoFromTrail/Header";
 import { TrailData } from "@/services/kaguya/types";
-import { TrailStudentsCount } from "./TrailStudensCount";
+import { TrailStudentsCount } from "@/modules/trail/components/OtherInfoFromTrail/TrailStudensCount";
 
 export interface OtherTrailInfoProps {
   trail?: TrailData;

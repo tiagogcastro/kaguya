@@ -3,7 +3,7 @@ import {
   BreadcrumbItemProps as ChakraBreadCrumbItemProps,
 } from "@chakra-ui/react";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { BreadCrumbItem } from "./Item";
+import { BreadCrumbItem } from "@/components/BreadCrumb/Item";
 
 interface BreadCrumbItemData {
   link: string;

@@ -1,7 +1,7 @@
 import { Box, useToken } from '@chakra-ui/react';
 
-import { PercentageCircle } from './PercentageCircle';
-import { PercentageText } from './PercentageText';
+import { PercentageCircle } from '@/components/Progress/PercentageCircle';
+import { PercentageText } from '@/components/Progress/PercentageText';
 
 export interface CurrentProgressProps {
   percentage: number;

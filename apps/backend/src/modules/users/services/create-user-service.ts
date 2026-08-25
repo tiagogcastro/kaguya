@@ -1,6 +1,6 @@
-import { IRolesRepository } from '@modules/roles/domain/repositories/roles-repository';
-import { AppError } from '@shared/errors/app-error';
-import { inject, injectable } from '@shared/container';
+import { IRolesRepository } from '@/modules/roles/domain/repositories/roles-repository';
+import { AppError } from '@/shared/errors/app-error';
+import { inject, injectable } from '@/shared/container';
 import { IUser } from '../domain/entities/iuser';
 import { IUserRolesRepository } from '../domain/repositories/user-roles-repository';
 import { IUsersRepository } from '../domain/repositories/users-repository';

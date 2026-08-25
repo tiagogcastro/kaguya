@@ -1,8 +1,8 @@
 import { Flex, useMediaQuery } from "@chakra-ui/react";
 
 import { LessonData } from "@/services/kaguya/types";
-import { LessonVideoLikesDislikes } from "./LessonVideoLikesDislikes";
-import { LessonViewedCountFromVideo } from "./LessonViewedCountFromVideo";
+import { LessonVideoLikesDislikes } from "@/modules/playlist/components/LessonVideo/LessonVideoLikesDislikes";
+import { LessonViewedCountFromVideo } from "@/modules/playlist/components/LessonVideo/LessonViewedCountFromVideo";
 
 interface InfoAboutLessonVideoProps {
   lesson?: LessonData;

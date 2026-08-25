@@ -27,8 +27,8 @@ export function TrailMenu({ trail }: TrailMenuProps) {
         trail_id: trail.id,
       });
 
-      await queryClient.invalidateQueries("userTrails");
-      await queryClient.invalidateQueries("othersTrails");
+      await queryClient.invalidateQueries({ queryKey: ["userTrails"] });
+      await queryClient.invalidateQueries({ queryKey: ["othersTrails"] });
 
       toast({
         title: "Trilha adicionada",

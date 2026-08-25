@@ -1,5 +1,5 @@
-import { AppError } from '@shared/errors/app-error';
-import { inject, injectable } from '@shared/container';
+import { AppError } from '@/shared/errors/app-error';
+import { inject, injectable } from '@/shared/container';
 import { ITrail } from '../domain/entities/itrail';
 import { ITrailsRepository } from '../domain/repositories/trails-repository';
 import { UpdateTrailRequestDTO } from '../dtos/update-trail-request-dto';

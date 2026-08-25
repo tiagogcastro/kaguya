@@ -1,6 +1,6 @@
-import { UpdateUserBlockProgressPorcentageService } from '@modules/blocks/services/update-user-block-progress-porcentage-service';
-import { UpdateUserPlaylistProgressPorcentageService } from '@modules/playlists/services/update-user-playlist-progress-porcentage-service';
-import { UpdateUserTrailProgressPorcentageService } from '@modules/trails/services/update-user-trail-progress-porcentage-service';
+import { UpdateUserBlockProgressPorcentageService } from '@/modules/blocks/services/update-user-block-progress-porcentage-service';
+import { UpdateUserPlaylistProgressPorcentageService } from '@/modules/playlists/services/update-user-playlist-progress-porcentage-service';
+import { UpdateUserTrailProgressPorcentageService } from '@/modules/trails/services/update-user-trail-progress-porcentage-service';
 import { inject, injectable } from 'tsyringe';
 import { RefreshUserLessonProgressRequestDTO } from '../dtos/refresh-user-lesson-progress-request-dto';
 

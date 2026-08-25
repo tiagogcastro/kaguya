@@ -1,9 +1,9 @@
-import { IUserBlocksRepository } from '@modules/blocks/domain/repositories/user-blocks-repository';
-import { IUserLessonsRepository } from '@modules/lessons/domain/repositories/user-lessons-repository';
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { AppError } from '@shared/errors/app-error';
-import { inject, injectable } from '@shared/container';
-import { IUserPlaylistsRepository } from '@modules/playlists/domain/repositories/user-playlists-repository';
+import { IUserBlocksRepository } from '@/modules/blocks/domain/repositories/user-blocks-repository';
+import { IUserLessonsRepository } from '@/modules/lessons/domain/repositories/user-lessons-repository';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { AppError } from '@/shared/errors/app-error';
+import { inject, injectable } from '@/shared/container';
+import { IUserPlaylistsRepository } from '@/modules/playlists/domain/repositories/user-playlists-repository';
 import { ITrailsRepository } from '../domain/repositories/trails-repository';
 import { IUserTrailsRepository } from '../domain/repositories/user-trails-repository';
 import { DestroyUserTrailRequestDTO } from '../dtos/destroy-user-trail-request-dto';
@@ -57,28 +57,34 @@ export class RemoveUserTrailService {
         user_id,
       });
 
-    userPlaylists.map(async userPlaylist => {
-      await this.userPlaylistsRepository.removeById(userPlaylist.id);
+    await Promise.all(
+      userPlaylists.map(async userPlaylist => {
+        await this.userPlaylistsRepository.removeById(userPlaylist.id);
 
-      const userBlocks =
-        await this.userBlocksRepository.findAllUserBlocksFromPlaylist({
-          playlist_id: userPlaylist.playlist_id,
-          user_id,
-        });
-
-      userBlocks.map(async userBlock => {
-        await this.userBlocksRepository.removeById(userBlock.id);
-
-        const userLessons =
-          await this.userLessonsRepository.findAllUserLessonsFromBlock({
-            block_id: userBlock.block_id,
+        const userBlocks =
+          await this.userBlocksRepository.findAllUserBlocksFromPlaylist({
+            playlist_id: userPlaylist.playlist_id,
             user_id,
           });
 
-        userLessons.map(async userLesson => {
-          await this.userLessonsRepository.removeById(userLesson.id);
-        });
-      });
-    });
+        await Promise.all(
+          userBlocks.map(async userBlock => {
+            await this.userBlocksRepository.removeById(userBlock.id);
+
+            const userLessons =
+              await this.userLessonsRepository.findAllUserLessonsFromBlock({
+                block_id: userBlock.block_id,
+                user_id,
+              });
+
+            await Promise.all(
+              userLessons.map(async userLesson =>
+                this.userLessonsRepository.removeById(userLesson.id),
+              ),
+            );
+          }),
+        );
+      }),
+    );
   }
 }

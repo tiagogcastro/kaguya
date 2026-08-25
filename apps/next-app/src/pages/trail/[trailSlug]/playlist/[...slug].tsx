@@ -12,7 +12,7 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { Header } from "@/components/Header";
 import { kaguyaApi } from "@/services/kaguya/apiClient";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { useTrail } from "@/hooks/useTrail";
 import { withSSRAuth } from "@/utils/withSSRAuth";
@@ -32,9 +32,9 @@ export default function PlaylistPage() {
 
   const { setTrailData } = useTrail();
 
-  const trail = useQuery<TrailData | undefined>(
-    ["uniqueTrail", trailSlug],
-    async () => {
+  const trail = useQuery<TrailData | undefined>({
+    queryKey: ["uniqueTrail", trailSlug],
+    queryFn: async () => {
       try {
         const response = await kaguyaApi.get<TrailData>("/trails/show", {
           params: {
@@ -42,7 +42,7 @@ export default function PlaylistPage() {
           },
         });
 
-     
+
 
         setTrailData(response.data);
 
@@ -60,15 +60,13 @@ export default function PlaylistPage() {
         return;
       }
     },
-    {
-      staleTime: 1000 * 60 * 10, // 60 minutes
-      enabled: !!trailSlug,
-    }
-  );
+    staleTime: 1000 * 60 * 10,
+    enabled: !!trailSlug,
+  });
 
-  const playlist = useQuery<PlaylistData | undefined>(
-    ["uniquePlaylist", playlistSlug],
-    async () => {
+  const playlist = useQuery<PlaylistData | undefined>({
+    queryKey: ["uniquePlaylist", playlistSlug],
+    queryFn: async () => {
       const response = await kaguyaApi.get<PlaylistData>("/playlists/show", {
         params: {
           playlist_slug: playlistSlug,
@@ -78,15 +76,13 @@ export default function PlaylistPage() {
 
       return response.data;
     },
-    {
-      staleTime: 1000 * 60 * 10, // 60 minutes
-      enabled: !!trailSlug && !!playlistSlug,
-    }
-  );
+    staleTime: 1000 * 60 * 10,
+    enabled: !!trailSlug && !!playlistSlug,
+  });
 
-  const lesson = useQuery<LessonData>(
-    ["showLesson", lessonSlug],
-    async () => {
+  const lesson = useQuery<LessonData>({
+    queryKey: ["showLesson", lessonSlug],
+    queryFn: async () => {
       const response = await kaguyaApi.get<LessonData>("/lessons/show", {
         params: {
           block_slug: blockSlug,
@@ -96,20 +92,18 @@ export default function PlaylistPage() {
 
       return response.data;
     },
-    {
-      staleTime: 1000 * 60 * 10, // 60 minutes,
-      enabled: !!lessonSlug && !!blockSlug,
-    }
-  );
+    staleTime: 1000 * 60 * 10,
+    enabled: !!lessonSlug && !!blockSlug,
+  });
 
   const isFetching = playlist.isFetching || trail.isFetching;
   const isLoading =
     lesson.isLoading || playlist.isLoading || trail.isLoading || isFetching;
 
-  if (!isLoading && !lesson) {
+  if (!isLoading && !lesson.data) {
     router.push("/dashboard");
 
-    return;
+    return null;
   }
 
   return (

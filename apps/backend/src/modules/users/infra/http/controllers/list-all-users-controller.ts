@@ -1,5 +1,5 @@
-import { ListAllUsersService } from '@modules/users/services/list-all-users-service';
-import { instanceToInstance } from '@shared/helpers/instance-to-instance';
+import { ListAllUsersService } from '@/modules/users/services/list-all-users-service';
+import { instanceToInstance } from '@/shared/helpers/instance-to-instance';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

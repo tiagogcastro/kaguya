@@ -2,10 +2,10 @@ import { Quote } from '@/services/quotes';
 import { Flex, useBreakpointValue } from '@chakra-ui/react';
 import { useMemo } from 'react';
 
-import Lordicon from '../../../../components/ReactLordicon';
+import Lordicon from '@/components/ReactLordicon';
 
-import { Author } from './Author';
-import { Description } from './Description';
+import { Author } from '@/modules/trail/components/Quotes/Author';
+import { Description } from '@/modules/trail/components/Quotes/Description';
 
 
 type QuotesProps = {

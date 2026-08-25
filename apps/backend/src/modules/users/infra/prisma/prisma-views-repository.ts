@@ -1,10 +1,10 @@
 import crypto from 'crypto';
-import { prisma } from '@shared/infra/prisma/connection';
-import { IView } from '@modules/lessons/domain/entities/iview';
-import { IViewsRepository } from '@modules/lessons/domain/repositories/views-repository';
-import { CreateViewDTO } from '@modules/users/dtos/create-view-dto';
-import { FindOneViewFromUserLessonDTO } from '@modules/users/dtos/find-one-view-from-user-lesson-dto';
-import { AsyncMaybe } from '@shared/types/app';
+import { prisma } from '@/shared/infra/prisma/connection';
+import { IView } from '@/modules/lessons/domain/entities/iview';
+import { IViewsRepository } from '@/modules/lessons/domain/repositories/views-repository';
+import { CreateViewDTO } from '@/modules/users/dtos/create-view-dto';
+import { FindOneViewFromUserLessonDTO } from '@/modules/users/dtos/find-one-view-from-user-lesson-dto';
+import { AsyncMaybe } from '@/shared/types/app';
 
 class PrismaViewsRepository implements IViewsRepository {
   async create({ lesson_id, user_id }: CreateViewDTO): Promise<IView> {

@@ -4,7 +4,7 @@ import {
   Link as ChakraLink, Text, useToken
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import Lordicon from '../ReactLordicon';
+import Lordicon from '@/components/ReactLordicon';
 
 interface AppLogoProps {
   iconprops?: ChakraProps;

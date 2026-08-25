@@ -1,6 +1,6 @@
-import { IBlock } from '@modules/blocks/domain/entities/iblock';
-import { ILesson } from '@modules/lessons/domain/entities/ilesson';
-import { IPlaylist } from '@modules/playlists/domain/entities/iplaylist';
+import { IBlock } from '@/modules/blocks/domain/entities/iblock';
+import { ILesson } from '@/modules/lessons/domain/entities/ilesson';
+import { IPlaylist } from '@/modules/playlists/domain/entities/iplaylist';
 import crypto from 'crypto';
 import { IUserBlock } from '../domain/entities/iuser-block';
 

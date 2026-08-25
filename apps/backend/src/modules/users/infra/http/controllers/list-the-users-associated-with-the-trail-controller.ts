@@ -1,5 +1,5 @@
-import { ListTheUsersAssociatedWithTheTrailService } from '@modules/users/services/list-the-users-associated-with-the-trail-service';
-import { instanceToInstance } from '@shared/helpers/instance-to-instance';
+import { ListTheUsersAssociatedWithTheTrailService } from '@/modules/users/services/list-the-users-associated-with-the-trail-service';
+import { instanceToInstance } from '@/shared/helpers/instance-to-instance';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

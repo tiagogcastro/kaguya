@@ -1,4 +1,4 @@
-import { RemoveUserTrailService } from '@modules/trails/services/remove-user-trail-service';
+import { RemoveUserTrailService } from '@/modules/trails/services/remove-user-trail-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

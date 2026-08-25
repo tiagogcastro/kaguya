@@ -1,10 +1,10 @@
-import { RemoveUserTrailService } from '@modules/trails/services/remove-user-trail-service';
-import { AppError } from '@shared/errors/app-error';
-import { InMemoryUserPlaylistsRepository } from '@modules/playlists/__tests__/in-memory/in-memory-user-playlists-repository';
+import { RemoveUserTrailService } from '@/modules/trails/services/remove-user-trail-service';
+import { AppError } from '@/shared/errors/app-error';
+import { InMemoryUserPlaylistsRepository } from '@/modules/playlists/__tests__/in-memory/in-memory-user-playlists-repository';
 
-import { InMemoryUserLessonsRepository } from '@modules/lessons/__tests__/in-memory/in-memory-user-lessons-repository';
-import { InMemoryUserBlocksRepository } from '@modules/blocks/__tests__/in-memory/in-memory-user-blocks-repository';
-import { InMemoryUsersRepository } from '@modules/users/__tests__/in-memory/in-memory-users-repository';
+import { InMemoryUserLessonsRepository } from '@/modules/lessons/__tests__/in-memory/in-memory-user-lessons-repository';
+import { InMemoryUserBlocksRepository } from '@/modules/blocks/__tests__/in-memory/in-memory-user-blocks-repository';
+import { InMemoryUsersRepository } from '@/modules/users/__tests__/in-memory/in-memory-users-repository';
 import { InMemoryUserTrailsRepository } from '../in-memory/in-memory-user-trails-repository';
 import { InMemoryTrailsRepository } from '../in-memory/in-memory-trails-repository';
 

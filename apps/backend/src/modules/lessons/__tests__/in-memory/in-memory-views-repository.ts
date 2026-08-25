@@ -1,9 +1,9 @@
-import { IView } from '@modules/lessons/domain/entities/iview';
-import { IViewsRepository } from '@modules/lessons/domain/repositories/views-repository';
-import { CreateViewDTO } from '@modules/users/dtos/create-view-dto';
-import { FindOneViewFromUserLessonDTO } from '@modules/users/dtos/find-one-view-from-user-lesson-dto';
-import { View } from '@modules/users/entities/view';
-import { AsyncMaybe } from '@shared/types/app';
+import { IView } from '@/modules/lessons/domain/entities/iview';
+import { IViewsRepository } from '@/modules/lessons/domain/repositories/views-repository';
+import { CreateViewDTO } from '@/modules/users/dtos/create-view-dto';
+import { FindOneViewFromUserLessonDTO } from '@/modules/users/dtos/find-one-view-from-user-lesson-dto';
+import { View } from '@/modules/users/entities/view';
+import { AsyncMaybe } from '@/shared/types/app';
 
 class InMemoryViewsRepository implements IViewsRepository {
   private views: IView[] = [];

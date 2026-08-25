@@ -1,14 +1,14 @@
-import { IUserLesson } from '@modules/lessons/domain/entities/iuser-lesson';
+import { IUserLesson } from '@/modules/lessons/domain/entities/iuser-lesson';
 import {
   FindUserLessonDTO,
   IUserLessonsRepository,
-} from '@modules/lessons/domain/repositories/user-lessons-repository';
-import { CreateUserLessonDTO } from '@modules/lessons/dtos/create-user-lesson-dto';
-import { FindAllUserLessonsFromBlockDTO } from '@modules/lessons/dtos/find-all-user-lessons-from-block-dto';
-import { FindOneDTO } from '@modules/lessons/dtos/find-one-dto';
-import { UserLesson } from '@modules/lessons/entities/user-lesson';
+} from '@/modules/lessons/domain/repositories/user-lessons-repository';
+import { CreateUserLessonDTO } from '@/modules/lessons/dtos/create-user-lesson-dto';
+import { FindAllUserLessonsFromBlockDTO } from '@/modules/lessons/dtos/find-all-user-lessons-from-block-dto';
+import { FindOneDTO } from '@/modules/lessons/dtos/find-one-dto';
+import { UserLesson } from '@/modules/lessons/entities/user-lesson';
 
-import { AsyncMaybe } from '@shared/types/app';
+import { AsyncMaybe } from '@/shared/types/app';
 
 class InMemoryUserLessonsRepository implements IUserLessonsRepository {
   private userLessons: IUserLesson[] = [];

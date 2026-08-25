@@ -1,11 +1,11 @@
-import { CreateLessonDTO } from '@modules/lessons/dtos/create-lesson-dto';
-import { FindAllLessonsFromBlockDTO } from '@modules/lessons/dtos/find-all-lessons-from-block-dto';
-import { FindByNameDTO } from '@modules/lessons/dtos/find-by-name-dto';
-import { FindBySlugDTO } from '@modules/lessons/dtos/find-by-slug-dto';
-import { IDislike } from '@modules/likes/domain/entities/idislike';
-import { ILike } from '@modules/likes/domain/entities/ilike';
-import { FiltersDTO } from '@modules/trails/domain/repositories/trails-repository';
-import { AsyncMaybe } from '@shared/types/app';
+import { CreateLessonDTO } from '@/modules/lessons/dtos/create-lesson-dto';
+import { FindAllLessonsFromBlockDTO } from '@/modules/lessons/dtos/find-all-lessons-from-block-dto';
+import { FindByNameDTO } from '@/modules/lessons/dtos/find-by-name-dto';
+import { FindBySlugDTO } from '@/modules/lessons/dtos/find-by-slug-dto';
+import { IDislike } from '@/modules/likes/domain/entities/idislike';
+import { ILike } from '@/modules/likes/domain/entities/ilike';
+import { FiltersDTO } from '@/modules/trails/domain/repositories/trails-repository';
+import { AsyncMaybe } from '@/shared/types/app';
 import { ILesson } from '../entities/ilesson';
 
 type RelationshipDTO = {

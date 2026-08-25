@@ -1,10 +1,10 @@
-import { IHistory } from '@modules/histories/domain/entities/ihistory';
-import { IHistoriesRepository } from '@modules/histories/domain/repositories/histories-repository';
-import { CreateHistoryDTO } from '@modules/histories/dtos/create-history-dto';
-import { FindAllHistoriesFromUserDTO } from '@modules/histories/dtos/find-all-histories-from-user-dto';
-import { FindUserLessonHistoryDTO } from '@modules/histories/dtos/find-user-lesson-history-dto';
-import { History } from '@modules/histories/entities/history';
-import { AsyncMaybe } from '@shared/types/app';
+import { IHistory } from '@/modules/histories/domain/entities/ihistory';
+import { IHistoriesRepository } from '@/modules/histories/domain/repositories/histories-repository';
+import { CreateHistoryDTO } from '@/modules/histories/dtos/create-history-dto';
+import { FindAllHistoriesFromUserDTO } from '@/modules/histories/dtos/find-all-histories-from-user-dto';
+import { FindUserLessonHistoryDTO } from '@/modules/histories/dtos/find-user-lesson-history-dto';
+import { History } from '@/modules/histories/entities/history';
+import { AsyncMaybe } from '@/shared/types/app';
 
 class InMemoryHistoriesRepository implements IHistoriesRepository {
   private histories: IHistory[] = [];
@@ -30,6 +30,7 @@ class InMemoryHistoriesRepository implements IHistoriesRepository {
     const history = new History({
       lesson_id: data.lesson_id,
       user_id: data.user_id,
+      recent_at: new Date(),
       created_at: new Date(),
       updated_at: new Date(),
     }) as unknown as IHistory;

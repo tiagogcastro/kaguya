@@ -1,15 +1,15 @@
-import { ILesson } from '@modules/lessons/domain/entities/ilesson';
-import { ILessonsRepository } from '@modules/lessons/domain/repositories/lessons-repository';
-import { CreateLessonDTO } from '@modules/lessons/dtos/create-lesson-dto';
-import { FindAllLessonsFromBlockDTO } from '@modules/lessons/dtos/find-all-lessons-from-block-dto';
-import { FindByNameDTO } from '@modules/lessons/dtos/find-by-name-dto';
-import { FindBySlugDTO } from '@modules/lessons/dtos/find-by-slug-dto';
-import { Lesson } from '@modules/lessons/entities/lesson';
-import { IDislike } from '@modules/likes/domain/entities/idislike';
-import { ILike } from '@modules/likes/domain/entities/ilike';
-import { Dislike } from '@modules/likes/entities/dislike';
-import { Like } from '@modules/likes/entities/like';
-import { AsyncMaybe } from '@shared/types/app';
+import { ILesson } from '@/modules/lessons/domain/entities/ilesson';
+import { ILessonsRepository } from '@/modules/lessons/domain/repositories/lessons-repository';
+import { CreateLessonDTO } from '@/modules/lessons/dtos/create-lesson-dto';
+import { FindAllLessonsFromBlockDTO } from '@/modules/lessons/dtos/find-all-lessons-from-block-dto';
+import { FindByNameDTO } from '@/modules/lessons/dtos/find-by-name-dto';
+import { FindBySlugDTO } from '@/modules/lessons/dtos/find-by-slug-dto';
+import { Lesson } from '@/modules/lessons/entities/lesson';
+import { IDislike } from '@/modules/likes/domain/entities/idislike';
+import { ILike } from '@/modules/likes/domain/entities/ilike';
+import { Dislike } from '@/modules/likes/entities/dislike';
+import { Like } from '@/modules/likes/entities/like';
+import { AsyncMaybe } from '@/shared/types/app';
 import crypto from 'crypto';
 
 class InMemoryLessonsRepository implements ILessonsRepository {

@@ -2,8 +2,8 @@ import {
   Flex, 
 } from '@chakra-ui/react';
 
-import { LoginText } from './LoginText';
-import { RegisterLink } from './RegisterLink';
+import { LoginText } from '@/modules/login/components/ChangePageHeader/LoginText';
+import { RegisterLink } from '@/modules/login/components/ChangePageHeader/RegisterLink';
 
 export function LoginChangePageHeader() {
   return (

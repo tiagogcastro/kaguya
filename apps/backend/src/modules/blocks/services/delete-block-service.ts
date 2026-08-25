@@ -1,5 +1,5 @@
-import { AppError } from '@shared/errors/app-error';
-import { inject, injectable } from '@shared/container';
+import { AppError } from '@/shared/errors/app-error';
+import { inject, injectable } from '@/shared/container';
 import { IBlocksRepository } from '../domain/repositories/blocks-repository';
 
 @injectable()

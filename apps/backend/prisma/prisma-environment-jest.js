@@ -1,5 +1,5 @@
 /* eslint-disable */
-const NodeEnvironment = require("jest-environment-node");
+const { TestEnvironment: NodeEnvironment } = require("jest-environment-node");
 const crypto = require("crypto");
 const { execSync } = require("child_process");
 const { resolve } = require("path");

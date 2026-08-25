@@ -1,5 +1,5 @@
-import { UpdateUserService } from '@modules/users/services/update-user-service';
-import { instanceToInstance } from '@shared/helpers/instance-to-instance';
+import { UpdateUserService } from '@/modules/users/services/update-user-service';
+import { instanceToInstance } from '@/shared/helpers/instance-to-instance';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

@@ -1,4 +1,4 @@
-import { DeletePlaylistService } from '@modules/playlists/services/delete-playlist-service';
+import { DeletePlaylistService } from '@/modules/playlists/services/delete-playlist-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

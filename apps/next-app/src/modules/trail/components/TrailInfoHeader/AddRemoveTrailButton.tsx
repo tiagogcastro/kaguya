@@ -5,7 +5,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
-import { ConfirmRemoveTrailModal } from "./ConfirmRemoveTrailModal";
+import { ConfirmRemoveTrailModal } from "@/modules/trail/components/TrailInfoHeader/ConfirmRemoveTrailModal";
 import Lordicon from "@/components/ReactLordicon";
 import { TrailData } from "@/services/kaguya/types";
 import { apiError } from "@/utils/apiFormatError";
@@ -71,9 +71,9 @@ export function AddRemoveTrailButton({ trail }: AddRemoveTrailButtonProps) {
         }
       );
 
-      await queryClient.invalidateQueries(["playlistsFromTrail", trail?.slug]);
-      await queryClient.invalidateQueries("othersTrails");
-      await queryClient.invalidateQueries("userTrails");
+      await queryClient.invalidateQueries({ queryKey: ["playlistsFromTrail", trail?.slug] });
+      await queryClient.invalidateQueries({ queryKey: ["othersTrails"] });
+      await queryClient.invalidateQueries({ queryKey: ["userTrails"] });
     } catch (error: any) {
       const errors = apiError(error);
 

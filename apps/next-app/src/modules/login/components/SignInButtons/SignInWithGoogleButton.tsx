@@ -1,7 +1,7 @@
 import { Button } from '@/components/Button';
 import { useAuth } from '@/hooks/useAuth';
 import { useToast } from "@chakra-ui/react";
-import { firebaseAuth, getProvider } from 'config/firebase';
+import { getFirebaseAuth, getProvider } from '@/config/firebase';
 import { signInWithPopup } from 'firebase/auth';
 import { FcGoogle } from 'react-icons/fc';
 export function SignInWithGoogleButton() {
@@ -9,7 +9,7 @@ export function SignInWithGoogleButton() {
   const toast = useToast()
   const handleGoogleLogin = async  () => {
     try {
-      const result = await signInWithPopup(firebaseAuth, getProvider('google'))
+      const result = await signInWithPopup(getFirebaseAuth(), getProvider('google'))
   
       const user = result.user;
       

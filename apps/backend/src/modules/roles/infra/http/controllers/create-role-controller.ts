@@ -1,4 +1,4 @@
-import { CreateRoleService } from '@modules/roles/services/create-role-service';
+import { CreateRoleService } from '@/modules/roles/services/create-role-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

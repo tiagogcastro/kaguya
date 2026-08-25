@@ -1,7 +1,7 @@
-import { IUser } from '@modules/users/domain/entities/iuser';
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { inject, injectable } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
+import { IUser } from '@/modules/users/domain/entities/iuser';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { inject, injectable } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
 import { IHashProvider } from '../providers/hash-provider/models/hash-provider';
 
 type UpdateUserRequestDTO = {

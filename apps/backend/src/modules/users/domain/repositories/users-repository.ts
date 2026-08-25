@@ -1,6 +1,6 @@
-import { FiltersDTO } from '@modules/trails/domain/repositories/trails-repository';
-import { CreateUserDTO } from '@modules/users/dtos/create-user-dto';
-import { AsyncMaybe } from '@shared/types/app';
+import { FiltersDTO } from '@/modules/trails/domain/repositories/trails-repository';
+import { CreateUserDTO } from '@/modules/users/dtos/create-user-dto';
+import { AsyncMaybe } from '@/shared/types/app';
 import { IUser } from '../entities/iuser';
 
 interface IRelationshipsDTO {

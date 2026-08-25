@@ -1,5 +1,5 @@
 import { Heading } from '@chakra-ui/react';
-import Lordicon from '../../../../components/ReactLordicon';
+import Lordicon from '@/components/ReactLordicon';
 
 export function DiscordComunityTitle() {
   return (

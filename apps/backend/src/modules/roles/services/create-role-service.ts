@@ -1,8 +1,8 @@
-import { IRole } from '@modules/roles/domain/entities/irole';
-import { CreateRoleRequestDTO } from '@modules/roles/dtos/create-role-request-dto';
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { AppError } from '@shared/errors/app-error';
-import { inject, injectable } from '@shared/container';
+import { IRole } from '@/modules/roles/domain/entities/irole';
+import { CreateRoleRequestDTO } from '@/modules/roles/dtos/create-role-request-dto';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { AppError } from '@/shared/errors/app-error';
+import { inject, injectable } from '@/shared/container';
 import { IRolesRepository } from '../domain/repositories/roles-repository';
 
 @injectable()

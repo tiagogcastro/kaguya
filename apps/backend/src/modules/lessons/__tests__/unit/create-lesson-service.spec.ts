@@ -1,14 +1,14 @@
-import { UpdateUserBlockProgressPorcentageService } from '@modules/blocks/services/update-user-block-progress-porcentage-service';
-import { InMemoryBlocksRepository } from '@modules/blocks/__tests__/in-memory/in-memory-blocks-repository';
-import { InMemoryUserBlocksRepository } from '@modules/blocks/__tests__/in-memory/in-memory-user-blocks-repository';
-import { CreateLessonService } from '@modules/lessons/services/create-lesson-service';
-import { RefreshUserLessonProgressService } from '@modules/lessons/services/refresh-user-lesson-progress-service';
-import { UpdateUserPlaylistProgressPorcentageService } from '@modules/playlists/services/update-user-playlist-progress-porcentage-service';
-import { InMemoryUserPlaylistsRepository } from '@modules/playlists/__tests__/in-memory/in-memory-user-playlists-repository';
-import { UpdateUserTrailProgressPorcentageService } from '@modules/trails/services/update-user-trail-progress-porcentage-service';
-import { InMemoryUserTrailsRepository } from '@modules/trails/__tests__/in-memory/in-memory-user-trails-repository';
-import { InMemoryUsersRepository } from '@modules/users/__tests__/in-memory/in-memory-users-repository';
-import { AppError } from '@shared/errors/app-error';
+import { UpdateUserBlockProgressPorcentageService } from '@/modules/blocks/services/update-user-block-progress-porcentage-service';
+import { InMemoryBlocksRepository } from '@/modules/blocks/__tests__/in-memory/in-memory-blocks-repository';
+import { InMemoryUserBlocksRepository } from '@/modules/blocks/__tests__/in-memory/in-memory-user-blocks-repository';
+import { CreateLessonService } from '@/modules/lessons/services/create-lesson-service';
+import { RefreshUserLessonProgressService } from '@/modules/lessons/services/refresh-user-lesson-progress-service';
+import { UpdateUserPlaylistProgressPorcentageService } from '@/modules/playlists/services/update-user-playlist-progress-porcentage-service';
+import { InMemoryUserPlaylistsRepository } from '@/modules/playlists/__tests__/in-memory/in-memory-user-playlists-repository';
+import { UpdateUserTrailProgressPorcentageService } from '@/modules/trails/services/update-user-trail-progress-porcentage-service';
+import { InMemoryUserTrailsRepository } from '@/modules/trails/__tests__/in-memory/in-memory-user-trails-repository';
+import { InMemoryUsersRepository } from '@/modules/users/__tests__/in-memory/in-memory-users-repository';
+import { AppError } from '@/shared/errors/app-error';
 import { InMemoryLessonsRepository } from '../in-memory/in-memory-lessons-repository';
 import { InMemoryUserLessonsRepository } from '../in-memory/in-memory-user-lessons-repository';
 

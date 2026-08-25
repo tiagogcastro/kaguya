@@ -45,7 +45,9 @@ model UserRole {
   updated_at DateTime @updatedAt
 
   @@map("user_roles")
+  @@unique([user_id, role_id])
 }
+
 
 model Role {
   id         String     @id
@@ -70,7 +72,9 @@ model UserTrail {
   updated_at DateTime @updatedAt
 
   @@map("user_trails")
+  @@unique([user_id, trail_id])
 }
+
 
 model Trail {
   id             String         @id
@@ -117,7 +121,9 @@ model UserPlaylist {
   updated_at  DateTime @updatedAt
 
   @@map("user_playlists")
+  @@unique([user_id, playlist_id])
 }
+
 
 model Lesson {
   id           String       @id
@@ -152,7 +158,9 @@ model UserLesson {
   updated_at DateTime @updatedAt
 
   @@map("user_lessons")
+  @@unique([user_id, lesson_id])
 }
+
 
 model Block {
   id           String       @id
@@ -182,7 +190,9 @@ model UserBlock {
   updated_at  DateTime @updatedAt
 
   @@map("user_blocks")
+  @@unique([user_id, block_id])
 }
+
 
 model Like {
   id         String   @id
@@ -194,7 +204,9 @@ model Like {
   updated_at DateTime @updatedAt
 
   @@map("likes")
+  @@unique([user_id, lesson_id])
 }
+
 
 model View {
   id         String   @id
@@ -218,7 +230,9 @@ model DisLike {
   updated_at DateTime @updatedAt
 
   @@map("dislikes")
+  @@unique([user_id, lesson_id])
 }
+
 
 model History {
   id         String   @id

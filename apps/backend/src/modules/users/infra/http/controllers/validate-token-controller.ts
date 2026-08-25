@@ -1,4 +1,4 @@
-import { ValidateTokenService } from '@modules/users/services/validate-token-service';
+import { ValidateTokenService } from '@/modules/users/services/validate-token-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

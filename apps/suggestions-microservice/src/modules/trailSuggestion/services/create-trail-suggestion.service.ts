@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 
-import { SuggestionRepository } from '@modules/suggestion/infra/prisma/repositories/suggestion-repository';
+import { SuggestionRepository } from '@/modules/suggestion/infra/prisma/repositories/suggestion-repository';
 import { TrailSuggestionModel } from '../model/trail-suggestion.model';
 import { TrailSuggestionRepository } from '../infra/prisma/repositories/trail-suggestion-repository';
 import slugify from 'slugify';
@@ -13,7 +13,7 @@ export class CreateTrailSuggestionService {
   ) {}
 
   async execute(trailSuggestion: TrailSuggestionModel) {
-    let { slug, title, suggestionId } = trailSuggestion;
+    const { title, suggestionId } = trailSuggestion;
 
     const foundSuggestion = await this.suggestionRepository.findSuggestionById(suggestionId);
 
@@ -21,10 +21,8 @@ export class CreateTrailSuggestionService {
       throw new BadRequestException("This suggestion does not exist to create a trail suggestion");
     }
 
-    const titleSlug = slugify(title, '-').toLowerCase();
-    
-    if(!slug) {
-      trailSuggestion.slug = titleSlug;
+    if (!trailSuggestion.slug) {
+      trailSuggestion.slug = slugify(title, '-').toLowerCase();
     }
 
     let foundTrailSuggestion = await this.trailSuggestionRepository.findTrailSuggestionBySlug(trailSuggestion.slug);

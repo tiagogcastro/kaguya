@@ -1,5 +1,5 @@
-import { ShowUserProfileService } from '@modules/users/services/show-user-profile-service';
-import { instanceToInstance } from '@shared/helpers/instance-to-instance';
+import { ShowUserProfileService } from '@/modules/users/services/show-user-profile-service';
+import { instanceToInstance } from '@/shared/helpers/instance-to-instance';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

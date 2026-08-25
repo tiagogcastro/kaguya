@@ -1,5 +1,5 @@
-import { ITrail } from '@modules/trails/domain/entities/itrail';
-import { IUser } from '@modules/users/domain/entities/iuser';
+import { ITrail } from '@/modules/trails/domain/entities/itrail';
+import { IUser } from '@/modules/users/domain/entities/iuser';
 import { IPlaylist } from './iplaylist';
 
 interface IUserPlaylist {

@@ -5,21 +5,18 @@ export type ApiError = {
 }
 
 export function apiError(error: any): ApiError {
-  let err: ApiError;
+  const status = error?.response?.status || 400;
+  const data = error?.response?.data;
 
-  if(error.response?.data?.message) {
-    const message = error.response.data.message;
+  const message =
+    data?.error?.message ||
+    data?.message ||
+    error?.message ||
+    'Unexpected error';
 
-    err = {
-      messages: [message],
-      name: 'name',
-      statusCode: 400
-    };
-  } else {
-    const _error = error.response?.data.error;
-
-    err = _error;
-  }
-
-  return err;
+  return {
+    messages: [message],
+    name: 'Error',
+    statusCode: status,
+  };
 }

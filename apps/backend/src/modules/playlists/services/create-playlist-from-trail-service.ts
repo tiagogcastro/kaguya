@@ -1,7 +1,7 @@
-import { ITrailsRepository } from '@modules/trails/domain/repositories/trails-repository';
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { inject, injectable } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
+import { ITrailsRepository } from '@/modules/trails/domain/repositories/trails-repository';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { inject, injectable } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
 import { IPlaylist } from '../domain/entities/iplaylist';
 import { IPlaylistsRepository } from '../domain/repositories/playlists-repository';
 import { IUserPlaylistsRepository } from '../domain/repositories/user-playlists-repository';

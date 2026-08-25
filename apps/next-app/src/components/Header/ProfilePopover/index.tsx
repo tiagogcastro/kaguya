@@ -6,12 +6,14 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { FiLogOut } from "react-icons/fi";
+import { MdAdminPanelSettings } from "react-icons/md";
 import { MdDashboard } from "react-icons/md";
 
-import { ItemLink } from "./ItemLink";
+import { ItemLink } from "@/components/Header/ProfilePopover/ItemLink";
 import { DividerLine } from "@/components/DividerLine";
-import { ConfirmSignOutModal } from "./ConfirmSignOutModal";
-import { ButtonItem } from "./ButtonItem";
+import { ConfirmSignOutModal } from "@/components/Header/ProfilePopover/ConfirmSignOutModal";
+import { useAuth } from "@/hooks/useAuth";
+import { ButtonItem } from "@/components/Header/ProfilePopover/ButtonItem";
 import { IoNewspaperOutline } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 
@@ -22,6 +24,7 @@ export interface ProfilePopover {
 
 export function ProfilePopover({ children, isWideVersion }: ProfilePopover) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isStaff } = useAuth();
 
   return (
     <>
@@ -58,6 +61,18 @@ export function ProfilePopover({ children, isWideVersion }: ProfilePopover) {
               <IoNewspaperOutline size={18} />
               Sugestões
             </ItemLink>
+
+            {isStaff && (
+              <ItemLink
+                nextLink={{
+                  href: "/admin",
+                  passHref: true,
+                }}
+              >
+                <MdAdminPanelSettings size={18} />
+                Painel admin
+              </ItemLink>
+            )}
 
             <DividerLine my="1" />
 

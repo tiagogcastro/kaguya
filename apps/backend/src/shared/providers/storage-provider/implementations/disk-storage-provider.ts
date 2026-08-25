@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import { storageConfig } from '@config/storage';
+import { storageConfig } from '@/config/storage';
 import { IStorageProvider } from '../models/storage-provider';
 
 class DiskStorageProvider implements IStorageProvider {

@@ -4,9 +4,9 @@ import {
   useToken
 } from '@chakra-ui/react';
 import { useMemo } from 'react';
-import { AppLogo } from '../AppLogo';
-import { SignLogButtons } from './SignLogButtons';
-import { UserProfile } from './UserProfile';
+import { AppLogo } from '@/components/AppLogo';
+import { SignLogButtons } from '@/components/Header/SignLogButtons';
+import { UserProfile } from '@/components/Header/UserProfile';
 
 type HeaderTypes = 'has-user-profile' | 'has-sign-log-buttons'
 
@@ -26,12 +26,12 @@ export function Header({
   const selectedElements = useMemo(() => {
     const types = (typeof headerType === 'string' ? [headerType] : headerType) || []
     
-    const elements: Record<HeaderTypes, JSX.Element> = {
+    const elements: Record<HeaderTypes, React.JSX.Element> = {
       'has-sign-log-buttons': <SignLogButtons key={1} />,
       'has-user-profile': <UserProfile key={2} isWideVersion={isWideVersion} />
     }
 
-    const entries = Object.entries(elements) as [HeaderTypes, JSX.Element][];
+    const entries = Object.entries(elements) as [HeaderTypes, React.JSX.Element][];
 
     const filteredElements = entries.reduce((previous, entry, index) => {
       const [type, element] = entry
@@ -43,7 +43,7 @@ export function Header({
       }
 
       return [...previous]
-    }, [] as JSX.Element[])
+    }, [] as React.JSX.Element[])
 
     return filteredElements
   }, [headerType, isWideVersion])

@@ -1,11 +1,11 @@
-import { IBlock } from '@modules/blocks/domain/entities/iblock';
-import { IBlocksRepository } from '@modules/blocks/domain/repositories/blocks-repository';
-import { CreateBlockDTO } from '@modules/blocks/dtos/create-block-dto';
-import { FindAllBlocksFromPlaylistDTO } from '@modules/blocks/dtos/find-all-blocks-from-playlist-dto';
-import { FindByNameDTO } from '@modules/blocks/dtos/find-by-name-dto';
-import { FindBySlugDTO } from '@modules/blocks/dtos/find-by-slug-dto';
-import { Block } from '@modules/blocks/entities/block';
-import { AsyncMaybe } from '@shared/types/app';
+import { IBlock } from '@/modules/blocks/domain/entities/iblock';
+import { IBlocksRepository } from '@/modules/blocks/domain/repositories/blocks-repository';
+import { CreateBlockDTO } from '@/modules/blocks/dtos/create-block-dto';
+import { FindAllBlocksFromPlaylistDTO } from '@/modules/blocks/dtos/find-all-blocks-from-playlist-dto';
+import { FindByNameDTO } from '@/modules/blocks/dtos/find-by-name-dto';
+import { FindBySlugDTO } from '@/modules/blocks/dtos/find-by-slug-dto';
+import { Block } from '@/modules/blocks/entities/block';
+import { AsyncMaybe } from '@/shared/types/app';
 
 class InMemoryBlocksRepository implements IBlocksRepository {
   private blocks: IBlock[] = [];

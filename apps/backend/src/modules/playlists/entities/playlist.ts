@@ -1,5 +1,5 @@
-import { IBlock } from '@modules/blocks/domain/entities/iblock';
-import { ITrail } from '@modules/trails/domain/entities/itrail';
+import { IBlock } from '@/modules/blocks/domain/entities/iblock';
+import { ITrail } from '@/modules/trails/domain/entities/itrail';
 import crypto from 'crypto';
 import { IPlaylist } from '../domain/entities/iplaylist';
 import { IUserPlaylist } from '../domain/entities/iuser-playlist';

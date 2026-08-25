@@ -1,8 +1,8 @@
-import { IBlock } from '@modules/blocks/domain/entities/iblock';
-import { CreateUserPlaylistsService } from '@modules/playlists/services/create-user-playlists-service';
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { inject, injectable } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
+import { IBlock } from '@/modules/blocks/domain/entities/iblock';
+import { CreateUserPlaylistsService } from '@/modules/playlists/services/create-user-playlists-service';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { inject, injectable } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
 import { ITrail } from '../domain/entities/itrail';
 import { IUserTrail } from '../domain/entities/iuser-trail';
 import { ITrailsRepository } from '../domain/repositories/trails-repository';

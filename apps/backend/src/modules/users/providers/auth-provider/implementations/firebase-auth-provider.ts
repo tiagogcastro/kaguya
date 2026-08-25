@@ -1,33 +1,50 @@
-import { Either } from '@core/either';
-import { Maybe } from '@shared/types/app';
-import admin from 'firebase-admin';
+import { Either } from '@/core/either';
+import { Maybe } from '@/shared/types/app';
+import { App, cert, initializeApp } from 'firebase-admin';
 import { GetUserResponse, IAuthProvider } from '../models/auth-provider';
 
 class FirebaseAuthProvider implements IAuthProvider {
   static INSTANCE: Maybe<FirebaseAuthProvider> = null;
 
-  private app: admin.app.App;
+  private app: Maybe<App> = null;
 
-  constructor() {
-    const app = admin.initializeApp({
-      projectId: process.env.FIREBASE_PROJECT_ID,
-      storageBucket: `${process.env.FIREBASE_PROJECT_ID}.appspot.com`,
-      serviceAccountId: process.env.FIREBASE_SERVICE_ACCOUNT_ID,
-      credential: admin.credential.cert({
+  private isFirebaseConfigured(): boolean {
+    return Boolean(
+      process.env.FIREBASE_PROJECT_ID &&
+        process.env.FIREBASE_PRIVATE_KEY &&
+        process.env.FIREBASE_SERVICE_ACCOUNT_ID,
+    );
+  }
+
+  private ensureApp(): App {
+    if (!this.isFirebaseConfigured()) {
+      throw new Error('Firebase credentials are not configured');
+    }
+
+    if (!this.app) {
+      this.app = initializeApp({
         projectId: process.env.FIREBASE_PROJECT_ID,
-        privateKey: process.env.FIREBASE_PRIVATE_KEY,
-        clientEmail: process.env.FIREBASE_SERVICE_ACCOUNT_ID,
-      }),
-    });
+        storageBucket: `${process.env.FIREBASE_PROJECT_ID}.appspot.com`,
+        serviceAccountId: process.env.FIREBASE_SERVICE_ACCOUNT_ID,
+        credential: cert({
+          projectId: process.env.FIREBASE_PROJECT_ID,
+          privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+          clientEmail: process.env.FIREBASE_SERVICE_ACCOUNT_ID,
+        }),
+      });
+    }
 
-    this.app = app;
+    return this.app;
   }
 
   async getUser(accessToken: string): GetUserResponse {
     try {
-      const decodedIdToken = await this.app.auth().verifyIdToken(accessToken);
+      const { getAuth } = await import('firebase-admin/auth');
 
-      const user = await this.app.auth().getUser(decodedIdToken.uid);
+      const firebaseAuth = getAuth(this.ensureApp());
+      const decodedIdToken = await firebaseAuth.verifyIdToken(accessToken);
+
+      const user = await firebaseAuth.getUser(decodedIdToken.uid);
 
       if (user.disabled) {
         return Either.left(new Error('Disabled user'));

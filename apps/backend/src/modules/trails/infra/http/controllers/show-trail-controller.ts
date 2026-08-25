@@ -1,6 +1,6 @@
-import { ITrail } from '@modules/trails/domain/entities/itrail';
-import { ShowTrailService } from '@modules/trails/services/show-trail-service';
-import { instanceToInstance } from '@shared/helpers/instance-to-instance';
+import { ITrail } from '@/modules/trails/domain/entities/itrail';
+import { ShowTrailService } from '@/modules/trails/services/show-trail-service';
+import { instanceToInstance } from '@/shared/helpers/instance-to-instance';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

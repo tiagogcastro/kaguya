@@ -1,4 +1,4 @@
-import { IUser } from '@modules/users/domain/entities/iuser';
+import { IUser } from '@/modules/users/domain/entities/iuser';
 import { ITrail } from './itrail';
 
 interface IUserTrail {

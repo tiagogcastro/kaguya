@@ -1,8 +1,8 @@
 /**
  * @jest-environment ./prisma/prisma-environment-jest
  */
-import { ITrail } from '@modules/trails/domain/entities/itrail';
-import { app } from '@shared/infra/http/app';
+import { ITrail } from '@/modules/trails/domain/entities/itrail';
+import { app } from '@/shared/infra/http/app';
 import request from 'supertest';
 
 let token: string;

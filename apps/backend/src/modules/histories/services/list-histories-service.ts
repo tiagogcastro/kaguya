@@ -1,6 +1,6 @@
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { inject, injectable } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { inject, injectable } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
 import { IHistory } from '../domain/entities/ihistory';
 import { IHistoriesRepository } from '../domain/repositories/histories-repository';
 import { ListHistoriesRequestDTO } from '../dtos/list-histories-request-dto';

@@ -2,16 +2,16 @@ import {
   CircularProgress,
   Flex,
   Heading,
-  keyframes,
   useToken,
 } from "@chakra-ui/react";
+import { keyframes } from "@emotion/react";
 
 import { DividerLine } from "@/components/DividerLine";
-import { OthersTrailsNoContent } from "./OthersTrailsNoContent";
-import { Trail } from "./Trail";
+import { OthersTrailsNoContent } from "@/modules/dashboard/components/OthersTrails/OthersTrailsNoContent";
+import { Trail } from "@/modules/dashboard/components/OthersTrails/Trail";
 import { TrailData } from "@/services/kaguya/types";
 import { kaguyaApi } from "@/services/kaguya/apiClient";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
 const animate = keyframes`
   from {  
@@ -30,9 +30,9 @@ export function OthersTrails() {
     "blackAlpha.850",
   ]);
 
-  const { data, isFetching } = useQuery<TrailData[]>(
-    "othersTrails",
-    async () => {
+  const { data, isFetching } = useQuery<TrailData[]>({
+    queryKey: ["othersTrails"],
+    queryFn: async () => {
       const response = await kaguyaApi.get<TrailData[]>("/trails/list-all", {
         params: {
           take: 10,
@@ -42,8 +42,7 @@ export function OthersTrails() {
 
       return response.data;
     },
-    {}
-  );
+  });
 
   return (
     <>

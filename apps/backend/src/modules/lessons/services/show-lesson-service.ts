@@ -1,10 +1,10 @@
-import { CreateHistoryService } from '@modules/histories/services/create-history-service';
-import { IDislike } from '@modules/likes/domain/entities/idislike';
-import { ILike } from '@modules/likes/domain/entities/ilike';
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { inject, injectable } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
-import { Maybe } from '@shared/types/app';
+import { CreateHistoryService } from '@/modules/histories/services/create-history-service';
+import { IDislike } from '@/modules/likes/domain/entities/idislike';
+import { ILike } from '@/modules/likes/domain/entities/ilike';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { inject, injectable } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
+import { Maybe } from '@/shared/types/app';
 import { ILesson } from '../domain/entities/ilesson';
 import { ILessonsRepository } from '../domain/repositories/lessons-repository';
 import { IViewsRepository } from '../domain/repositories/views-repository';

@@ -1,11 +1,11 @@
-import { IPlaylist } from '@modules/playlists/domain/entities/iplaylist';
-import { IPlaylistsRepository } from '@modules/playlists/domain/repositories/playlists-repository';
-import { CreatePlaylistDTO } from '@modules/playlists/dtos/create-playlist-dto';
-import { FindAllPlaylistsFromTrailDTO } from '@modules/playlists/dtos/find-all-playlists-from-trail-dto';
-import { FindByNameDTO } from '@modules/playlists/dtos/find-by-name-dto';
-import { FindBySlugDTO } from '@modules/playlists/dtos/find-by-slug-dto';
-import { prisma } from '@shared/infra/prisma/connection';
-import { AsyncMaybe } from '@shared/types/app';
+import { IPlaylist } from '@/modules/playlists/domain/entities/iplaylist';
+import { IPlaylistsRepository } from '@/modules/playlists/domain/repositories/playlists-repository';
+import { CreatePlaylistDTO } from '@/modules/playlists/dtos/create-playlist-dto';
+import { FindAllPlaylistsFromTrailDTO } from '@/modules/playlists/dtos/find-all-playlists-from-trail-dto';
+import { FindByNameDTO } from '@/modules/playlists/dtos/find-by-name-dto';
+import { FindBySlugDTO } from '@/modules/playlists/dtos/find-by-slug-dto';
+import { prisma } from '@/shared/infra/prisma/connection';
+import { AsyncMaybe } from '@/shared/types/app';
 import crypto from 'crypto';
 
 export class PrismaPlaylistsRepository implements IPlaylistsRepository {

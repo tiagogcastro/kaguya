@@ -1,4 +1,4 @@
-import { RemoveUserService } from '@modules/users/services/remove-user-service';
+import { RemoveUserService } from '@/modules/users/services/remove-user-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

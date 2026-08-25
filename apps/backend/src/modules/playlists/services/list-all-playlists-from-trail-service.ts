@@ -1,9 +1,9 @@
-import { IBlock } from '@modules/blocks/domain/entities/iblock';
-import { ITrail } from '@modules/trails/domain/entities/itrail';
-import { ITrailsRepository } from '@modules/trails/domain/repositories/trails-repository';
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { inject, injectable } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
+import { IBlock } from '@/modules/blocks/domain/entities/iblock';
+import { ITrail } from '@/modules/trails/domain/entities/itrail';
+import { ITrailsRepository } from '@/modules/trails/domain/repositories/trails-repository';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { inject, injectable } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
 import { IPlaylistsRepository } from '../domain/repositories/playlists-repository';
 import { ListAllPlaylistsFromTrailRequestDTO } from '../dtos/list-all-playlists-from-trail-request-dto';
 

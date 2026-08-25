@@ -1,7 +1,7 @@
-import { ListAllPlaylistsFromTrailService } from '@modules/playlists/services/list-all-playlists-from-trail-service';
-import { InMemoryTrailsRepository } from '@modules/trails/__tests__/in-memory/in-memory-trails-repository';
-import { InMemoryUsersRepository } from '@modules/users/__tests__/in-memory/in-memory-users-repository';
-import { AppError } from '@shared/errors/app-error';
+import { ListAllPlaylistsFromTrailService } from '@/modules/playlists/services/list-all-playlists-from-trail-service';
+import { InMemoryTrailsRepository } from '@/modules/trails/__tests__/in-memory/in-memory-trails-repository';
+import { InMemoryUsersRepository } from '@/modules/users/__tests__/in-memory/in-memory-users-repository';
+import { AppError } from '@/shared/errors/app-error';
 import { InMemoryPlaylistsRepository } from '../in-memory/in-memory-playlists-repository';
 
 let inMemoryPlaylistsRepository: InMemoryPlaylistsRepository;

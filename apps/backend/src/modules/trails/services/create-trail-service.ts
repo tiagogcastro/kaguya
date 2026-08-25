@@ -1,5 +1,5 @@
-import { inject, injectable } from '@shared/container';
-import { AppError } from '@shared/errors/app-error';
+import { inject, injectable } from '@/shared/container';
+import { AppError } from '@/shared/errors/app-error';
 import { ITrail } from '../domain/entities/itrail';
 import { ITrailsRepository } from '../domain/repositories/trails-repository';
 import { CreateTrailRequestDTO } from '../dtos/create-trail-request-dto';

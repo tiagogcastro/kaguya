@@ -18,7 +18,7 @@ export default function TermsPage() {
   return (
     <>
       <Head>
-        <title>Kaguya - Home</title>
+        <title>Kaguya - Termos de uso</title>
       </Head>
 
       <Header

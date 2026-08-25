@@ -1,6 +1,6 @@
-import { SuggestiveModel } from '@modules/suggestive/model/suggestive.model';
+import { SuggestiveModel } from '@/modules/suggestive/model/suggestive.model';
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '@shared/database/prisma/prisma.service';
+import { PrismaService } from '@/shared/database/prisma/prisma.service';
 
 @Injectable()
 export class SuggestiveRepository {

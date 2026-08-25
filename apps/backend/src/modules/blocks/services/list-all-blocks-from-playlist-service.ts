@@ -1,9 +1,9 @@
-import { IPlaylistsRepository } from '@modules/playlists/domain/repositories/playlists-repository';
-import { AppError } from '@shared/errors/app-error';
-import { inject, injectable } from '@shared/container';
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { IPlaylist } from '@modules/playlists/domain/entities/iplaylist';
-import { Maybe } from '@shared/types/app';
+import { IPlaylistsRepository } from '@/modules/playlists/domain/repositories/playlists-repository';
+import { AppError } from '@/shared/errors/app-error';
+import { inject, injectable } from '@/shared/container';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { IPlaylist } from '@/modules/playlists/domain/entities/iplaylist';
+import { Maybe } from '@/shared/types/app';
 import { IBlock } from '../domain/entities/iblock';
 import { IBlocksRepository } from '../domain/repositories/blocks-repository';
 import { ListAllBlocksFromPlaylistRequestDTO } from '../dtos/list-all-blocks-from-playlist-request-dto';

@@ -2,16 +2,6 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-directive @key(fields: String!) on OBJECT | INTERFACE
-
-directive @extends on OBJECT | INTERFACE
-
-directive @external on OBJECT | FIELD_DEFINITION
-
-directive @requires(fields: String!) on FIELD_DEFINITION
-
-directive @provides(fields: String!) on FIELD_DEFINITION
-
 type SuggestiveModel {
   id: ID!
   authUserId: String!
@@ -44,9 +34,9 @@ type SuggestionModel {
 
 type Query {
   listSuggestions: [SuggestionModel!]!
-  listUniqueSuggestion(data: ListUniqueSuggestionInput!): SuggestionModel!
+  listUniqueSuggestion(data: ListUniqueSuggestionInput!): SuggestionModel
   listSuggestionsFromSuggestive(data: ListSuggestionsFromSuggestiveInput!): [SuggestionModel!]!
-  listUniqueSuggestionFromSuggestive(data: ListUniqueSuggestionFromSuggestiveInput!): SuggestionModel!
+  listUniqueSuggestionFromSuggestive(data: ListUniqueSuggestionFromSuggestiveInput!): SuggestionModel
 }
 
 input ListUniqueSuggestionInput {
@@ -65,7 +55,7 @@ input ListUniqueSuggestionFromSuggestiveInput {
 
 type Mutation {
   createSuggestion(data: CreateSuggestionInput!): SuggestionModel!
-  deleteSuggestion(data: DeleteSuggestionInput!): SuggestionModel!
+  deleteSuggestion(data: DeleteSuggestionInput!): SuggestionModel
   createTrailSuggestion(data: CreateTrailSuggestionInput!): TrailSuggestionModel!
 }
 

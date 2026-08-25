@@ -3,7 +3,7 @@ import { MdPhotoCamera } from 'react-icons/md';
 
 import { useAuth } from '@/hooks/useAuth';
 
-import { UserAvatarModal } from './UserAvatarModal';
+import { UserAvatarModal } from '@/modules/user/profile/components/UserAvatarModal';
 
 export function UserAvatar() {
   const { user } = useAuth();

@@ -1,7 +1,7 @@
-import { ITrailsRepository } from '@modules/trails/domain/repositories/trails-repository';
-import { IUsersRepository } from '@modules/users/domain/repositories/users-repository';
-import { AppError } from '@shared/errors/app-error';
-import { inject, injectable } from '@shared/container';
+import { ITrailsRepository } from '@/modules/trails/domain/repositories/trails-repository';
+import { IUsersRepository } from '@/modules/users/domain/repositories/users-repository';
+import { AppError } from '@/shared/errors/app-error';
+import { inject, injectable } from '@/shared/container';
 import { IUserPlaylist } from '../domain/entities/iuser-playlist';
 import { IUserPlaylistsRepository } from '../domain/repositories/user-playlists-repository';
 import { ListAllUserPlaylistsFromTrailRequestDTO } from '../dtos/list-all-user-playlists-from-trail-request-dto';

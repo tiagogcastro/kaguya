@@ -1,4 +1,4 @@
-import { DeleteBlockService } from '@modules/blocks/services/delete-block-service';
+import { DeleteBlockService } from '@/modules/blocks/services/delete-block-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

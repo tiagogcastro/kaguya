@@ -1,4 +1,4 @@
-import { ChangeUserTrailEnabledFieldService } from '@modules/trails/services/change-user-trail-enabled-field-service';
+import { ChangeUserTrailEnabledFieldService } from '@/modules/trails/services/change-user-trail-enabled-field-service';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

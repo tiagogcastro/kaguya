@@ -1,6 +1,6 @@
 import { sign, verify } from 'jsonwebtoken';
-import { authConfig } from '@config/auth';
-import { IUser } from '@modules/users/domain/entities/iuser';
+import { authConfig } from '@/config/auth';
+import { IUser } from '@/modules/users/domain/entities/iuser';
 import { ITokenProvider } from '../models/token-provider';
 
 export class JWTokenProvider implements ITokenProvider {

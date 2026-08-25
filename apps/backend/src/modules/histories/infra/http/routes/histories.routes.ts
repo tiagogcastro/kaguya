@@ -1,6 +1,7 @@
-import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensure-authenticated';
-import { celebrate, Joi, Segments } from 'celebrate';
+import ensureAuthenticated from '@/modules/users/infra/http/middlewares/ensure-authenticated';
+import { validate } from '@/shared/infra/http/middlewares/validate';
 import { Router } from 'express';
+import { z } from 'zod';
 import { CreateHistoryController } from '../controllers/create-history-controller';
 import { ListHistoriesController } from '../controllers/list-histories-controller';
 import { ShowHistoryController } from '../controllers/show-history-controller';
@@ -14,15 +15,12 @@ const createHistoryController = new CreateHistoryController();
 historiesRouter.get(
   '/list',
   ensureAuthenticated,
-  celebrate({
-    [Segments.QUERY]: {
-      user_id: Joi.string().uuid(),
-      skip: Joi.number(),
-      take: Joi.number(),
-      order: Joi.string()
-        .regex(/(asc|desc)/)
-        .trim(),
-    },
+  validate({
+    query: z.object({
+      skip: z.coerce.number().int().nonnegative().optional(),
+      take: z.coerce.number().int().positive().optional(),
+      order: z.enum(['asc', 'desc']).optional(),
+    }),
   }),
   listHistoriesController.handle,
 );
@@ -30,10 +28,10 @@ historiesRouter.get(
 historiesRouter.get(
   '/show',
   ensureAuthenticated,
-  celebrate({
-    [Segments.BODY]: {
-      history_id: Joi.string().uuid(),
-    },
+  validate({
+    query: z.object({
+      history_id: z.uuid(),
+    }),
   }),
   showHistoryController.handle,
 );
@@ -41,10 +39,10 @@ historiesRouter.get(
 historiesRouter.post(
   '/create',
   ensureAuthenticated,
-  celebrate({
-    [Segments.BODY]: {
-      lesson_id: Joi.string().uuid().required(),
-    },
+  validate({
+    body: z.object({
+      lesson_id: z.uuid(),
+    }),
   }),
   createHistoryController.handle,
 );

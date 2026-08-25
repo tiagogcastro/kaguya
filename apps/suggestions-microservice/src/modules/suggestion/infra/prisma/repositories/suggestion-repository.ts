@@ -1,14 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '@shared/database/prisma/prisma.service';
-import { SuggestionModel } from '@modules/suggestion/model/suggestion.model';
+import { PrismaService } from '@/shared/database/prisma/prisma.service';
+import { SuggestionModel } from '@/modules/suggestion/model/suggestion.model';
 
 @Injectable()
 export class SuggestionRepository {
-  prisma: PrismaService;
-  
-  constructor() {
-    this.prisma = new PrismaService();
-  }
+  constructor(private prisma: PrismaService) {}
 
   async createSuggestion(data: SuggestionModel) {
     return this.prisma.suggestion.create({

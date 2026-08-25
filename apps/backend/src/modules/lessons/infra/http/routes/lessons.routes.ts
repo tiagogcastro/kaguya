@@ -1,7 +1,8 @@
-import { slugRegEx } from '@config/reg-ex';
-import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensure-authenticated';
-import { celebrate, Joi, Segments } from 'celebrate';
+import { slugRegEx } from '@/config/reg-ex';
+import ensureAuthenticated from '@/modules/users/infra/http/middlewares/ensure-authenticated';
+import { validate } from '@/shared/infra/http/middlewares/validate';
 import { Router } from 'express';
+import { z } from 'zod';
 import { ChangeCompleteUserLessonController } from '../controllers/change-complete-user-lesson-controller';
 import { ListLessonsController } from '../controllers/list-lessons-service';
 import { PrefetchLessonController } from '../controllers/prefetch-lesson-controller';
@@ -18,23 +19,24 @@ const lessonsRouter = Router();
 lessonsRouter.get(
   '/show',
   ensureAuthenticated,
-  celebrate({
-    [Segments.QUERY]: {
-      lesson_id: Joi.string().uuid(),
-      block_slug: Joi.string().regex(slugRegEx),
-      lesson_slug: Joi.string().regex(slugRegEx),
-    },
+  validate({
+    query: z.object({
+      lesson_id: z.uuid().optional(),
+      block_slug: z.string().regex(slugRegEx).optional(),
+      lesson_slug: z.string().regex(slugRegEx).optional(),
+    }),
   }),
   showLessonController.handle,
 );
+
 lessonsRouter.get(
   '/prefetch',
   ensureAuthenticated,
-  celebrate({
-    [Segments.QUERY]: {
-      trail_slug: Joi.string().regex(slugRegEx).required(),
-      playlist_slug: Joi.string().regex(slugRegEx).required(),
-    },
+  validate({
+    query: z.object({
+      trail_slug: z.string().regex(slugRegEx),
+      playlist_slug: z.string().regex(slugRegEx),
+    }),
   }),
   prefetchLessonController.handle,
 );
@@ -42,15 +44,13 @@ lessonsRouter.get(
 lessonsRouter.get(
   '/list',
   ensureAuthenticated,
-  celebrate({
-    [Segments.QUERY]: {
-      skip: Joi.number(),
-      take: Joi.number(),
-      order: Joi.string()
-        .regex(/(asc|desc)/)
-        .trim(),
-      block_id: Joi.string().uuid(),
-    },
+  validate({
+    query: z.object({
+      skip: z.coerce.number().int().nonnegative().optional(),
+      take: z.coerce.number().int().positive().optional(),
+      order: z.enum(['asc', 'desc']).optional(),
+      block_id: z.uuid().optional(),
+    }),
   }),
   listLessonsController.handle,
 );
@@ -58,10 +58,10 @@ lessonsRouter.get(
 lessonsRouter.post(
   '/change-complete-lesson',
   ensureAuthenticated,
-  celebrate({
-    [Segments.BODY]: {
-      lesson_id: Joi.string().uuid().required(),
-    },
+  validate({
+    body: z.object({
+      lesson_id: z.uuid(),
+    }),
   }),
   changeCompleteUserLessonController.handle,
 );

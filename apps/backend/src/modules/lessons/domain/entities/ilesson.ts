@@ -1,4 +1,4 @@
-import { IBlock } from '@modules/blocks/domain/entities/iblock';
+import { IBlock } from '@/modules/blocks/domain/entities/iblock';
 import { IUserLesson } from './iuser-lesson';
 
 interface ILesson {

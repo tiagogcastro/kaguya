@@ -1,12 +1,12 @@
 import { Accordion, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
-import { Block } from "./Block";
+import { Block } from "@/modules/playlist/components/BlocksList/Block";
 import { BlockData } from "@/services/kaguya/types";
-import { BlocksSkeletonLoading } from "../BlocksListSkeletonLoading";
+import { BlocksSkeletonLoading } from "@/modules/playlist/components/BlocksListSkeletonLoading";
 import { findLastIndex } from "@/utils/findLastIndex";
 import { kaguyaApi } from "@/services/kaguya/apiClient";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 
 export interface BlocksListProps {
@@ -18,9 +18,9 @@ export function BlocksList({ playlistSlug, trailSlug }: BlocksListProps) {
   const router = useRouter();
   const [lastBlockIndex, setLastBlockIndex] = useState<number | null>(null);
 
-  const blocks = useQuery<BlockData[]>(
-    ["blocksFromPlaylist", playlistSlug],
-    async () => {
+  const blocks = useQuery<BlockData[]>({
+    queryKey: ["blocksFromPlaylist", playlistSlug],
+    queryFn: async () => {
       const response = await kaguyaApi.get<BlockData[]>(
         "/blocks/playlist-list-all",
         {
@@ -33,11 +33,9 @@ export function BlocksList({ playlistSlug, trailSlug }: BlocksListProps) {
 
       return response.data;
     },
-    {
-      staleTime: 1000 * 60 * 10, // 60 minutes,
-      enabled: !!playlistSlug && !!trailSlug,
-    }
-  );
+    staleTime: 1000 * 60 * 10,
+    enabled: !!playlistSlug && !!trailSlug,
+  });
 
   useEffect(() => {
     function getCurrentLesson() {
