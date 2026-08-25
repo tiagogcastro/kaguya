@@ -1,12 +1,19 @@
+-- CreateSchema
+CREATE SCHEMA IF NOT EXISTS "public";
+
 -- CreateTable
 CREATE TABLE "users" (
     "id" TEXT NOT NULL,
     "name" TEXT,
-    "email" TEXT NOT NULL,
+    "email" TEXT,
     "avatar" TEXT,
+    "avatar_url" TEXT,
+    "auth_id" TEXT,
+    "phone_number" TEXT,
+    "password" TEXT,
+    "email_verified" BOOLEAN NOT NULL DEFAULT false,
     "username" TEXT NOT NULL,
     "enabled" BOOLEAN NOT NULL DEFAULT true,
-    "password" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
 
@@ -143,7 +150,7 @@ CREATE TABLE "user_blocks" (
 -- CreateTable
 CREATE TABLE "likes" (
     "id" TEXT NOT NULL,
-    "user_id" TEXT NOT NULL,
+    "user_id" TEXT,
     "lesson_id" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
@@ -154,7 +161,7 @@ CREATE TABLE "likes" (
 -- CreateTable
 CREATE TABLE "views" (
     "id" TEXT NOT NULL,
-    "user_id" TEXT NOT NULL,
+    "user_id" TEXT,
     "lesson_id" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
@@ -165,7 +172,7 @@ CREATE TABLE "views" (
 -- CreateTable
 CREATE TABLE "dislikes" (
     "id" TEXT NOT NULL,
-    "user_id" TEXT NOT NULL,
+    "user_id" TEXT,
     "lesson_id" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
@@ -201,7 +208,16 @@ CREATE TABLE "articles" (
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "users_auth_id_key" ON "users"("auth_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "users_phone_number_key" ON "users"("phone_number");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "users_username_key" ON "users"("username");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "user_roles_user_id_role_id_key" ON "user_roles"("user_id", "role_id");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "roles_name_key" ON "roles"("name");
@@ -210,7 +226,25 @@ CREATE UNIQUE INDEX "roles_name_key" ON "roles"("name");
 CREATE UNIQUE INDEX "roles_permission_key" ON "roles"("permission");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "user_trails_user_id_trail_id_key" ON "user_trails"("user_id", "trail_id");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "trails_slug_key" ON "trails"("slug");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "user_playlists_user_id_playlist_id_key" ON "user_playlists"("user_id", "playlist_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "user_lessons_user_id_lesson_id_key" ON "user_lessons"("user_id", "lesson_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "user_blocks_user_id_block_id_key" ON "user_blocks"("user_id", "block_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "likes_user_id_lesson_id_key" ON "likes"("user_id", "lesson_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "dislikes_user_id_lesson_id_key" ON "dislikes"("user_id", "lesson_id");
 
 -- AddForeignKey
 ALTER TABLE "user_roles" ADD CONSTRAINT "user_roles_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
@@ -219,19 +253,19 @@ ALTER TABLE "user_roles" ADD CONSTRAINT "user_roles_user_id_fkey" FOREIGN KEY ("
 ALTER TABLE "user_roles" ADD CONSTRAINT "user_roles_role_id_fkey" FOREIGN KEY ("role_id") REFERENCES "roles"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "user_trails" ADD CONSTRAINT "user_trails_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "user_trails" ADD CONSTRAINT "user_trails_trail_id_fkey" FOREIGN KEY ("trail_id") REFERENCES "trails"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "user_trails" ADD CONSTRAINT "user_trails_trail_id_fkey" FOREIGN KEY ("trail_id") REFERENCES "trails"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "user_trails" ADD CONSTRAINT "user_trails_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "playlists" ADD CONSTRAINT "playlists_trail_id_fkey" FOREIGN KEY ("trail_id") REFERENCES "trails"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "user_playlists" ADD CONSTRAINT "user_playlists_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "user_playlists" ADD CONSTRAINT "user_playlists_trail_id_fkey" FOREIGN KEY ("trail_id") REFERENCES "trails"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "user_playlists" ADD CONSTRAINT "user_playlists_trail_id_fkey" FOREIGN KEY ("trail_id") REFERENCES "trails"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "user_playlists" ADD CONSTRAINT "user_playlists_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "user_playlists" ADD CONSTRAINT "user_playlists_playlist_id_fkey" FOREIGN KEY ("playlist_id") REFERENCES "playlists"("id") ON DELETE CASCADE ON UPDATE CASCADE;
@@ -243,10 +277,10 @@ ALTER TABLE "lessons" ADD CONSTRAINT "lessons_block_id_fkey" FOREIGN KEY ("block
 ALTER TABLE "user_lessons" ADD CONSTRAINT "user_lessons_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "user_lessons" ADD CONSTRAINT "user_lessons_lesson_id_fkey" FOREIGN KEY ("lesson_id") REFERENCES "lessons"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "user_lessons" ADD CONSTRAINT "user_lessons_block_id_fkey" FOREIGN KEY ("block_id") REFERENCES "blocks"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "user_lessons" ADD CONSTRAINT "user_lessons_block_id_fkey" FOREIGN KEY ("block_id") REFERENCES "blocks"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "user_lessons" ADD CONSTRAINT "user_lessons_lesson_id_fkey" FOREIGN KEY ("lesson_id") REFERENCES "lessons"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "blocks" ADD CONSTRAINT "blocks_playlist_id_fkey" FOREIGN KEY ("playlist_id") REFERENCES "playlists"("id") ON DELETE CASCADE ON UPDATE CASCADE;
@@ -286,3 +320,4 @@ ALTER TABLE "histories" ADD CONSTRAINT "histories_lesson_id_fkey" FOREIGN KEY ("
 
 -- AddForeignKey
 ALTER TABLE "articles" ADD CONSTRAINT "articles_lesson_id_fkey" FOREIGN KEY ("lesson_id") REFERENCES "lessons"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
