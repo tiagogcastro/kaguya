@@ -4,11 +4,7 @@ import { SuggestionModel } from '@modules/suggestion/model/suggestion.model';
 
 @Injectable()
 export class SuggestionRepository {
-  prisma: PrismaService;
-  
-  constructor() {
-    this.prisma = new PrismaService();
-  }
+  constructor(private prisma: PrismaService) {}
 
   async createSuggestion(data: SuggestionModel) {
     return this.prisma.suggestion.create({

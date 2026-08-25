@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import { AuthController } from '@shared/messaging/controllers/auth.controller';
 import { PrismaService } from '@shared/database/prisma/prisma.service';
 
 import { SuggestiveRepository } from '@modules/suggestive/infra/prisma/repositories/suggestive-repository';
@@ -10,7 +9,7 @@ import { KafkaService } from './kafka.service';
 
 @Module({
   imports: [ConfigModule.forRoot()],
-  controllers: [AuthController],
+  controllers: [],
   providers: [CreateSuggestiveService, SuggestiveRepository, PrismaService, KafkaService]
 })
 export class MessagingModule {}

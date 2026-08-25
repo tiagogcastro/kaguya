@@ -5,7 +5,6 @@ import {
   ApolloFederationDriverConfig
 } from '@nestjs/apollo';
 
-import { AccessTokenController } from '@shared/messaging/controllers/verify-token.controller';
 import { ConfigModule } from '@nestjs/config';
 import { CreateSuggestionService } from '@modules/suggestion/services/create-suggestion.service';
 import { CreateSuggestiveService } from '@modules/suggestive/services/create-suggestive.service';
@@ -13,7 +12,6 @@ import { CreateTrailSuggestionService } from '@modules/trailSuggestion/services/
 import { DatabaseModule } from '@shared/database/database.module';
 import { DeleteSuggestionService } from '@modules/suggestion/services/delete-suggestion.service';
 import { GraphQLModule } from '@nestjs/graphql';
-import { KafkaService } from '@shared/messaging/kafka.service';
 import { ListSuggestionsFromSuggestiveService } from '@modules/suggestion/services/list-suggestions-from-suggestive.service';
 import { ListSuggestionsService } from '@modules/suggestion/services/list-suggestions.service';
 import { ListUniqueSuggestionFromSuggestiveService } from '@modules/suggestion/services/list-unique-suggestion-from-suggestive.service';
@@ -30,19 +28,16 @@ import { TrailSuggestionResolver } from '@modules/trailSuggestion/graphql/resolv
     ConfigModule.forRoot(),
     DatabaseModule,
     GraphQLModule.forRoot<ApolloFederationDriverConfig>({
-      autoSchemaFile: path.resolve(process.cwd(), 'src/schema.gql'),
+      autoSchemaFile: {
+        path: path.resolve(process.cwd(), 'src/schema.gql'),
+        federation: { version: 2 },
+      },
       driver: ApolloFederationDriver,
       context: ({ req, res }) => ({ req, res }),
     }),
   ],
-  controllers: [
-    AccessTokenController,
-  ],
+  controllers: [],
   providers: [
-    AccessTokenController,
-    // Services
-    KafkaService,
-
     CreateSuggestiveService,
 
     CreateSuggestionService,
@@ -53,16 +48,12 @@ import { TrailSuggestionResolver } from '@modules/trailSuggestion/graphql/resolv
     ListUniqueSuggestionFromSuggestiveService,
 
     CreateTrailSuggestionService,
-    
-    // Resolvers
+
     SuggestionResolver,
     TrailSuggestionResolver,
 
-    // Repository
     SuggestiveRepository,
-
     SuggestionRepository,
-
     TrailSuggestionRepository,
   ],
 })

@@ -4,11 +4,7 @@ import { TrailSuggestionModel } from '@modules/trailSuggestion/model/trail-sugge
 
 @Injectable()
 export class TrailSuggestionRepository {
-  prisma: PrismaService;
-  
-  constructor() {
-    this.prisma = new PrismaService();
-  }
+  constructor(private prisma: PrismaService) {}
 
   async createTrailSuggestion(data: TrailSuggestionModel) {
     return this.prisma.trailSuggestion.create({

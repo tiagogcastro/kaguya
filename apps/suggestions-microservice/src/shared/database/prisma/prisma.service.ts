@@ -1,5 +1,4 @@
 import {
-  INestApplication,
   Injectable,
   OnModuleDestroy,
   OnModuleInit,
@@ -11,21 +10,11 @@ export class PrismaService
   extends PrismaClient
   implements OnModuleInit, OnModuleDestroy
 {
-  constructor() {
-    super();
-  }
-
   async onModuleInit() {
     await this.$connect();
   }
 
   async onModuleDestroy() {
     await this.$disconnect();
-  }
-
-  async enableSutdownHooks(app: INestApplication) {
-    this.$on('beforeExit', async () => {
-      await app.close();
-    });
   }
 }

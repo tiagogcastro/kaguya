@@ -1,12 +1,10 @@
 import { CreateSuggestionService } from '@modules/suggestion/services/create-suggestion.service';
-import { UseGuards } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
 import { CreateSuggestionInput } from '../inputs/CreateSuggestionInput';
 
 import { SuggestionModel } from '../models/suggestion.model';
 
-import { AuthorizationGuard } from '@shared/http/auth/authorization.guard';
 import { ListSuggestionsService } from '@modules/suggestion/services/list-suggestions.service';
 import { ListSuggestionsFromSuggestiveService } from '@modules/suggestion/services/list-suggestions-from-suggestive.service';
 import { ListUniqueSuggestionService } from '@modules/suggestion/services/list-unique-suggestion.service';
@@ -34,7 +32,7 @@ export class SuggestionResolver {
     return this.createSuggestionService.execute(data);
   } 
 
-  @Mutation(() => SuggestionModel || null)
+  @Mutation(() => SuggestionModel, { nullable: true })
   // @UseGuards(AuthorizationGuard)
   async deleteSuggestion(@Args('data') data: DeleteSuggestionInput) {
     await this.deleteSuggestionService.execute(data);
@@ -48,7 +46,7 @@ export class SuggestionResolver {
     return this.listSuggestionsService.execute();
   }
 
-  @Query(() => SuggestionModel || null)
+  @Query(() => SuggestionModel, { nullable: true })
   // @UseGuards(AuthorizationGuard)
   listUniqueSuggestion(@Args('data') data: ListUniqueSuggestionInput) {
     return this.listUniqueSuggestionService.execute(data);
@@ -60,7 +58,7 @@ export class SuggestionResolver {
     return this.listSuggestionsFromSuggestiveService.execute(data);
   }
 
-  @Query(() => SuggestionModel || null)
+  @Query(() => SuggestionModel, { nullable: true })
   // @UseGuards(AuthorizationGuard)
   listUniqueSuggestionFromSuggestive(@Args('data') data: ListUniqueSuggestionFromSuggestiveInput) {
     return this.listUniqueSuggestionFromSuggestiveService.execute(data);
