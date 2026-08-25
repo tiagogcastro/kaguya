@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 
-import { SuggestionRepository } from '@modules/suggestion/infra/prisma/repositories/suggestion-repository';
+import { SuggestionRepository } from '@/modules/suggestion/infra/prisma/repositories/suggestion-repository';
 import { TrailSuggestionModel } from '../model/trail-suggestion.model';
 import { TrailSuggestionRepository } from '../infra/prisma/repositories/trail-suggestion-repository';
 import slugify from 'slugify';

@@ -1,4 +1,4 @@
-import { CreateTrailSuggestionService } from '@modules/trailSuggestion/services/create-trail-suggestion.service';
+import { CreateTrailSuggestionService } from '@/modules/trailSuggestion/services/create-trail-suggestion.service';
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
 import { CreateTrailSuggestionInput } from '../inputs/CreateTrailSuggestionInput';
 import { TrailSuggestionModel } from '../models/trail-suggestion.model';

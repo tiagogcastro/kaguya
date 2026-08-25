@@ -1,6 +1,6 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
-import { SuggestionModel } from '@modules/suggestion/graphql/models/suggestion.model';
+import { SuggestionModel } from '@/modules/suggestion/graphql/models/suggestion.model';
 
 @ObjectType()
 export class TrailSuggestionModel {

@@ -1,18 +1,18 @@
-import { CreateSuggestionService } from '@modules/suggestion/services/create-suggestion.service';
+import { CreateSuggestionService } from '@/modules/suggestion/services/create-suggestion.service';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
 import { CreateSuggestionInput } from '../inputs/CreateSuggestionInput';
 
 import { SuggestionModel } from '../models/suggestion.model';
 
-import { ListSuggestionsService } from '@modules/suggestion/services/list-suggestions.service';
-import { ListSuggestionsFromSuggestiveService } from '@modules/suggestion/services/list-suggestions-from-suggestive.service';
-import { ListUniqueSuggestionService } from '@modules/suggestion/services/list-unique-suggestion.service';
+import { ListSuggestionsService } from '@/modules/suggestion/services/list-suggestions.service';
+import { ListSuggestionsFromSuggestiveService } from '@/modules/suggestion/services/list-suggestions-from-suggestive.service';
+import { ListUniqueSuggestionService } from '@/modules/suggestion/services/list-unique-suggestion.service';
 import { ListUniqueSuggestionInput } from '../inputs/ListUniqueSuggestionInput';
 import { ListSuggestionsFromSuggestiveInput } from '../inputs/ListSuggestionsFromSuggestiveInput';
 import { DeleteSuggestionInput } from '../inputs/DeleteSuggestionInput';
-import { DeleteSuggestionService } from '@modules/suggestion/services/delete-suggestion.service';
-import { ListUniqueSuggestionFromSuggestiveService } from '@modules/suggestion/services/list-unique-suggestion-from-suggestive.service';
+import { DeleteSuggestionService } from '@/modules/suggestion/services/delete-suggestion.service';
+import { ListUniqueSuggestionFromSuggestiveService } from '@/modules/suggestion/services/list-unique-suggestion-from-suggestive.service';
 import { ListUniqueSuggestionFromSuggestiveInput } from '../inputs/ListUniqueSuggestionFromSuggestiveInput';
 
 @Resolver(() => SuggestionModel)

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '@shared/database/prisma/prisma.service';
-import { SuggestionModel } from '@modules/suggestion/model/suggestion.model';
+import { PrismaService } from '@/shared/database/prisma/prisma.service';
+import { SuggestionModel } from '@/modules/suggestion/model/suggestion.model';
 
 @Injectable()
 export class SuggestionRepository {

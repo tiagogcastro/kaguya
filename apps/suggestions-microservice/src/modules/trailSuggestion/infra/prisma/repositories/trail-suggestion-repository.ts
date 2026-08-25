@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '@shared/database/prisma/prisma.service';
-import { TrailSuggestionModel } from '@modules/trailSuggestion/model/trail-suggestion.model';
+import { PrismaService } from '@/shared/database/prisma/prisma.service';
+import { TrailSuggestionModel } from '@/modules/trailSuggestion/model/trail-suggestion.model';
 
 @Injectable()
 export class TrailSuggestionRepository {
