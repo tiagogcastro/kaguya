@@ -4,43 +4,64 @@ Guidance for AI coding agents working in this repository.
 
 ## Project
 
-Kaguya: learning platform (2021-2023) with learning trails, lessons, content
-blocks, playlists, likes and role-based access. Monorepo with three apps
-merged from separate repositories (histories preserved).
+Kaguya: learning platform (2021-2023, restored 2026) with learning trails,
+lessons, content blocks, playlists, likes and role-based access. Monorepo
+with three independent apps:
 
-- `apps/backend`: Express + TypeScript REST API (Prisma + PostgreSQL, AWS S3 uploads)
-- `apps/next-app`: Next.js client (Chakra UI, Firebase auth with Google/GitHub, dashboard, trails, playlists, suggestions)
-- `apps/suggestions-microservice`: NestJS GraphQL federation subgraph prototype for trail suggestions (Kafka integration planned but not activated)
+- `apps/backend`: Express + TypeScript REST API (Prisma 6 + PostgreSQL,
+  Zod validation, disk or S3 storage driver, Firebase social login + JWT)
+- `apps/next-app`: Next.js 15 pages router client (React 19, Chakra UI v2,
+  Firebase modular auth, @tanstack/react-query v5)
+- `apps/suggestions-microservice`: NestJS 11 GraphQL federation v2 subgraph
+  for trail suggestions (Kafka available behind KAFKA_ENABLED, off by default)
 
 ## Commands
 
-Backend:
+Infrastructure:
 
 ```bash
-cd apps/backend
-yarn install
-cp .env.example .env
-yarn typeorm migration:run    # or prisma migrate deploy, see package.json
-yarn dev:server
+docker compose up -d   # postgres-backend on 5433, postgres-suggestions on 5434
 ```
 
-Next.js client:
+Backend (`apps/backend`):
 
 ```bash
-cd apps/next-app
-yarn install
-yarn dev
-```
-
-Microservice:
-
-```bash
-cd apps/suggestions-microservice
 npm install
-npm run start:dev
+cp .env.example .env
+npm run db:migrate && npm run db:seed
+npm run dev:server     # port from .env PORT (3399 locally)
+npm run smoke          # hits every route in dependency order
+npm test               # unit + integration suites (needs docker up)
+```
+
+Web client (`apps/next-app`):
+
+```bash
+npm install
+cp .env.example .env.local
+npm run dev            # http://localhost:3000
+npm run typecheck && npm run build
+```
+
+Microservice (`apps/suggestions-microservice`):
+
+```bash
+npm install
+cp .env.example .env
+npm run db:init        # prisma migrate deploy
+npm run start:dev      # graphql at /graphql
+npm run typecheck && npm run build
 ```
 
 ## Rules for agents
 
-- Docs-only maintenance phase: no dependency upgrades or runtime behavior changes
-- Never commit `.env`; only `.env.example` templates are tracked
+- Keep the base stack: Express stays Express, Chakra stays Chakra, pages
+  router stays pages router. Never swap frameworks.
+- Single import alias per app: `@/` maps to the src root of each app via
+  tsconfig paths. No deep relative imports across modules.
+- Validation happens at the edge with zod schemas in route files; controllers
+  receive parsed data. Error responses use the `{ data, error }` envelope.
+- Conventional Commits, one logical block per commit. Never force-push
+  without owner approval. Never commit `.env`, `.env.local` or REACTIVATION.md.
+- No em dashes anywhere in generated text (code, docs, commits).
+- English only in repository content.
