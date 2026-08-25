@@ -1,7 +1,7 @@
 import { Button } from '@/components/Button';
 import { useAuth } from '@/hooks/useAuth';
 import { useToast } from "@chakra-ui/react";
-import { getFirebaseAuth, getProvider } from 'config/firebase';
+import { getFirebaseAuth, getProvider } from '@/config/firebase';
 import { signInWithPopup } from 'firebase/auth';
 import { FcGoogle } from 'react-icons/fc';
 export function SignInWithGoogleButton() {

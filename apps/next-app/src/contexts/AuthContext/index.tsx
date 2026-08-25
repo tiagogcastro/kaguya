@@ -4,17 +4,17 @@ import {
   SignInCredentials,
   SignInResponse,
   User,
-} from "./types";
+} from "@/contexts/AuthContext/types";
 import { createContext, useEffect, useState } from "react";
 import { destroyCookie, parseCookies, setCookie } from "nookies";
 import { signOut as firebaseSignOut } from "firebase/auth";
 
 import Router from "next/router";
-import { apiError } from "utils/apiFormatError";
-import { kaguyaApi } from "services/kaguya/apiClient";
+import { apiError } from "@/utils/apiFormatError";
+import { kaguyaApi } from "@/services/kaguya/apiClient";
 import { tokenCookieKey } from "@/services/kaguya/api";
 import { useToast } from "@chakra-ui/react";
-import { getFirebaseAuth } from "config/firebase";
+import { getFirebaseAuth } from "@/config/firebase";
 import { AxiosResponse } from "axios";
 
 type AuthContextData = {

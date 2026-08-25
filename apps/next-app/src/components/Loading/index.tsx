@@ -1,6 +1,6 @@
 import { ChakraProps, Flex } from "@chakra-ui/react"
 import Head from "next/head"
-import { SquareLoading } from "./SquareLoading"
+import { SquareLoading } from "@/components/Loading/SquareLoading"
 
 export const Loading: React.FC<ChakraProps> = (props) => {
   return (

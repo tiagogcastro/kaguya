@@ -12,7 +12,7 @@ import { Button } from "@/components/Button";
 import Lordicon from "@/components/ReactLordicon";
 import NextLink from "next/link";
 import { TrailData } from "@/services/kaguya/types";
-import { TrailMenu } from "./TrailMenu";
+import { TrailMenu } from "@/modules/dashboard/components/OthersTrails/TrailMenu";
 import { trailCount } from "@/utils/format/trailCount";
 
 interface TrailProps {

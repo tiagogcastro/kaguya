@@ -1,6 +1,6 @@
 import { useAuth } from '@/hooks/useAuth';
 import { Avatar, Flex, Text } from '@chakra-ui/react';
-import { ProfilePopover } from './ProfilePopover';
+import { ProfilePopover } from '@/components/Header/ProfilePopover';
 
 export interface UserProfileProps {
   isWideVersion?: boolean;

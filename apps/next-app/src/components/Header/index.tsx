@@ -4,9 +4,9 @@ import {
   useToken
 } from '@chakra-ui/react';
 import { useMemo } from 'react';
-import { AppLogo } from '../AppLogo';
-import { SignLogButtons } from './SignLogButtons';
-import { UserProfile } from './UserProfile';
+import { AppLogo } from '@/components/AppLogo';
+import { SignLogButtons } from '@/components/Header/SignLogButtons';
+import { UserProfile } from '@/components/Header/UserProfile';
 
 type HeaderTypes = 'has-user-profile' | 'has-sign-log-buttons'
 

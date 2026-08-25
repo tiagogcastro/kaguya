@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import { LessonData } from "@/services/kaguya/types";
-import { LessonDescription } from "./LessonDescription";
-import { LessonTitle } from "./LessonTitle";
+import { LessonDescription } from "@/modules/playlist/components/LessonInfo/LessonDescription";
+import { LessonTitle } from "@/modules/playlist/components/LessonInfo/LessonTitle";
 
 type LessonInfoProps = {
   lesson?: LessonData;

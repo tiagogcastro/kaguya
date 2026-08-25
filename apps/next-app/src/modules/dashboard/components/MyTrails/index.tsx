@@ -6,8 +6,8 @@ import {
 } from "@chakra-ui/react";
 import { keyframes } from "@emotion/react";
 
-import { MyTrailsNoContent } from "./MyTrailsNoContent";
-import { Trail } from "./Trail";
+import { MyTrailsNoContent } from "@/modules/dashboard/components/MyTrails/MyTrailsNoContent";
+import { Trail } from "@/modules/dashboard/components/MyTrails/Trail";
 import { TrailData } from "@/services/kaguya/types";
 import { kaguyaApi } from "@/services/kaguya/apiClient";
 import { useAuth } from "@/hooks/useAuth";

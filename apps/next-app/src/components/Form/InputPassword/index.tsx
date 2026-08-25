@@ -12,7 +12,7 @@ import {
 import { forwardRef, useState } from "react";
 import { FieldError } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { ChangeInputTypeButton } from "./ChangeInputTypeButton";
+import { ChangeInputTypeButton } from "@/components/Form/InputPassword/ChangeInputTypeButton";
 
 export interface InputPasswordProps extends ChakraInputProps {
   name: string;

@@ -3,8 +3,8 @@ import { IoTrashBin } from 'react-icons/io5';
 import { MdBlock } from 'react-icons/md';
 
 import { Button } from '@/components/Button';
-import { ConfirmDisableAccountModal } from './ConfirmDisableAccountModal';
-import { ConfirmRemoveAccountModal } from './ConfirmRemoveAccountModal';
+import { ConfirmDisableAccountModal } from '@/modules/user/profile/components/DisableOrRemoveAccount/ConfirmDisableAccountModal';
+import { ConfirmRemoveAccountModal } from '@/modules/user/profile/components/DisableOrRemoveAccount/ConfirmRemoveAccountModal';
 
 export function DisableOrRemoveAccount() {
   const confirmDisableAccountModal = useDisclosure();

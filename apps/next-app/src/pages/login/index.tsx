@@ -6,7 +6,7 @@ import {
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
-import { withSSRGuest } from 'utils/withSSRGuest';
+import { withSSRGuest } from '@/utils/withSSRGuest';
 
 import { FormContainer, PageHeading } from '@/modules/login/components';
 

@@ -1,5 +1,5 @@
 import { Link } from '@chakra-ui/react';
-import Lordicon from '../../../../components/ReactLordicon';
+import Lordicon from '@/components/ReactLordicon';
 
 export interface AuthorProps {
   authorName: string;

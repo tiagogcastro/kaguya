@@ -1,9 +1,9 @@
 import { Accordion, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
-import { Block } from "./Block";
+import { Block } from "@/modules/playlist/components/BlocksList/Block";
 import { BlockData } from "@/services/kaguya/types";
-import { BlocksSkeletonLoading } from "../BlocksListSkeletonLoading";
+import { BlocksSkeletonLoading } from "@/modules/playlist/components/BlocksListSkeletonLoading";
 import { findLastIndex } from "@/utils/findLastIndex";
 import { kaguyaApi } from "@/services/kaguya/apiClient";
 import { useQuery } from "@tanstack/react-query";

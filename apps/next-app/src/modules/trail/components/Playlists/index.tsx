@@ -1,8 +1,8 @@
 import { Box, CircularProgress, Flex, Heading } from "@chakra-ui/react";
 import { PlaylistData, TrailData } from "@/services/kaguya/types";
 
-import { PlaylistItem } from "./PlaylistItem";
-import { PlaylistsNoContent } from "./PlaylistsNoContent";
+import { PlaylistItem } from "@/modules/trail/components/Playlists/PlaylistItem";
+import { PlaylistsNoContent } from "@/modules/trail/components/Playlists/PlaylistsNoContent";
 import { kaguyaApi } from "@/services/kaguya/apiClient";
 import { useQuery } from "@tanstack/react-query";
 

@@ -7,7 +7,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
-import { ConfirmRemoveTrailModal } from "./ConfirmRemoveTrailModal";
+import { ConfirmRemoveTrailModal } from "@/modules/dashboard/components/MyTrails/ConfirmRemoveTrailModal";
 import Lordicon from "@/components/ReactLordicon";
 import NextLink from "next/link";
 import { Progress } from "@/components/Progress";

@@ -5,7 +5,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
-import { ConfirmRemoveTrailModal } from "./ConfirmRemoveTrailModal";
+import { ConfirmRemoveTrailModal } from "@/modules/trail/components/TrailInfoHeader/ConfirmRemoveTrailModal";
 import Lordicon from "@/components/ReactLordicon";
 import { TrailData } from "@/services/kaguya/types";
 import { apiError } from "@/utils/apiFormatError";

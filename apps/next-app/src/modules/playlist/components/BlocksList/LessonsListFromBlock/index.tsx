@@ -1,7 +1,7 @@
 import { BlockData, LessonData } from "@/services/kaguya/types";
 
 import { AccordionPanel } from "@chakra-ui/react";
-import { Lesson } from "./Lesson";
+import { Lesson } from "@/modules/playlist/components/BlocksList/LessonsListFromBlock/Lesson";
 
 export interface LessonListFromBlocks {
   lessons?: LessonData[];

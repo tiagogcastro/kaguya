@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
-import { ChangeCompleteLessonButtonLineSeparator } from "./LineSeparate";
-import { IsCurrentLessonItem } from "./IsCurrentLessonItem";
-import { IsNotCurrentLessonItem } from "./IsNotCurrentLessonItem";
+import { ChangeCompleteLessonButtonLineSeparator } from "@/components/ChangeCompleteLessonButton/LineSeparate";
+import { IsCurrentLessonItem } from "@/components/ChangeCompleteLessonButton/IsCurrentLessonItem";
+import { IsNotCurrentLessonItem } from "@/components/ChangeCompleteLessonButton/IsNotCurrentLessonItem";
 import { LessonData } from "@/services/kaguya/types";
 
 export interface ChangeCompleteLessonButtonProps {

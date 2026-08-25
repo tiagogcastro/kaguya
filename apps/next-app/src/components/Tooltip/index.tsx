@@ -1,6 +1,6 @@
 import { ChakraProps, Tooltip as ChakraTooltip, TooltipProps as ChakraTooltipProps } from "@chakra-ui/react"
 import { FC, PropsWithChildren, useRef } from "react"
-import { TooltipTrigger } from "./TooltipTrigger"
+import { TooltipTrigger } from "@/components/Tooltip/TooltipTrigger"
 
 type TooltipProps = ChakraProps & PropsWithChildren  & ChakraTooltipProps
 

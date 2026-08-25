@@ -1,6 +1,6 @@
 import { Flex, Skeleton, useMediaQuery } from "@chakra-ui/react";
 
-import { InfoAboutLessonVideo } from "./InfoAboutLessonVideo";
+import { InfoAboutLessonVideo } from "@/modules/playlist/components/LessonVideo/InfoAboutLessonVideo";
 import { LessonData } from "@/services/kaguya/types";
 import { modifyYoutubeUrl } from "@/utils/modifyYoutubeUrl";
 

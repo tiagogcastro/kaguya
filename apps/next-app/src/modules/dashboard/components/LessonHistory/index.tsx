@@ -6,8 +6,8 @@ import {
 import NextLink from 'next/link';
 import { useQuery } from '@tanstack/react-query';
 
-import { ContinueLessonText } from './ContinueLessonText';
-import { LessonHistoryInfo } from './LessonHistoryInfo';
+import { ContinueLessonText } from '@/modules/dashboard/components/LessonHistory/ContinueLessonText';
+import { LessonHistoryInfo } from '@/modules/dashboard/components/LessonHistory/LessonHistoryInfo';
 
 import { kaguyaApi } from '@/services/kaguya/apiClient';
 

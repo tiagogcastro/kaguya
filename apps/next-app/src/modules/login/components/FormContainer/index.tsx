@@ -8,16 +8,16 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { FaLock } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 
-import { SignInWithGithubButton } from '../SignInButtons/SignInWithGithubButton';
-import { SignInWithGoogleButton } from '../SignInButtons/SignInWithGoogleButton';
+import { SignInWithGithubButton } from '@/modules/login/components/SignInButtons/SignInWithGithubButton';
+import { SignInWithGoogleButton } from '@/modules/login/components/SignInButtons/SignInWithGoogleButton';
 
 import { Button } from '@/components/Button';
 import { DividerLine } from '@/components/DividerLine';
 import { Input } from '@/components/Form/Input';
 import { InputPassword } from '@/components/Form/InputPassword';
 
-import { User } from 'services/kaguya/types';
-import { useAuth } from 'hooks/useAuth';
+import { User } from '@/services/kaguya/types';
+import { useAuth } from '@/hooks/useAuth';
 
 export type LoginResponse = {
   user: User;

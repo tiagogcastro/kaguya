@@ -7,8 +7,8 @@ import {
 import { keyframes } from "@emotion/react";
 
 import { DividerLine } from "@/components/DividerLine";
-import { OthersTrailsNoContent } from "./OthersTrailsNoContent";
-import { Trail } from "./Trail";
+import { OthersTrailsNoContent } from "@/modules/dashboard/components/OthersTrails/OthersTrailsNoContent";
+import { Trail } from "@/modules/dashboard/components/OthersTrails/Trail";
 import { TrailData } from "@/services/kaguya/types";
 import { kaguyaApi } from "@/services/kaguya/apiClient";
 import { useQuery } from "@tanstack/react-query";

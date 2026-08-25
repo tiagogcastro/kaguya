@@ -8,10 +8,10 @@ import {
 import { FiLogOut } from "react-icons/fi";
 import { MdDashboard } from "react-icons/md";
 
-import { ItemLink } from "./ItemLink";
+import { ItemLink } from "@/components/Header/ProfilePopover/ItemLink";
 import { DividerLine } from "@/components/DividerLine";
-import { ConfirmSignOutModal } from "./ConfirmSignOutModal";
-import { ButtonItem } from "./ButtonItem";
+import { ConfirmSignOutModal } from "@/components/Header/ProfilePopover/ConfirmSignOutModal";
+import { ButtonItem } from "@/components/Header/ProfilePopover/ButtonItem";
 import { IoNewspaperOutline } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 

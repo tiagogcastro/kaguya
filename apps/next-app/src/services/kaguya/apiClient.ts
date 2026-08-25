@@ -1,3 +1,3 @@
-import { setupAPIClient } from './api';
+import { setupAPIClient } from '@/services/kaguya/api';
 
 export const kaguyaApi = setupAPIClient();

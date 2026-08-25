@@ -1,7 +1,7 @@
 import { AccordionItem } from "@chakra-ui/react";
 import { BlockData } from "@/services/kaguya/types";
-import { BlockInfo } from "./BlockInfo";
-import { LessonListFromBlock } from "../LessonsListFromBlock";
+import { BlockInfo } from "@/modules/playlist/components/BlocksList/Block/BlockInfo";
+import { LessonListFromBlock } from "@/modules/playlist/components/BlocksList/LessonsListFromBlock";
 import { useRouter } from "next/router";
 
 export interface BlockProps {
