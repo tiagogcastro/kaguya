@@ -22,6 +22,7 @@ type AuthContextData = {
   signUp(data: RegisterUserCredentials): Promise<void>;
   setUser(fn: User | null | ((user: User | null) => User | null)): void;
   isAuthenticated: boolean;
+  isStaff: boolean;
   user: User | null;
 };
 
@@ -49,6 +50,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
 
   const isAuthenticated = !!user;
+
+  const isStaff =
+    !!user?.user_roles?.some(userRole => userRole.role.permission <= 1);
 
   async function getUser() {
     try {
@@ -181,6 +185,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         value={{
           user,
           isAuthenticated,
+          isStaff,
           signIn,
           signUp,
 

@@ -464,7 +464,7 @@ export default function HomePage() {
                   </Text>
                   <Flex gap={2} flexWrap="wrap">
                     <ChakraLink
-                      href="https://github.com/Tiaguin061"
+                      href="https://github.com/tiagogcastro"
                       target="_blank"
                       bg="gray.600"
                       color="white"
@@ -486,7 +486,7 @@ export default function HomePage() {
                     </ChakraLink>
 
                     <ChakraLink
-                      href="https://tiagogoncalves.netlify.app"
+                      href="https://www.linkedin.com/in/tiagogcastro"
                       target="_blank"
                       bg="pink.600"
                       color="white"

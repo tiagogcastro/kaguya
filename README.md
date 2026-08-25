@@ -27,9 +27,12 @@ This repository is a monorepo with three independent applications:
 | --- | --- |
 | ![Playlists](.github/assets/playlists.png) | ![Lesson](.github/assets/lesson-player.png) |
 
-| Mobile dashboard |
-| --- |
-| ![Mobile](.github/assets/mobile-dashboard.png) |
+| Admin panel | Mobile dashboard |
+| --- | --- |
+| ![Admin](.github/assets/admin-panel.png) | ![Mobile](.github/assets/mobile-dashboard.png) |
+
+Staff accounts also get a small admin panel at `/admin` to create trails,
+playlists, blocks and lessons and to list registered users.
 
 ## What it demonstrates
 
