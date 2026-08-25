@@ -90,5 +90,29 @@ class InMemoryUsersRepository implements IUsersRepository {
     const user = this.users.find(findUser => findUser.id === id);
     return user;
   }
+
+  async findByUid(uid: string): AsyncMaybe<IUser> {
+    const user = this.users.find(findUser => findUser.auth_id === uid);
+    return user;
+  }
+
+  async findByPhoneNumber(phone_number: string): AsyncMaybe<IUser> {
+    const user = this.users.find(
+      findUser => findUser.phone_number === phone_number,
+    );
+    return user;
+  }
+
+  async countUsername(username: string): Promise<number> {
+    const count = this.users.filter(
+      findUser => findUser.username === username,
+    ).length;
+
+    return count;
+  }
+
+  async destroy(user_id: string): Promise<void> {
+    this.users = this.users.filter(findUser => findUser.id !== user_id);
+  }
 }
 export { InMemoryUsersRepository };

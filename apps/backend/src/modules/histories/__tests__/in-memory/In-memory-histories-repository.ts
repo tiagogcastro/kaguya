@@ -30,6 +30,7 @@ class InMemoryHistoriesRepository implements IHistoriesRepository {
     const history = new History({
       lesson_id: data.lesson_id,
       user_id: data.user_id,
+      recent_at: new Date(),
       created_at: new Date(),
       updated_at: new Date(),
     }) as unknown as IHistory;

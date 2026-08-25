@@ -23,20 +23,18 @@ export class UpdateUserAvatarService {
 
     if (!user) throw new AppError('User does not exist', 5, 401);
 
+    if (!avatar) throw new AppError('Avatar file is missing', 31, 400);
+
     if (user.avatar) {
       await this.storageProvider.deleteFile(user.avatar);
     }
 
-    if (avatar) {
-      user.avatar = avatar;
-      user.avatar_url = null;
-    }
+    user.avatar = avatar;
+    user.avatar_url = null;
 
     await this.usersRepository.save(user);
 
-    if (user.avatar) {
-      await this.storageProvider.saveFile(user.avatar);
-    }
+    await this.storageProvider.saveFile(user.avatar);
 
     return user;
   }

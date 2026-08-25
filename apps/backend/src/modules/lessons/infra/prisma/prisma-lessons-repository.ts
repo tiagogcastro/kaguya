@@ -43,7 +43,7 @@ class PrismaLessonsRepository implements ILessonsRepository {
           slug: block_slug,
         },
       },
-      ...(relationship && Object.keys(relationship > 0) && relationship._count
+      ...(relationship && Object.keys(relationship).length > 0 && relationship._count
         ? {
             include: {
               likes: true,
@@ -103,7 +103,7 @@ class PrismaLessonsRepository implements ILessonsRepository {
       where: {
         id: lesson_id,
       },
-      ...(relationship && Object.keys(relationship > 0) && relationship._count
+      ...(relationship && Object.keys(relationship).length > 0 && relationship._count
         ? {
             include: {
               likes: true,
@@ -140,7 +140,7 @@ class PrismaLessonsRepository implements ILessonsRepository {
           },
         },
       },
-      ...(relationship && Object.keys(relationship > 0) && relationship._count
+      ...(relationship && Object.keys(relationship).length > 0 && relationship._count
         ? {
             include: {
               _count: {
