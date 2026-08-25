@@ -1,5 +1,6 @@
-import { celebrate, Joi, Segments } from 'celebrate';
+import { validate } from '@shared/infra/http/middlewares/validate';
 import { Router } from 'express';
+import { z } from 'zod';
 import { CreateUserController } from '../controllers/create-user-controller';
 import { ListAllUsersController } from '../controllers/list-all-users-controller';
 import ensureAuthenticated from '../middlewares/ensure-authenticated';
@@ -14,14 +15,14 @@ _usersRouter.post(
   '/users',
   ensureAuthenticated,
   ensureSubAdministrator,
-  celebrate({
-    [Segments.BODY]: {
-      email: Joi.string().email().max(100).required(),
-      name: Joi.string().min(2).max(100).required(),
-      username: Joi.string().min(2).max(100).required(),
-      password: Joi.string().min(8).max(100).required(),
-      role: Joi.string().min(2).max(100),
-    },
+  validate({
+    body: z.object({
+      email: z.email().max(100),
+      name: z.string().min(2).max(100),
+      username: z.string().min(2).max(100),
+      password: z.string().min(8).max(100),
+      role: z.string().min(2).max(100).optional(),
+    }),
   }),
   createUserController.handle,
 );
@@ -30,12 +31,12 @@ _usersRouter.get(
   '/users/list-all',
   ensureAuthenticated,
   ensureSubAdministrator,
-  celebrate({
-    [Segments.BODY]: {
-      skip: Joi.number(),
-      take: Joi.number(),
-      order: Joi.string().regex(/(asc|desc)/),
-    },
+  validate({
+    query: z.object({
+      skip: z.coerce.number().int().nonnegative().optional(),
+      take: z.coerce.number().int().positive().optional(),
+      order: z.enum(['asc', 'desc']).optional(),
+    }),
   }),
   listAllUsersController.handle,
 );

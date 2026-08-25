@@ -17,7 +17,7 @@
     "db:migrate": "prisma migrate deploy",
     "db:seed": "prisma db seed",
     "test:unit": "jest --coverage --detectOpenHandles ./src/modules/**/__tests__/unit/**.spec.ts",
-    "test:integration": "cross-env NODE_ENV=test jest --detectOpenHandles ./src/modules/**/__tests__/integration/**.spec.ts",
+    "test:integration": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles ./src/modules/**/__tests__/integration/**.spec.ts",
     "test": "npm run test:integration && npm run test:unit"
   },
   "dependencies": {
@@ -25,7 +25,6 @@
     "@prisma/client": "^6.19.3",
     "@types/mime-types": "^3.0.1",
     "bcryptjs": "^3.0.3",
-    "celebrate": "^15.0.3",
     "cors": "^2.8.5",
     "dotenv": "^17.4.2",
     "express": "^4.22.2",
@@ -36,7 +35,8 @@
     "multer": "^2.2.0",
     "reflect-metadata": "^0.2.2",
     "tsconfig-paths": "^4.2.0",
-    "tsyringe": "^4.10.0"
+    "tsyringe": "^4.10.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",

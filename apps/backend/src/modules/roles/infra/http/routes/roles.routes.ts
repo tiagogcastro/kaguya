@@ -1,6 +1,7 @@
 import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensure-authenticated';
-import { celebrate, Joi, Segments } from 'celebrate';
+import { validate } from '@shared/infra/http/middlewares/validate';
 import { Router } from 'express';
+import { z } from 'zod';
 import { ListAllRolesController } from '../controllers/list-all-roles-controller';
 
 const rolesRouter = Router();
@@ -10,12 +11,12 @@ const listAllRolesController = new ListAllRolesController();
 rolesRouter.get(
   '/list-all',
   ensureAuthenticated,
-  celebrate({
-    [Segments.QUERY]: {
-      skip: Joi.number(),
-      take: Joi.number(),
-      order: Joi.string().regex(/(asc|desc)/),
-    },
+  validate({
+    query: z.object({
+      skip: z.coerce.number().int().nonnegative().optional(),
+      take: z.coerce.number().int().positive().optional(),
+      order: z.enum(['asc', 'desc']).optional(),
+    }),
   }),
   listAllRolesController.handle,
 );

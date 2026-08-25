@@ -1,6 +1,7 @@
 import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensure-authenticated';
-import { celebrate, Joi, Segments } from 'celebrate';
+import { validate } from '@shared/infra/http/middlewares/validate';
 import { Router } from 'express';
+import { z } from 'zod';
 import { MarkAsLikeOrDislikeController } from '../controllers/mark-as-like-or-dislike-controller';
 
 const likesRouter = Router();
@@ -10,13 +11,11 @@ const markAsLikeOrDislikeController = new MarkAsLikeOrDislikeController();
 likesRouter.post(
   '/',
   ensureAuthenticated,
-  celebrate({
-    [Segments.BODY]: {
-      lesson_id: Joi.string().uuid().required(),
-      state: Joi.string()
-        .regex(/^(like|dislike|none)$/)
-        .required(),
-    },
+  validate({
+    body: z.object({
+      lesson_id: z.uuid(),
+      state: z.enum(['like', 'dislike', 'none']),
+    }),
   }),
   markAsLikeOrDislikeController.handle,
 );

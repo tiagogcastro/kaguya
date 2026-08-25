@@ -1,31 +1,34 @@
+import { validate } from '@shared/infra/http/middlewares/validate';
 import { Router } from 'express';
-import { Joi, Segments, celebrate } from 'celebrate';
-import { adaptRoute } from '@core/infra/http/adapters/express-route-adapter';
+import { z } from 'zod';
 import { AuthenticateUserController } from '../controllers/authenticate-user-controller';
 import { makeAuthenticateUserByProviderControllerFactory } from '../../factories/make-authenticate-user-by-provider-controller-factory';
 
 const sessionsRouter = Router();
 
 const authenticadeUserController = new AuthenticateUserController();
+const authenticateUserByProviderController =
+  makeAuthenticateUserByProviderControllerFactory();
 
 sessionsRouter.post(
   '/',
-  celebrate({
-    [Segments.BODY]: {
-      email: Joi.string().email().required(),
-      password: Joi.string().required(),
-    },
+  validate({
+    body: z.object({
+      email: z.email(),
+      password: z.string(),
+    }),
   }),
   authenticadeUserController.handle,
 );
+
 sessionsRouter.post(
   '/auth-provider',
-  celebrate({
-    [Segments.BODY]: {
-      access_token: Joi.string().required(),
-    },
+  validate({
+    body: z.object({
+      access_token: z.string().min(1),
+    }),
   }),
-  adaptRoute(makeAuthenticateUserByProviderControllerFactory()),
+  authenticateUserByProviderController.handle,
 );
 
 export { sessionsRouter };

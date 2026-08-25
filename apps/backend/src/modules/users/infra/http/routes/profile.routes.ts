@@ -1,5 +1,6 @@
-import { celebrate, Joi, Segments } from 'celebrate';
+import { validate } from '@shared/infra/http/middlewares/validate';
 import { Router } from 'express';
+import { z } from 'zod';
 import { ShowUserProfileController } from '../controllers/show-user-profile-controller';
 import ensureAuthenticated from '../middlewares/ensure-authenticated';
 
@@ -10,10 +11,10 @@ const showUserProfileController = new ShowUserProfileController();
 profileRouter.get(
   '/',
   ensureAuthenticated,
-  celebrate({
-    [Segments.QUERY]: {
-      username: Joi.string().min(2).max(100),
-    },
+  validate({
+    query: z.object({
+      username: z.string().min(2).max(100).optional(),
+    }),
   }),
   showUserProfileController.handle,
 );

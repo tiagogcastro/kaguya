@@ -1,28 +1,29 @@
-import { IController } from '@core/http/controller';
-import { badRequest, HttpResponse, ok } from '@core/http/http-response';
+import { AppError } from '@shared/errors/app-error';
+import { instanceToInstance } from '@shared/helpers/instance-to-instance';
+import { Request, Response } from 'express';
 import { AuthenticateUserByProviderUseCase } from './authenticate-user-by-provider';
 
-type AuthenticateUserByProviderRequest = {
-  access_token: string;
-};
-export class AuthenticateUserByProviderController
-  implements IController<AuthenticateUserByProviderRequest>
-{
+export class AuthenticateUserByProviderController {
   constructor(
     private readonly authenticateUserByProvider: AuthenticateUserByProviderUseCase,
   ) {}
 
-  async handle({
-    access_token,
-  }: AuthenticateUserByProviderRequest): Promise<HttpResponse> {
+  async handle(request: Request, response: Response): Promise<Response> {
+    const { access_token } = request.body;
+
     const result = await this.authenticateUserByProvider.execute({
       access_token,
     });
 
     if (result.isLeft()) {
-      return badRequest(result.value);
+      throw new AppError(result.value.message, 77, 401);
     }
 
-    return ok(result.value);
+    const { user, token } = result.value;
+
+    return response.json({
+      user: instanceToInstance('user', user),
+      token,
+    });
   }
 }

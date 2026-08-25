@@ -6,7 +6,7 @@ import { container } from 'tsyringe';
 
 export class ShowHistoryController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { history_id } = request.body;
+    const { history_id } = request.query as { history_id?: string };
 
     const user_id = request.user.id;
 

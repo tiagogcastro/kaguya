@@ -1,7 +1,8 @@
 import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensure-authenticated';
 import ensureSubAdministrator from '@modules/users/infra/http/middlewares/ensure-sub-administrator';
-import { celebrate, Joi, Segments } from 'celebrate';
+import { validate } from '@shared/infra/http/middlewares/validate';
 import { Router } from 'express';
+import { z } from 'zod';
 import { CreateRoleController } from '../controllers/create-role-controller';
 
 const _rolesRouter = Router();
@@ -12,11 +13,11 @@ _rolesRouter.post(
   '/roles',
   ensureAuthenticated,
   ensureSubAdministrator,
-  celebrate({
-    [Segments.BODY]: {
-      permission: Joi.number().required(),
-      role: Joi.string().min(2).max(100),
-    },
+  validate({
+    body: z.object({
+      permission: z.coerce.number().int().nonnegative(),
+      role: z.string().min(2).max(100).optional(),
+    }),
   }),
   createRoleController.handle,
 );

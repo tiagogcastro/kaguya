@@ -1,9 +1,10 @@
 import { slugRegEx } from '@config/reg-ex';
 import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensure-authenticated';
-import { celebrate, Joi, Segments } from 'celebrate';
 import { Router } from 'express';
+import { z } from 'zod';
 import { ListAllBlocksFromPlaylistController } from '../controllers/list-all-blocks-from-playlist-controller';
 import { ShowBlockController } from '../controllers/show-block-controller';
+import { validate } from '@shared/infra/http/middlewares/validate';
 
 const blocksRouter = Router();
 
@@ -14,17 +15,15 @@ const showBlockController = new ShowBlockController();
 blocksRouter.get(
   '/playlist-list-all',
   ensureAuthenticated,
-  celebrate({
-    [Segments.QUERY]: {
-      playlist_id: Joi.string().uuid(),
-      trail_slug: Joi.string().regex(slugRegEx),
-      playlist_slug: Joi.string().regex(slugRegEx),
-      skip: Joi.number(),
-      take: Joi.number(),
-      order: Joi.string()
-        .regex(/(asc|desc)/)
-        .trim(),
-    },
+  validate({
+    query: z.object({
+      playlist_id: z.uuid().optional(),
+      trail_slug: z.string().regex(slugRegEx).optional(),
+      playlist_slug: z.string().regex(slugRegEx).optional(),
+      skip: z.coerce.number().int().nonnegative().optional(),
+      take: z.coerce.number().int().positive().optional(),
+      order: z.enum(['asc', 'desc']).optional(),
+    }),
   }),
   listAllBlocksFromPlaylistController.handle,
 );
@@ -32,12 +31,12 @@ blocksRouter.get(
 blocksRouter.get(
   '/show',
   ensureAuthenticated,
-  celebrate({
-    [Segments.QUERY]: {
-      block_id: Joi.string().uuid(),
-      block_slug: Joi.string().regex(slugRegEx),
-      playlist_slug: Joi.string().regex(slugRegEx),
-    },
+  validate({
+    query: z.object({
+      block_id: z.uuid().optional(),
+      block_slug: z.string().regex(slugRegEx).optional(),
+      playlist_slug: z.string().regex(slugRegEx).optional(),
+    }),
   }),
   showBlockController.handle,
 );
