@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  postgres-backend:
+    image: postgres:16-alpine
+    container_name: kaguya_postgres_backend
+    environment:
+      POSTGRES_USER: kaguya
+      POSTGRES_PASSWORD: kaguya
+      POSTGRES_DB: kaguya
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_backend_data:/var/lib/postgresql/data
+    networks:
+      - app-net
+
+  postgres-suggestions:
+    image: postgres:16-alpine
+    container_name: kaguya_postgres_suggestions
+    environment:
+      POSTGRES_USER: suggestion
+      POSTGRES_PASSWORD: suggestion
+      POSTGRES_DB: suggestion
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_suggestions_data:/var/lib/postgresql/data
+    networks:
+      - app-net
+
+volumes:
+  postgres_backend_data:
+  postgres_suggestions_data:
+
+networks:
+  app-net:
+    driver: bridge

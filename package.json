@@ -1,0 +1,18 @@
+{
+  "name": "kaguya",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kaguya learning platform monorepo: Express backend, Next.js client, NestJS GraphQL suggestions subgraph",
+  "license": "MIT",
+  "scripts": {
+    "infra:up": "docker compose up -d",
+    "infra:down": "docker compose down",
+    "dev:backend": "npm run dev --prefix apps/backend",
+    "dev:web": "npm run dev --prefix apps/next-app",
+    "dev:suggestions": "npm run start:dev --prefix apps/suggestions-microservice",
+    "build:backend": "npm run build --prefix apps/backend",
+    "build:web": "npm run build --prefix apps/next-app",
+    "build:suggestions": "npm run build --prefix apps/suggestions-microservice",
+    "typecheck": "npm run typecheck --prefix apps/backend && npm run typecheck --prefix apps/next-app && npm run typecheck --prefix apps/suggestions-microservice"
+  }
+}
