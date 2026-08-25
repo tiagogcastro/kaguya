@@ -1,0 +1,108 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Suggestives {
+  id         String  @id @default(uuid())
+  authUserId String  @unique
+  name       String?
+  email      String  @unique
+  avatar     String?
+  username   String  @unique
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  suggestion Suggestion[]
+
+  @@map("suggestives")
+}
+
+model Suggestion {
+  id           String  @id @default(uuid())
+  suggestiveId String
+  slug         String  @unique()
+  title        String
+  description  String?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  suggestive      Suggestives       @relation(fields: [suggestiveId], references: [authUserId])
+  trailSuggestion TrailSuggestion[]
+
+  @@map("suggestions")
+}
+
+model TrailSuggestion {
+  id           String  @id @default(uuid())
+  suggestionId String
+  slug         String  @unique()
+  title        String
+  description  String?
+  avatar       String?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  suggestion         Suggestion           @relation(fields: [suggestionId], references: [id])
+  playlistSuggestion PlaylistSuggestion[]
+
+  @@map("trail_suggestion")
+}
+
+model PlaylistSuggestion {
+  id                String  @id @default(uuid())
+  trailSuggestionId String
+  slug              String  @unique()
+  title             String
+  description       String?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  trailSuggestion TrailSuggestion   @relation(fields: [trailSuggestionId], references: [id])
+  blockSuggestion BlockSuggestion[]
+
+  @@map("playlist_suggestion")
+}
+
+model BlockSuggestion {
+  id                   String  @id @default(uuid())
+  playlistSuggestionId String
+  slug                 String  @unique()
+  title                String
+  description          String?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  playlistSuggestion PlaylistSuggestion @relation(fields: [playlistSuggestionId], references: [id])
+  lessonSuggestion   LessonSuggestion[]
+
+  @@map("block_suggestion")
+}
+
+model LessonSuggestion {
+  id                String  @id @default(uuid())
+  blockSuggestionId String
+  slug              String  @unique()
+  title             String
+  link              String
+  description       String?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  blockSuggestion BlockSuggestion @relation(fields: [blockSuggestionId], references: [id])
+
+  @@map("lesson_suggestion")
+}

@@ -1,0 +1,89 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @key(fields: String!) on OBJECT | INTERFACE
+
+directive @extends on OBJECT | INTERFACE
+
+directive @external on OBJECT | FIELD_DEFINITION
+
+directive @requires(fields: String!) on FIELD_DEFINITION
+
+directive @provides(fields: String!) on FIELD_DEFINITION
+
+type SuggestiveModel {
+  id: ID!
+  authUserId: String!
+  email: String!
+  username: String!
+  name: String
+  avatar: String
+  suggestives: [SuggestiveModel!]
+}
+
+type TrailSuggestionModel {
+  id: ID!
+  suggestionId: String!
+  slug: String!
+  title: String!
+  description: String
+  avatar: String
+  suggestion: SuggestionModel
+}
+
+type SuggestionModel {
+  id: ID!
+  suggestiveId: String!
+  slug: String!
+  title: String!
+  description: String
+  suggestive: SuggestiveModel
+  trailSuggestion: TrailSuggestionModel
+}
+
+type Query {
+  listSuggestions: [SuggestionModel!]!
+  listUniqueSuggestion(data: ListUniqueSuggestionInput!): SuggestionModel!
+  listSuggestionsFromSuggestive(data: ListSuggestionsFromSuggestiveInput!): [SuggestionModel!]!
+  listUniqueSuggestionFromSuggestive(data: ListUniqueSuggestionFromSuggestiveInput!): SuggestionModel!
+}
+
+input ListUniqueSuggestionInput {
+  suggestionId: String
+  suggestionSlug: String
+}
+
+input ListSuggestionsFromSuggestiveInput {
+  suggestiveId: String!
+}
+
+input ListUniqueSuggestionFromSuggestiveInput {
+  suggestiveId: String!
+  suggestionSlug: String!
+}
+
+type Mutation {
+  createSuggestion(data: CreateSuggestionInput!): SuggestionModel!
+  deleteSuggestion(data: DeleteSuggestionInput!): SuggestionModel!
+  createTrailSuggestion(data: CreateTrailSuggestionInput!): TrailSuggestionModel!
+}
+
+input CreateSuggestionInput {
+  suggestiveId: String!
+  slug: String
+  title: String!
+  description: String
+}
+
+input DeleteSuggestionInput {
+  suggestiveId: String!
+  suggestionSlug: String
+}
+
+input CreateTrailSuggestionInput {
+  suggestionId: String!
+  slug: String
+  title: String!
+  description: String
+}
